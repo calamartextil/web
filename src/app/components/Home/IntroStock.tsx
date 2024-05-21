@@ -1,0 +1,52 @@
+import Inner from '@/app/components/Inner';
+import LinkButton from '@/app/components/LinkButton';
+import Image from 'next/image';
+const IntroStock = () => {
+  const telas = [
+    {
+      image: '/images/dummy/dummyTela.png',
+    },
+    {
+      image: '/images/dummy/dummyTela.png',
+    },
+    {
+      image: '/images/dummy/dummyTela.png',
+    },
+    {
+      image: '/images/dummy/dummyTela.png',
+    },
+    {
+      image: '/images/dummy/dummyTela.png',
+    },
+    {
+      image: '/images/dummy/dummyTela.png',
+    },
+  ];
+  return (
+    <section>
+      <Inner>
+        <>
+          <h2>Tienda de stock</h2>
+          <p>Telas listas para que te las lleves</p>
+          <div className='grid'>
+            {telas.map((tela, index) => (
+              <div key={index} className='col_4 col_mb_6'>
+                <Image
+                  src={'/images/dummy/dummyTela.png'}
+                  width={200}
+                  height={200}
+                  alt={'tela'}
+                />
+              </div>
+            ))}
+          </div>
+          <LinkButton href={`/estampas`} invert={true}>
+            Ver más
+          </LinkButton>
+        </>
+      </Inner>
+    </section>
+  );
+};
+
+export default IntroStock;
