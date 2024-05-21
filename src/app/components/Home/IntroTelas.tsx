@@ -23,29 +23,30 @@ const IntroTelas = () => {
     },
   ];
   return (
-    <section className='bg-primary-bg-color'>
-      <Inner>
-        <>
-          <h2>Nuestras telas</h2>
-          <p>Gran variedad de bases disponibles</p>
-          <div className='grid'>
-            {telas.map((tela, index) => (
-              <div key={index} className='col_4 col_mb_6'>
-                <Image
-                  src={'/images/dummy/dummyTela.png'}
-                  width={200}
-                  height={200}
-                  alt={'tela'}
-                />
-              </div>
-            ))}
-          </div>
-          <LinkButton href={`/estampas`} invert={true}>
-            Ver más
-          </LinkButton>
-        </>
-      </Inner>
-    </section>
+    <div className='relative'>
+      <section className='bg-primary-bg-color'>
+        <Inner>
+          <>
+            <h2>Nuestras telas</h2>
+            <p>Gran variedad de bases disponibles</p>
+            <div className='grid'>
+              {telas.map((tela, index) => (
+                <div key={index} className='col_4 col_mb_6'>
+                  <Image
+                    src={'/images/dummy/dummyTela.png'}
+                    width={200}
+                    height={200}
+                    alt={'tela'}
+                  />
+                </div>
+              ))}
+            </div>
+            <LinkButton href={`/estampas`}>Ver más</LinkButton>
+          </>
+        </Inner>
+      </section>
+      <div className="absolute w-full h-[54px] left-0 z-10 bg-[url('/images/ondas_cream_bottom.svg')] bg-cover bg-bottom"></div>
+    </div>
   );
 };
 
