@@ -21,11 +21,15 @@ const NumberItem = ({
   href,
 }: NumberItemProps) => {
   return (
-    <div className='flex flex-col justify-center items-center gap-5'>
-      <Image src={image} alt={alt} width={100} height={100} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <Image src={icon} alt={alt} width={100} height={100} />
+    <div className='flex flex-col justify-center items-center'>
+      <div className='w-20 h-20 relative mb-5'>
+        <Image src={image} alt={alt} fill={true} />
+      </div>
+      <h3 className='text-xl'>{title}</h3>
+      <p className='text-sm mb-5'>{description}</p>
+      <div className='w-20 h-20 relative'>
+        <Image src={icon} alt={alt} fill={true} />
+      </div>
       <LinkButton href={href} invert={true}>
         {caption}
       </LinkButton>

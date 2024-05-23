@@ -14,6 +14,10 @@ const config: Config = {
         'third-bg-color': 'var(--third-bg-color)',
         'fourth-bg-color': 'var(--fourth-bg-color)',
       },
+      fontFamily: {
+        'display': ['var(--font-display)'],
+        'outfit': ['var(--font-outfit)'],
+      },
     },
   },
   plugins: [],

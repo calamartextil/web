@@ -1,12 +1,22 @@
+import {
+  FaSquareFacebook,
+  FaSquareInstagram,
+} from 'react-icons/fa6';
+
 const Footer = () => {
-  return <footer className='bg-third-bg-color py-5 flex justify-between px-5'>
-    <div>Copiright</div>
-    <div>
-      <a href='#'>Link 1</a>
-      <a href='#'>Link 2</a>
-      <a href='#'>Link 3</a>
-    </div>
-  </footer>;
+  return (
+    <footer className='bg-fourth-bg-color py-5 flex justify-between px-10 pt-20'>
+      <p>Calamar Textil</p>
+      <div className='flex justify-center items-center gap-2'>
+        <a href='#' target='_blank'>
+          <FaSquareInstagram size='20' color='#000' />
+        </a>
+        <a href='#' target='_blank'>
+          <FaSquareFacebook size='20' color='#000' />
+        </a>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
