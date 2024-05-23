@@ -43,7 +43,7 @@ const IntroTelas = () => {
                 </div>
               ))}
             </div>
-            <LinkButton href={`/estampas`}>Ver más</LinkButton>
+            <LinkButton href={`/telas`}>Ver más</LinkButton>
           </>
         </Inner>
       </section>

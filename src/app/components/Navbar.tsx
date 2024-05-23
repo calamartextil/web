@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className='relative'>
         <div className='flex justify-between items-center px-10 pt-1 h-[105px] bg-primary-bg-color'>
           <div className='relative w-20 h-20'>
-            <Image src='images/logo-color.svg' fill={true} alt='Calamar' />
+            <Image src='/images/logo-color.svg' fill={true} alt='Calamar' />
           </div>
           <nav className='hidden md:block font-outfit font-semibold text-md'>
             <ul className='flex justify-center items-center gap-20'>
