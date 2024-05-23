@@ -16,8 +16,8 @@ const LinkButton = ({
   return (
     <Link
       className={`${
-        invert && `bg-transparent text-black border-black border-2`
-      } ${className} bg-black text-white w-40 text-center py-3 px-2 rounded-3xl mt-10 `}
+        invert && `bg-transparent text-black border-white border-2`
+      } ${className} bg-black text-white text-sm w-36 text-center py-2 px-1 rounded-3xl mt-10 hover:opacity-70`}
       href={href}
     >
       {children}

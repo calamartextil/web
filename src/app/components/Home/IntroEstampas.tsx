@@ -59,11 +59,11 @@ const IntroEstampas = () => {
       <section>
         <Inner>
           <>
-            <h2>Catálogo de estampas</h2>
-            <p>Más de mil diseños para que elijas</p>
-            <div className='grid'>
+            <h2 className='text-center'>Catálogo de estampas</h2>
+            <p className='text-center mb-5'>Más de mil diseños para que elijas</p>
+            <div className='grid w-full'>
               {estampas.map(({ title, description, image, href }, index) => (
-                <div key={index} className='col_3'>
+                <div key={index} className='col_3 col_tb_6 col_mb_6'>
                   <IconItem
                     title={title}
                     description={description}
@@ -77,7 +77,7 @@ const IntroEstampas = () => {
           </>
         </Inner>
       </section>
-      <div className="absolute w-full h-[54px] left-0 z-10 bg-[url('/images/ondas.png')] bg-cover bg-bottom"></div>
+      <div className="absolute w-full h-[54px] left-0 z-10 bg-[url('/images/ondas.png')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]"></div>
     </div>
   );
 };
