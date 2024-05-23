@@ -9,7 +9,6 @@
   --secondary-bg-color: #ff9b48;
   --third-bg-color: #c9c04b;
   --fourth-bg-color: #f4c6e3;
-
   --primary-text-color: #000;
 }
 
@@ -19,5 +18,28 @@ body {
 }
 
 section{
-  padding: 100px 0;
+  padding: 110px 20px 50px 20px;
+}
+
+h1{
+   font-family: var(--font-outfit);
+  font-weight: 600;
+}
+
+h2{
+  font-size: 40px;
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+h3{
+  font-family: var(--font-outfit);
+  font-weight: 600;
+}
+
+p{
+  font-size: 1.25rem/* 20px */;
+  line-height: 1.75rem/* 28px */;
+  font-family: var(--font-outfit);
+  font-weight: 200;
 }
