@@ -14,7 +14,7 @@ const dmSerifDisplay = DM_Serif_Display({
 
 const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  weight: ['200','400', '600', '700'],
   variable: '--font-outfit',
 });
 
