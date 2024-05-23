@@ -10,16 +10,13 @@ interface IconItemProps {
 
 const IconItem = ({ title, description, image, href }: IconItemProps) => {
   return (
-    <div className='flex flex-col items-center'>
-      <Link href={href}>
-        <div className='relative w-36 h-36'>
-
+    <Link href={href} className='flex flex-col items-center content-center'>
+      <div className='relative w-24 h-24 mb-5'>
         <Image src={image} fill={true} alt={title} />
-        </div>
-        <h3 className='text-center text-2xl'>{title}</h3>
-        <p className='text-center'>{description}</p>
-      </Link>
-    </div>
+      </div>
+      <h3 className='text-center text-2xl'>{title}</h3>
+      <p className='text-center'>{description}</p>
+    </Link>
   );
 };
 

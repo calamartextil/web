@@ -6,51 +6,51 @@ const IntroEstampas = () => {
   const estampas = [
     {
       title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      description: 'Flores y muchos colores.',
+      image: '/images/icons/Botanico.svg',
+      href: '/estampas/botanico',
     },
     {
-      title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      title: 'Animales',
+      description: '¡Miauuuuuuu!',
+      image: '/images/icons/Animales.svg',
+      href: '/estampas/animales',
     },
     {
-      title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      title: 'Kids',
+      description: 'Para los más pequeños.',
+      image: '/images/icons/Kids.svg',
+      href: '/estampas/kids',
     },
     {
-      title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      title: 'Popurri',
+      description: 'De todo un poco.',
+      image: '/images/icons/Popurri.svg',
+      href: '/estampas/popurri',
     },
     {
-      title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      title: 'Comida',
+      description: 'Muchas cosas ricas.',
+      image: '/images/icons/Comida.svg',
+      href: '/estampas/comida',
     },
     {
-      title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      title: 'Abstracto',
+      description: 'Un mundo de formas.',
+      image: '/images/icons/Abstracto.svg',
+      href: '/estampas/abstracto',
     },
     {
-      title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      title: 'Básicos',
+      description: 'Para armar combinaciones.',
+      image: '/images/icons/Basicos.svg',
+      href: '/estampas/basicos',
     },
     {
-      title: 'Botanico',
-      description: 'Flores y más',
-      image: '/images/dummy/dummyIconAlt.png',
-      href: '/estampas/?cat=botanico',
+      title: '¡Tu diseño!',
+      description: 'Tu sueño. Tus ideas. ',
+      image: '/images/icons/Tu-diseno.svg',
+      href: '/estampas/tu-diseno',
     },
   ];
 
@@ -60,10 +60,12 @@ const IntroEstampas = () => {
         <Inner>
           <>
             <h2 className='text-center'>Catálogo de estampas</h2>
-            <p className='text-center mb-5'>Más de mil diseños para que elijas</p>
-            <div className='grid w-full'>
+            <p className='text-center mb-10'>
+              Más de mil diseños para que elijas
+            </p>
+            <div className='grid w-full mb-5'>
               {estampas.map(({ title, description, image, href }, index) => (
-                <div key={index} className='col_3 col_tb_6 col_mb_6'>
+                <div key={index} className='col_3 col_tb_6 col_mb_6 mb-5'>
                   <IconItem
                     title={title}
                     description={description}
