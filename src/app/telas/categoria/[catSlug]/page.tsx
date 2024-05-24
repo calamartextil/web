@@ -1,5 +1,5 @@
-export default function page() {
+export default function page({ params }: { params: { catSlug: string } }) {
   return (
-    <div>page</div>
+    <div>page {params.catSlug}</div>
   )
 }

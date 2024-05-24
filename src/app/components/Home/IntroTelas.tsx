@@ -4,22 +4,22 @@ import Image from 'next/image';
 const IntroTelas = () => {
   const telas = [
     {
-      image: '/images/ui-estampas/AB-001.jpg',
+      image: '/images/dummy/telas/BATISTA-stampada.jpg',
     },
     {
-      image: '/images/ui-estampas/AN-001.jpg',
+      image: '/images/dummy/telas/CEY-estampada.jpg',
     },
     {
-      image: '/images/ui-estampas/AN-002.jpg',
+      image: '/images/dummy/telas/CIRE-OPACO-estampada.jpg',
     },
     {
-      image: '/images/ui-estampas/CM-001.jpg',
+      image: '/images/dummy/telas/CORDURA..jpg',
     },
     {
-      image: '/images/ui-estampas/KD-001.jpg',
+      image: '/images/dummy/telas/BATISTA-stampada.jpg',
     },
     {
-      image: '/images/ui-estampas/BO-001..jpg',
+      image: '/images/dummy/telas/CEY-estampada.jpg',
     },
   ];
   return (

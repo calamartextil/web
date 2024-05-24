@@ -47,3 +47,7 @@ p{
   font-family: var(--font-outfit);
   font-weight: 200;
 }
+
+li{
+  font-family: var(--font-outfit);
+}

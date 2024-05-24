@@ -42,7 +42,7 @@ const IntroSteps = () => {
                   title='Envianos tu pedido'
                   caption='Pedido'
                   description='Y listo'
-                  href='/cart'
+                  href='/pedido'
                 />
               </div>
             </div>

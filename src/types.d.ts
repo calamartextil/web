@@ -3,6 +3,10 @@ export type Tela = {
   title: string;
   sku: string;
   description?: string;
+  baseColor?: string;
+  composition?: string;
+  width?: number;
+  usos?: string;
   price: number;
   minMeters?: number;
   images: {

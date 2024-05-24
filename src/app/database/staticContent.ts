@@ -22,7 +22,7 @@ export const telas: Tela[] = [
     sku: 'sku1',
     price: 10,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -39,7 +39,7 @@ export const telas: Tela[] = [
     sku: 'sku2',
     price: 20,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/CEY-estampada.jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -56,7 +56,7 @@ export const telas: Tela[] = [
     sku: 'sku1',
     price: 10,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/CIRE-OPACO-estampada.jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -73,7 +73,7 @@ export const telas: Tela[] = [
     sku: 'sku2',
     price: 20,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/CORDURA..jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -90,7 +90,7 @@ export const telas: Tela[] = [
     sku: 'sku1',
     price: 10,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -107,7 +107,7 @@ export const telas: Tela[] = [
     sku: 'sku2',
     price: 20,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -124,7 +124,7 @@ export const telas: Tela[] = [
     sku: 'sku1',
     price: 10,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -141,7 +141,7 @@ export const telas: Tela[] = [
     sku: 'sku2',
     price: 20,
     images: {
-      lisaUrl: 'https://via.placeholder.com/150',
+      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
@@ -153,3 +153,5 @@ export const telas: Tela[] = [
     ],
   },
 ];
+
+export const getTelaBySku = (sku: string) => telas.find((tela) => tela.sku === sku);
