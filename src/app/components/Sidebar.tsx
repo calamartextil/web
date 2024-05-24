@@ -2,33 +2,34 @@ import Link from 'next/link';
 export default function Sidebar() {
   return (
     <div className='sidebar w-[250px] pl-10'>
+      <h1>Tipo de tela</h1>
       <nav>
         <ul>
           <li>
-            <Link href='/telas/tela-plana'>Tela plana</Link>
+            <Link href='/telas/tela-plana'>Plana</Link>
           </li>
           <li>
-            <Link href='/telas/tela-de-punto'>Tela de punto</Link>
+            <Link href='/telas/tela-de-punto'>Punto</Link>
           </li>
           <li>
             <Link href='/telas/tela-para-indumentaria'>
-              Tela para indumentaria
+              Indumentaria
             </Link>
           </li>
           <li>
-            <Link href='/telas/tela-para-decoracion'>Tela para decoración</Link>
+            <Link href='/telas/tela-para-decoracion'>Decoración</Link>
           </li>
           <li>
-            <Link href='/telas/tela-con-elastano'>Tela con elastano</Link>
+            <Link href='/telas/tela-con-elastano'>Con elastano</Link>
           </li>
           <li>
-            <Link href='/telas/tela-impermeable'>Tela impermeable</Link>
+            <Link href='/telas/tela-impermeable'>Impermeable</Link>
           </li>
           <li>
-            <Link href='/telas/tela-de-algodon'>Tela de algodón</Link>
+            <Link href='/telas/tela-de-algodon'>Algodón</Link>
           </li>
           <li>
-            <Link href='/telas/tela-de-poliester'>Tela de poliéster</Link>
+            <Link href='/telas/tela-de-poliester'>Poliéster</Link>
           </li>
         </ul>
       </nav>
