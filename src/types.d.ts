@@ -1,6 +1,6 @@
-type tela = {
-  id: string;
-  name: string;
+export type Tela = {
+  telaId: string;
+  title: string;
   sku: string;
   description?: string;
   price: number;
@@ -13,30 +13,30 @@ type tela = {
   categories: telasCategory[];
 };
 
-type estampa = {
+export type Estampa = {
   id: string;
-  name: string;
+  title: string;
   sku: string;
   image: string;
   description?: string;
   category: string;
 };
 
-type telasCategory = {
+export type TelasCategory = {
   id: string;
-  name: string;
+  title: string;
   description?: string;
   image?: string;
 };
 
-type cartItem = {
+export type CartItem = {
   tela: tela;
   price: number;
   mts: number;
   estampas: estampa[];
 };
 
-type cart = {
+export type Cart = {
   items: cartItem[];
   total: number;
 };
