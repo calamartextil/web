@@ -7,7 +7,7 @@ export default function TelasLayout({
 }) {
   return (
     <div className='relative'>
-      <div className='pt-60 flex content-start gap-6 px-10'>
+      <div className='pt-60 flex content-start gap-6 px-10 mb-8'>
         <Sidebar />
         <main>{children}</main>
       </div>
