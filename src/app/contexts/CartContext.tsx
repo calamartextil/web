@@ -1,6 +1,12 @@
 'use client';
 
-import { createContext, useState, useContext, ReactNode } from 'react';
+import {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  ReactNode,
+} from 'react';
 import { CartItem } from '@/types';
 
 interface CartContextProps {
@@ -21,14 +27,30 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   children,
 }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
-
-  // const cartTotal = cart.reduce((acc, item) => acc + item.price, 0);
-  const cartTotal = 3
+  const cartTotal = cart.reduce((acc, item) => acc + item.price, 0);
   const cartQty = cart.length;
 
   const addCartItem = (item: CartItem) => {
     setCart([...cart, item]);
   };
+
+  const sumarizeCartItemsByTela = (cart: CartItem[]) => {
+    return cart.reduce((acc, item) => {
+      const existingItem = acc.find(
+        (cartItem) => cartItem.tela.telaId === item.tela.telaId
+      );
+      if (existingItem) {
+        existingItem.mts += item.mts;
+        existingItem.price += item.price;
+        return acc;
+      }
+      return [...acc, item];
+    }, [] as CartItem[]);
+  };
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   const removeCartItem = (item: CartItem) => {
     setCart(

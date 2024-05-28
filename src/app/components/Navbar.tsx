@@ -11,7 +11,7 @@ import {
 import { useCartContext } from '@/app/contexts/CartContext';
 
 const Navbar = () => {
-  const { cartTotal } = useCartContext();
+  const { cartQty } = useCartContext();
 
   const navBarItems = [
     {
@@ -68,7 +68,7 @@ const Navbar = () => {
                 className='absolute bottom-0 z-0'
               />
               <div className='text-sm absolute -bottom-2 left-5 z-10 rounded-full bg-black w-6 h-6 text-white flex items-center justify-center text-center'>
-                {cartTotal}
+                {cartQty}
               </div>
             </div>
           </div>
