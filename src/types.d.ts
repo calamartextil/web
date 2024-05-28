@@ -1,27 +1,46 @@
-type tela = {
-  id: string;
-  nombre: string;
-  precio: number;
-  imagen: string;
-  descripcion: string;
+export type Tela = {
+  telaId: string;
+  title: string;
+  sku: string;
+  description?: string;
+  baseColor?: string;
+  composition?: string;
+  width?: number;
+  usos?: string;
+  price: number;
+  minMeters?: number;
+  images: {
+    lisaUrl: string;
+    estampadaUrl?: string;
+    usosUrl?: string;
+  };
+  categories: telasCategory[];
 };
 
-type estampa = {
+export type Estampa = {
   id: string;
-  nombre: string;
-  precio: number;
-  imagen: string;
-  descripcion: string;
+  title: string;
+  sku: string;
+  image: string;
+  description?: string;
+  category: string;
 };
 
-type cartItem = { 
+export type TelasCategory = {
   id: string;
-  nombre: string;
-  precio: number;
-  cantidad: number;
+  title: string;
+  description?: string;
+  image?: string;
 };
 
-type cart = { 
+export type CartItem = {
+  tela: tela;
+  price: number;
+  mts: number;
+  estampas: estampa[];
+};
+
+export type Cart = {
   items: cartItem[];
   total: number;
 };
