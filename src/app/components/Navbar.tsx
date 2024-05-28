@@ -34,9 +34,11 @@ const Navbar = () => {
     <div className='fixed top-0 z-50 w-full'>
       <div className='relative'>
         <div className='flex justify-between items-center px-10 pt-1 h-[105px] bg-primary-bg-color'>
-          <div className='relative w-20 h-20'>
-            <Image src='images/logo-color.svg' fill={true} alt='Calamar' />
-          </div>
+          <Link href='/'>
+            <div className='relative w-20 h-20'>
+              <Image src='/images/logo-color.svg' fill={true} alt='Calamar' />
+            </div>
+          </Link>
           <nav className='hidden md:block font-outfit font-semibold text-md'>
             <ul className='flex justify-center items-center gap-20'>
               {navBarItems.map(({ name, href }, index) => (
