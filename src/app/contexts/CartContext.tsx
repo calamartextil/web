@@ -15,6 +15,7 @@ interface CartContextProps {
   cartQty: number;
   addCartItem: (item: CartItem) => void;
   removeCartItem: (item: CartItem) => void;
+  existsInCart: (sku: string) => boolean;
 }
 
 interface CartContextProviderProps {
@@ -32,6 +33,10 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
 
   const addCartItem = (item: CartItem) => {
     setCart([...cart, item]);
+  };
+
+  const existsInCart = (sku: string) => {
+    return cart.some((cartItem) => cartItem.tela.sku === sku);
   };
 
   const sumarizeCartItemsByTela = (cart: CartItem[]) => {
@@ -66,6 +71,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cartQty,
         addCartItem,
         removeCartItem,
+        existsInCart,
       }}
     >
       {children}

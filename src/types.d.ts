@@ -37,10 +37,16 @@ export type CartItem = {
   tela: Tela;
   price: number;
   mts: number;
-  estampas: estampa[];
+  estampas?: [
+    {
+      estampa: Estampa;
+      scale: string;
+    }
+  ];
 };
 
-export type Cart = { //Posible deprecated
+export type Cart = {
+  //Posible deprecated
   items: cartItem[];
   total: number;
 };
