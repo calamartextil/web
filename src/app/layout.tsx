@@ -4,6 +4,7 @@ import './grid.css';
 import './globals.css';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
+import { CartContextProvider } from '@/app/contexts/CartContext';
 
 
 const dmSerifDisplay = DM_Serif_Display({ 
@@ -31,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang='es'>
       <body className={`${dmSerifDisplay.variable} ${outfit.variable}`}>
+        <CartContextProvider>
         <Navbar />
         {children}
         <Footer />
+        </CartContextProvider>
       </body>
     </html>
   );
