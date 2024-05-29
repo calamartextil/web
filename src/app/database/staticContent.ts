@@ -53,7 +53,7 @@ export const telas: Tela[] = [
   {
     telaId: '3',
     title: 'Tela 3',
-    sku: 'sku1',
+    sku: 'sku3',
     price: 10,
     images: {
       lisaUrl: '/images/dummy/telas/CIRE-OPACO-estampada.jpg',
@@ -70,7 +70,7 @@ export const telas: Tela[] = [
   {
     telaId: '4',
     title: 'Tela 4',
-    sku: 'sku2',
+    sku: 'sku4',
     price: 20,
     images: {
       lisaUrl: '/images/dummy/telas/CORDURA..jpg',
@@ -85,9 +85,9 @@ export const telas: Tela[] = [
     ],
   },
   {
-    telaId: '1',
-    title: 'Tela 1',
-    sku: 'sku1',
+    telaId: '5',
+    title: 'Tela 5',
+    sku: 'sku5',
     price: 10,
     images: {
       lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
@@ -102,9 +102,9 @@ export const telas: Tela[] = [
     ],
   },
   {
-    telaId: '2',
-    title: 'Tela 2',
-    sku: 'sku2',
+    telaId: '6',
+    title: 'Tela 6',
+    sku: 'sku6',
     price: 20,
     images: {
       lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
@@ -119,9 +119,9 @@ export const telas: Tela[] = [
     ],
   },
   {
-    telaId: '3',
-    title: 'Tela 3',
-    sku: 'sku1',
+    telaId: '7',
+    title: 'Tela 7',
+    sku: 'sku7',
     price: 10,
     images: {
       lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
@@ -136,9 +136,9 @@ export const telas: Tela[] = [
     ],
   },
   {
-    telaId: '4',
-    title: 'Tela 4',
-    sku: 'sku2',
+    telaId: '8',
+    title: 'Tela 8',
+    sku: 'sku8',
     price: 20,
     images: {
       lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',

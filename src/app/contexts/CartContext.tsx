@@ -25,6 +25,10 @@ interface CartContextProps {
     mts: number,
     scale: string
   ) => void;
+  telaAvailable: (telaSku: string) => {
+    telaTotal: number;
+    estampasTotal: number;
+  };
 }
 
 interface CartContextProviderProps {
@@ -107,12 +111,24 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     setCart(updatedCart as CartItem[]);
   };
 
+  const telaAvailable = (telaSku: string) => {
+    return {
+      telaTotal:
+        cart.find((cartItem) => cartItem.tela.sku === telaSku)?.mts || 0,
+      estampasTotal:
+      cart
+      .find((cartItem) => cartItem.tela.sku === telaSku)
+      ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0,
+    };
+  };
+
   return (
     <CartContext.Provider
       value={{
         cart,
         cartTotal,
         cartQty,
+        telaAvailable,
         addCartItem,
         removeCartItem,
         removeCartItemBySku,

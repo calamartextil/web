@@ -15,7 +15,7 @@ export default function EstampaCard({ id, title, sku, image }: Estampa) {
       </div>
       <h3 className='text-xl'>{title}</h3>
       <button
-        onClick={() => addEstampaToTela(telaSku.sku, sku, 5, 'M')}
+        onClick={() => addEstampaToTela(telaSku.sku, sku, 0.5, 'M')}
       >Agregar</button>
     </div>
   );

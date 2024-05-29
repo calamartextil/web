@@ -15,13 +15,14 @@ interface TelaProps {
 export default function TelaContainer({ tela }: TelaProps) {
   const [mts, setMts] = useState<number>(1);
   const [price, setPrice] = useState<number>(2 * tela?.price);
-  const { addCartItem, removeCartItemBySku, existsInCart } = useCartContext();
+  const { addCartItem, removeCartItemBySku, existsInCart, telaAvailable } =
+    useCartContext();
 
   const priceFirstStep = 0.8;
   const priceSecondStep = 0.5;
 
   const handleAddToCart = () => {
-    addCartItem({ tela, mts, price, estampas: []});
+    addCartItem({ tela, mts, price, estampas: [] });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +46,7 @@ export default function TelaContainer({ tela }: TelaProps) {
     <div>
       <div className='flex justify-between items-center'>
         <h1 className='text-3xl font-display mb-5'>{tela?.title}</h1>
+
         {existsInCart(tela.sku) && (
           <button onClick={() => removeCartItemBySku(tela.sku)}>
             Cancelar
@@ -54,7 +56,7 @@ export default function TelaContainer({ tela }: TelaProps) {
 
       {existsInCart(tela.sku) && (
         <div className='bg-primary-bg-color py-5 px-6 rounded-2xl mb-8'>
-          {/* <TelaGraph sku={tela.sku} />{' '} */}
+          <TelaGraph sku={tela.sku} />{' '}
         </div>
       )}
 
