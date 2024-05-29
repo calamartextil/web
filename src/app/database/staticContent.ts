@@ -180,7 +180,7 @@ export const estampas: Estampa[] = [
     id: '4',
     title: 'Estampa 4',
     sku: 'BO-001',
-    image: '/images/dummy/estampas/BO-001.jpg',
+    image: '/images/dummy/estampas/BO-001..jpg',
     category: 'Categoria 1',
   },
   {
@@ -215,3 +215,8 @@ export const estampas: Estampa[] = [
 
 export const getTelaBySku = (sku: string) =>
   telas.find((tela) => tela.sku === sku);
+
+export const getEstampaBySku = (sku: string) =>
+  estampas.find((estampa) => estampa.sku === sku);
+
+export const getAllEstampas = () => estampas;

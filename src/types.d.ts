@@ -37,12 +37,15 @@ export type CartItem = {
   tela: Tela;
   price: number;
   mts: number;
-  estampas?: [
-    {
-      estampa: Estampa;
-      scale: string;
-    }
-  ];
+  estampas?:
+    | [
+        {
+          estampa: Estampa;
+          mts: number;
+          scale: string;
+        }
+      ]
+    | [];
 };
 
 export type Cart = {

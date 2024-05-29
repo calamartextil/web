@@ -7,7 +7,8 @@ import {
   useEffect,
   ReactNode,
 } from 'react';
-import { CartItem } from '@/types';
+import { CartItem, Estampa } from '@/types';
+import { getEstampaBySku } from '../database/staticContent';
 
 interface CartContextProps {
   cart: CartItem[];
@@ -15,7 +16,15 @@ interface CartContextProps {
   cartQty: number;
   addCartItem: (item: CartItem) => void;
   removeCartItem: (item: CartItem) => void;
+  removeCartItemBySku: (sku: string) => void;
   existsInCart: (sku: string) => boolean;
+  findCartItemBySku: (sku: string) => CartItem | undefined;
+  addEstampaToTela: (
+    telaSku: string,
+    estampaSku: string,
+    mts: number,
+    scale: string
+  ) => void;
 }
 
 interface CartContextProviderProps {
@@ -30,14 +39,6 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   const [cart, setCart] = useState<CartItem[]>([]);
   const cartTotal = cart.reduce((acc, item) => acc + item.price, 0);
   const cartQty = cart.length;
-
-  const addCartItem = (item: CartItem) => {
-    setCart([...cart, item]);
-  };
-
-  const existsInCart = (sku: string) => {
-    return cart.some((cartItem) => cartItem.tela.sku === sku);
-  };
 
   const sumarizeCartItemsByTela = (cart: CartItem[]) => {
     return cart.reduce((acc, item) => {
@@ -54,13 +55,56 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   };
 
   useEffect(() => {
+    //JUST FOR DEBUGGING REMOVE LATER
     console.log(cart);
   }, [cart]);
+
+  //CART
+
+  const existsInCart = (sku: string) => {
+    return cart.some((cartItem) => cartItem.tela.sku === sku);
+  };
+
+  const addCartItem = (item: CartItem) => {
+    setCart([...cart, item]);
+  };
 
   const removeCartItem = (item: CartItem) => {
     setCart(
       cart.filter((cartItem) => cartItem.tela.telaId !== item.tela.telaId)
     );
+  };
+
+  const removeCartItemBySku = (sku: string) => {
+    setCart(cart.filter((cartItem) => cartItem.tela.sku !== sku));
+  };
+
+  const findCartItemBySku = (sku: string) => {
+    return cart.find((cartItem) => cartItem.tela.sku === sku);
+  };
+
+  const addEstampaToTela = (
+    telaSku: string,
+    estampaSku: string,
+    mts: number,
+    scale: string
+  ) => {
+    const estampa = getEstampaBySku(estampaSku) || ({} as Estampa);
+    const estampaItem = {
+      estampa,
+      mts,
+      scale,
+    };
+    const updatedCart = cart.map((cartItem) => {
+      if (cartItem.tela.sku === telaSku) {
+        return {
+          ...cartItem,
+          estampas: [...(cartItem.estampas || []), estampaItem],
+        };
+      }
+      return cartItem;
+    });
+    setCart(updatedCart as CartItem[]);
   };
 
   return (
@@ -71,7 +115,10 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cartQty,
         addCartItem,
         removeCartItem,
+        removeCartItemBySku,
         existsInCart,
+        findCartItemBySku,
+        addEstampaToTela,
       }}
     >
       {children}
