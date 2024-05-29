@@ -1,4 +1,4 @@
-import { Tela } from '@/types';
+import { Estampa, Tela } from '@/types';
 
 export const categories = [
   {
@@ -154,4 +154,64 @@ export const telas: Tela[] = [
   },
 ];
 
-export const getTelaBySku = (sku: string) => telas.find((tela) => tela.sku === sku);
+export const estampas: Estampa[] = [
+  {
+    id: '1',
+    title: 'Estampa 1',
+    sku: 'AB-001',
+    image: '/images/dummy/estampas/AB-001.jpg',
+    category: 'Categoria 1',
+  },
+  {
+    id: '2',
+    title: 'Estampa 2',
+    sku: 'AN-001',
+    image: '/images/dummy/estampas/AN-001.jpg',
+    category: 'Categoria 1',
+  },
+  {
+    id: '3',
+    title: 'Estampa 3',
+    sku: 'AN-002',
+    image: '/images/dummy/estampas/AN-002.jpg',
+    category: 'Categoria 1',
+  },
+  {
+    id: '4',
+    title: 'Estampa 4',
+    sku: 'BO-001',
+    image: '/images/dummy/estampas/BO-001.jpg',
+    category: 'Categoria 1',
+  },
+  {
+    id: '5',
+    title: 'Estampa 5',
+    sku: 'BO-002',
+    image: '/images/dummy/estampas/BO-002.jpg',
+    category: 'Categoria 1',
+  },
+  {
+    id: '6',
+    title: 'Estampa 6',
+    sku: 'BO-003',
+    image: '/images/dummy/estampas/BO-003.jpg',
+    category: 'Categoria 1',
+  },
+  {
+    id: '7',
+    title: 'Estampa 7',
+    sku: 'BS-001',
+    image: '/images/dummy/estampas/BS-001.jpg',
+    category: 'Categoria 1',
+  },
+  {
+    id: '8',
+    title: 'Estampa 8',
+    sku: 'CM-001',
+    image: '/images/dummy/estampas/CM-001.jpg',
+    category: 'Categoria 1',
+  },
+];
+
+export const getTelaBySku = (sku: string) =>
+  telas.find((tela) => tela.sku === sku);

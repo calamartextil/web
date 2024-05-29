@@ -5,6 +5,7 @@ import { Tela } from '@/types';
 import Image from 'next/image';
 import { useCartContext } from '@/app/contexts/CartContext';
 import Button from '@/app/components/Button';
+import TelaGraph from '@/app/components/TelaGraph';
 
 interface TelaProps {
   tela: Tela;
@@ -42,8 +43,13 @@ export default function TelaContainer({ tela }: TelaProps) {
   return (
     <div>
       <h1 className='text-3xl font-display mb-5'>{tela?.title}</h1>
+      {existsInCart(tela.sku) && (
+          <TelaGraph sku={tela.sku} />
+        )}
       <div className='bg-primary-bg-color py-5 px-6 rounded-2xl'>
-        {existsInCart(tela.sku) && 'Continua eligiendo las estampas'}
+        {existsInCart(tela.sku) && (
+          <p>Continua eligiendo las estampas</p>
+        )}
         {!existsInCart(tela.sku) && (
           <div className='grid'>
             <div className='col_6'>

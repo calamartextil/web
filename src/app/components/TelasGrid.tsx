@@ -1,12 +1,13 @@
-import CardTela from '@/app/components/CardTela';
+import TelaCard from '@/app/components/TelaCard';
+
 import { telas } from '@/app/database/staticContent';
 
-export default function GridTelas() {
+export default function TelasGrid() {
   return (
     <div className='grid w-full'>
       {telas.map((tela, index) => (
         <div key={index} className='col_3'>
-          <CardTela
+          <TelaCard
             telaId={tela.telaId}
             title={tela.title}
             sku={tela.sku}

@@ -61,6 +61,9 @@ const Navbar = () => {
             <a href=''>
               <FaSquareFacebook size='30' color='#F4C6E3' />
             </a>
+            <Link href='/pedido'>
+
+           
             <div className='relative w-[30px] h-[30px]'>
               <FaCartShopping
                 size='30'
@@ -71,6 +74,7 @@ const Navbar = () => {
                 {cartQty}
               </div>
             </div>
+            </Link>
           </div>
         </div>
         <div className="absolute w-full h-[54px] left-0 z-10 bg-[url('/images/ondas_cream_bottom.svg')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]"></div>
