@@ -32,12 +32,12 @@ const IntroStock = () => {
             <div className='grid mb-8'>
               {telas.map(({ image }: { image: string }, index) => (
                 <div key={index} className='col_4 col_mb_6'>
-                  <div className='relative w-[300px] h-[300px] block'>
+                  <div className='full-img-container block'>
                     <Image
                       src={image}
                       fill={true}
                       alt={'tela'}
-                      className='rounded-2xl'
+                      className='rounded-2xl full-img'
                     />
                   </div>
                 </div>
@@ -47,7 +47,6 @@ const IntroStock = () => {
           </>
         </Inner>
       </section>
-      <div className="absolute w-full h-[54px] left-0 z-10 bg-[url('/images/ondas.png')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]"></div>
     </div>
   );
 };

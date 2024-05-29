@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <body className={`${dmSerifDisplay.variable} ${outfit.variable}`}>
+      <body className={`${dmSerifDisplay.variable} ${outfit.variable} relative`}>
         <CartContextProvider>
         <Navbar />
         {children}

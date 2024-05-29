@@ -65,12 +65,13 @@ export default function TelaContainer({ tela }: TelaProps) {
         {!existsInCart(tela.sku) && (
           <div className='grid'>
             <div className='col_6'>
-              <div className='relative w-80 h-80'>
+              <div className='full-img-container'>
                 <Image
+                  sizes='100%'
                   fill={true}
                   src={tela?.images.lisaUrl}
                   alt={tela?.title}
-                  className='rounded-2xl'
+                  className='rounded-2xl full-img'
                 />
               </div>
             </div>
