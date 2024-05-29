@@ -26,6 +26,7 @@ export const telas: Tela[] = [
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
+    description: 'Tela 1 description',
     categories: [
       {
         id: '1',

@@ -1,38 +1,93 @@
 'use client';
 import { useCartContext } from '@/app/contexts/CartContext';
-import Inner from '@/app/components/Inner';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function CartContainer() {
-  const { cart } = useCartContext();
+  const { cart, removeCartItemBySku } = useCartContext();
   return (
-    <Inner>
+    <section className='pt-10 px-0'>
       {cart.length === 0 && <h1>No hay telas en el carrito</h1>}
-      {cart.map((item) => (
-        <div key={item.tela.sku}>
-          <Link href={`/telas/${item.tela.sku}`}>
-            <h2>{item.tela.title}</h2>
-          </Link>
-          <p>{item.mts} metros</p>
-          <p>${item.price}</p>
-          <div className='flex justify-start items-center gap-2'>
-            {item?.estampas?.map((estampa, index) => (
-              <div key={index}>
-                <Image
-                  src={estampa.estampa.image}
-                  alt={estampa.estampa.title}
-                  width={100}
-                  height={100}
-                />
-                <h3>{estampa.estampa.title}</h3>
-                <p>{estampa.mts} metros</p>
-                <p>{estampa.scale}</p>
+      {cart.length > 0 && (
+        <div>
+          <div className='grid'>
+            <div className='col_6'>
+              <div className='bg-primary-bg-color py-5 px-6 rounded-2xl mb-5'>
+                <form action='' className='flex flex-col gap-5'>
+                  <input type='text' placeholder='Nombre'></input>
+                  <input type='text' placeholder='Apellido'></input>
+                  <input type='text' placeholder='Email'></input>
+                  <input type='text' placeholder='Teléfono'></input>
+                  <input type='text' placeholder='Dirección'></input>
+                  <input type='text' placeholder='Localidad'></input>
+                  <input type='text' placeholder='Provincia'></input>
+                  <input type='text' placeholder='Código Postal'></input>
+                  <input type='text' placeholder='Comentarios'></input>
+                  <input type='submit' value='Comprar'></input>
+                </form>
               </div>
-            ))}
+              <div>Comentarios del pedido</div>
+            </div>
+            <div className='col_6'>
+              <div className='flex flex-col justify-start items-start gap-3'>
+                {cart.map((item, index) => (
+                  <div
+                    key={item.tela.sku}
+                    className=' bg-primary-bg-color py-5 px-6 rounded-2xl w-full mb-5'
+                  >
+                    <div className='flex gap-5 mb-5'>
+                      <Link href={`/telas/${item.tela.sku}`}>
+                        <Image
+                          src={item.tela.images.lisaUrl}
+                          alt={item.tela.title}
+                          width={100}
+                          height={100}
+                          className='rounded-xl'
+                        />
+                      </Link>
+                      <div className='flex justify-between items-start w-full'>
+                        <div className='flex flex-col'>
+                          <h2 className='leading-none'>{item.tela.title}</h2>
+                          <p>
+                            Largo: {item.mts} {item.mts !== 1 ? `mts` : `mt`}
+                          </p>
+                          <p>Subtotal: ${item.price}</p>
+                        </div>
+                        <div className='flex flex-col justify-start items-start gap-2'>
+                          <Link href={`/telas/${item.tela.sku}`}>Editar</Link>
+                          <button
+                            onClick={() => removeCartItemBySku(item.tela.sku)}
+                          >
+                            Eliminar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className='flex flex-wrap justify-start items-center gap-2'>
+                      {item?.estampas?.map((estampa, index) => (
+                        <div key={index}>
+                          <Image
+                            src={estampa.estampa.image}
+                            alt={estampa.estampa.title}
+                            width={60}
+                            height={60}
+                            className='mb-2 rounded-xl'
+                          />
+
+                          <h3 className='text-sm'>{estampa.estampa.title}</h3>
+                          <p className='text-xs'>{estampa.mts} mts</p>
+                          <p className='text-xs'>Escala: {estampa.scale}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      ))}
-    </Inner>
+      )}
+    </section>
   );
 }

@@ -33,7 +33,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
   };
 
   return (
-    <div className='flex items-center justify-center w-full relative min-h-5'>
+    <div className='flex flex-wrap items-center justify-center w-full relative min-h-5 gap-y-5'>
       <div className='absolute top-0 right-0'>
         {availability() > 0 && (
           <p className='text-sm'>Restan: {availability()} mts</p>

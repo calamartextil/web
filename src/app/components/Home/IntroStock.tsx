@@ -23,31 +23,29 @@ const IntroStock = () => {
     },
   ];
   return (
-    <div className='relative'>
-      <section>
-        <Inner>
-          <>
-            <h2>Tienda de stock</h2>
-            <p className='mb-10'>Telas listas para que te las lleves.</p>
-            <div className='grid mb-8'>
-              {telas.map(({ image }: { image: string }, index) => (
-                <div key={index} className='col_4 col_mb_6'>
-                  <div className='full-img-container block'>
-                    <Image
-                      src={image}
-                      fill={true}
-                      alt={'tela'}
-                      className='rounded-2xl full-img'
-                    />
-                  </div>
+    <section className='pb-52'>
+      <Inner>
+        <>
+          <h2>Tienda de stock</h2>
+          <p className='mb-10'>Telas listas para que te las lleves.</p>
+          <div className='grid mb-8'>
+            {telas.map(({ image }: { image: string }, index) => (
+              <div key={index} className='col_4 col_mb_6'>
+                <div className='full-img-container block'>
+                  <Image
+                    src={image}
+                    fill={true}
+                    alt={'tela'}
+                    className='rounded-2xl full-img'
+                  />
                 </div>
-              ))}
-            </div>
-            <LinkButton href={`/estampas`}>Ver más</LinkButton>
-          </>
-        </Inner>
-      </section>
-    </div>
+              </div>
+            ))}
+          </div>
+          <LinkButton href={`/estampas`}>Ver más</LinkButton>
+        </>
+      </Inner>
+    </section>
   );
 };
 

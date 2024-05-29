@@ -45,7 +45,7 @@ export default function TelaContainer({ tela }: TelaProps) {
   return (
     <div>
       <div className='flex justify-between items-center'>
-        <h1 className='text-3xl font-display mb-5'>{tela?.title}</h1>
+        <h1 className='text-5xl font-display mb-5'>{tela?.title}</h1>
 
         {existsInCart(tela.sku) && (
           <button onClick={() => removeCartItemBySku(tela.sku)}>
@@ -60,7 +60,7 @@ export default function TelaContainer({ tela }: TelaProps) {
         </div>
       )}
 
-      <div className='bg-primary-bg-color py-5 px-6 rounded-2xl'>
+      <div className='bg-primary-bg-color p-10 rounded-2xl'>
         {existsInCart(tela.sku) && <EstampasGrid />}
         {!existsInCart(tela.sku) && (
           <div className='grid'>
@@ -77,11 +77,28 @@ export default function TelaContainer({ tela }: TelaProps) {
             </div>
             <div className='col_6'>
               <div className='flex flex-col justify-center items-start'>
-                <div className='relative w-56 h-56 mb-5'>
-                  <p>Precio por 1/2 metro: ${tela?.price}</p>
-                  <p>Más de 10 metros: ${tela?.price * priceFirstStep}</p>
-                  <p>Más de 20 metros: ${tela?.price * priceSecondStep}</p>
-                  <p>{tela?.description}</p>
+                <div className='relative w-full mb-5'>
+                  <p className='mb-8'>{tela?.description}</p>
+                  <ul className='mb-8'>
+                    <li>
+                      <p className='text-sm'>
+                        Precio por 1/2 metro: ${tela?.price}
+                      </p>
+                    </li>
+                    <li>
+                      <p className='text-sm'>
+                        Más de 10 metros: ${tela?.price * priceFirstStep}
+                      </p>
+                    </li>
+                    <li>
+                      <p className='text-sm'>
+                        Más de 20 metros: ${tela?.price * priceSecondStep}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <p>Total: ${price}</p>
                 </div>
                 <div className='flex items-center'>
                   <label htmlFor='mts'>Metros</label>
@@ -95,12 +112,7 @@ export default function TelaContainer({ tela }: TelaProps) {
                     onChange={(e) => handleInputChange(e)}
                   />
                 </div>
-                <div>
-                  <p>Total: ${price}</p>
-                </div>
-                <Button onClick={handleAddToCart}>
-                  Agregar y elegir estampas
-                </Button>
+                <Button onClick={handleAddToCart}>Agregar</Button>
               </div>
             </div>
             {/* <pre>{JSON.stringify(getTelaBySku(params.sku), null, 2)}</pre> */}
