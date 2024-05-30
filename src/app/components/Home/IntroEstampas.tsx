@@ -63,7 +63,7 @@ const IntroEstampas = () => {
             <p className='text-center mb-10'>
               Más de mil diseños para que elijas
             </p>
-            <div className='grid w-full mb-5'>
+            <div className='grid w-full mb-10'>
               {estampas.map(({ title, description, image, href }, index) => (
                 <div key={index} className='col_3 col_tb_6 col_mb_6 mb-5'>
                   <IconItem

@@ -34,13 +34,22 @@ export type TelasCategory = {
 };
 
 export type CartItem = {
-  tela: tela;
+  tela: Tela;
   price: number;
   mts: number;
-  estampas: estampa[];
+  estampas?:
+    | [
+        {
+          estampa: Estampa;
+          mts: number;
+          scale: string;
+        }
+      ]
+    | [];
 };
 
 export type Cart = {
+  //Posible deprecated
   items: cartItem[];
   total: number;
 };
