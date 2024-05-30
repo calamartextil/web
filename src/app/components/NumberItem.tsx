@@ -27,7 +27,7 @@ const NumberItem = ({
       </div>
       <h3 className='text-xl'>{title}</h3>
       <p className='text-sm mb-5'>{description}</p>
-      <div className='w-20 h-20 relative'>
+      <div className='w-20 h-20 relative mb-8'>
         <Image src={icon} alt={alt} fill={true} />
       </div>
       <LinkButton href={href} invert={true}>
