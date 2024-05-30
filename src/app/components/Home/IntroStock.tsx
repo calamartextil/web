@@ -28,7 +28,7 @@ const IntroStock = () => {
         <>
           <h2>Tienda de stock</h2>
           <p className='mb-10'>Telas listas para que te las lleves.</p>
-          <div className='grid mb-8'>
+          <div className='grid mb-10'>
             {telas.map(({ image }: { image: string }, index) => (
               <div key={index} className='col_4 col_mb_6'>
                 <div className='full-img-container block'>

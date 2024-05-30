@@ -29,7 +29,7 @@ const IntroTelas = () => {
           <>
             <h2>Nuestras telas</h2>
             <p className='mb-10'>Gran variedad de bases disponibles</p>
-            <div className='grid mb-8'>
+            <div className='grid mb-10'>
               {telas.map(({ image }: { image: string }, index) => (
                 <div key={index} className='col_4 col_mb_6'>
                   <div className='full-img-container'>

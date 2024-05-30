@@ -7,6 +7,7 @@ import { useCartContext } from '@/app/contexts/CartContext';
 import Button from '@/app/components/Button';
 import TelaGraph from '@/app/components/TelaGraph';
 import EstampasGrid from '@/app/components/EstampasGrid';
+import TelaMtsInput from '@/app/components/TelaMtsInput';
 
 interface TelaProps {
   tela: Tela;
@@ -15,8 +16,7 @@ interface TelaProps {
 export default function TelaContainer({ tela }: TelaProps) {
   const [mts, setMts] = useState<number>(1);
   const [price, setPrice] = useState<number>(2 * tela?.price);
-  const { addCartItem, removeCartItemBySku, existsInCart, telaAvailable } =
-    useCartContext();
+  const { addCartItem, removeCartItemBySku, existsInCart } = useCartContext();
 
   const priceFirstStep = 0.8;
   const priceSecondStep = 0.5;
@@ -25,11 +25,11 @@ export default function TelaContainer({ tela }: TelaProps) {
     addCartItem({ tela, mts, price, estampas: [] });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const valueMts = parseFloat(e.target.value);
-    setMts(e.target.value ? valueMts : 1);
+  const handleInputChange = (mts: number) => {
+    const valueMts = mts;
+    setMts(mts ? valueMts : 1);
     setPrice(
-      e.target.value
+      mts
         ? valueMts *
             tela?.price *
             2 *
@@ -43,22 +43,15 @@ export default function TelaContainer({ tela }: TelaProps) {
   };
 
   return (
-    <div>
+    <div className='relative'>
       <div className='flex justify-between items-center'>
         <h1 className='text-5xl font-display mb-5'>{tela?.title}</h1>
-
         {existsInCart(tela.sku) && (
           <button onClick={() => removeCartItemBySku(tela.sku)}>
-            Cancelar
+            Quitar tela
           </button>
         )}
       </div>
-
-      {existsInCart(tela.sku) && (
-        <div className='bg-primary-bg-color py-5 px-6 rounded-2xl mb-8'>
-          <TelaGraph sku={tela.sku} />{' '}
-        </div>
-      )}
 
       <div className='bg-primary-bg-color p-10 rounded-2xl'>
         {existsInCart(tela.sku) && <EstampasGrid />}
@@ -78,12 +71,11 @@ export default function TelaContainer({ tela }: TelaProps) {
             <div className='col_6'>
               <div className='flex flex-col justify-center items-start'>
                 <div className='relative w-full mb-5'>
-                  <p className='mb-8'>{tela?.description}</p>
+                  <p className='mb-8 mr-0 xl:mr-20'>{tela?.description}</p>
+                  <h3 className='mb-1'>Precios</h3>
                   <ul className='mb-8'>
                     <li>
-                      <p className='text-sm'>
-                        Precio por 1/2 metro: ${tela?.price}
-                      </p>
+                      <p className='text-sm'>Por 1/2 metro: ${tela?.price}</p>
                     </li>
                     <li>
                       <p className='text-sm'>
@@ -97,28 +89,21 @@ export default function TelaContainer({ tela }: TelaProps) {
                     </li>
                   </ul>
                 </div>
-                <div>
-                  <p>Total: ${price}</p>
-                </div>
-                <div className='flex items-center'>
-                  <label htmlFor='mts'>Metros</label>
-                  <input
-                    type='number'
-                    step='0.5'
-                    min='1'
-                    max='30'
-                    id='mts'
-                    value={mts}
-                    onChange={(e) => handleInputChange(e)}
-                  />
+                <p className='mb-8 font-medium'>Total: ${price}</p>
+                <div className='flex items-center gap-2 mb-8'>
+                  <TelaMtsInput setMts={handleInputChange} mts={mts} />
                 </div>
                 <Button onClick={handleAddToCart}>Agregar</Button>
               </div>
             </div>
-            {/* <pre>{JSON.stringify(getTelaBySku(params.sku), null, 2)}</pre> */}
           </div>
         )}
       </div>
+      {existsInCart(tela.sku) && (
+        <div className='bg-fourth-bg-color py-5 px-6 rounded-2xl mt-8 sticky bottom-0 w-full opacity-90'>
+          <TelaGraph sku={tela.sku} />{' '}
+        </div>
+      )}
     </div>
   );
 }

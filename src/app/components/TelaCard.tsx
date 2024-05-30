@@ -9,7 +9,7 @@ export default function TelaCard({ telaId, title, sku, price, images }: Tela) {
         <Image fill={true} sizes='100%' src={images.lisaUrl} alt={title} className='rounded-2xl full-img' />
       </div>
       <h3 className='text-xl'>{title}</h3>
-      <p>Desde ${price}</p>
+      <p className='mb-4'>Desde ${price}</p>
       <LinkButton href={`/telas/${sku}`}>Ver tela</LinkButton>
     </div>
   );

@@ -20,7 +20,7 @@ const IntroOwnDesigns = () => {
               que estén bien y que en la tela se vayan a ver perfectos.
             </p>
             <h2>Exclusividad garantizada</h2>
-            <p>
+            <p className='mb-10'>
               Tus archivos serán utilizados únicamente en tus pedidos las veces
               lo necesites.
             </p>

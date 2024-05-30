@@ -18,7 +18,7 @@ export const categories = [
 export const telas: Tela[] = [
   {
     telaId: '1',
-    title: 'Tela 1',
+    title: 'Batista',
     sku: 'sku1',
     price: 10,
     images: {
@@ -26,7 +26,7 @@ export const telas: Tela[] = [
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
-    description: 'Tela 1 description',
+    description: 'Tela fina, liviana y delicada.',
     categories: [
       {
         id: '1',
@@ -36,7 +36,7 @@ export const telas: Tela[] = [
   },
   {
     telaId: '2',
-    title: 'Tela 2',
+    title: 'Cordura',
     sku: 'sku2',
     price: 20,
     images: {
@@ -44,6 +44,7 @@ export const telas: Tela[] = [
       estampadaUrl: 'https://via.placeholder.com/150',
       usosUrl: 'https://via.placeholder.com/150',
     },
+    description: 'Tela muy resistente con una lámina de pvc en el reverso que la hace repelente al agua. ',
     categories: [
       {
         id: '1',
@@ -221,3 +222,4 @@ export const getEstampaBySku = (sku: string) =>
   estampas.find((estampa) => estampa.sku === sku);
 
 export const getAllEstampas = () => estampas;
+export const getAllTelas = () => telas as Tela[];
