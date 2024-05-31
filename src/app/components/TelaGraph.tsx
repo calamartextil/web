@@ -45,7 +45,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
 
   return (
     <div
-      className={`flex flex-wrap items-center justify-center w-full relative ${
+      className={`flex flex-wrap items-center justify-center w-full relative gap-2 ${
         isScroll ? 'min-h-1' : 'min-h-4'
       } gap-y-5`}
     >

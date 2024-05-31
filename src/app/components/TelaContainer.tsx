@@ -100,7 +100,7 @@ export default function TelaContainer({ tela }: TelaProps) {
         )}
       </div>
       {existsInCart(tela.sku) && (
-        <div className='bg-fourth-bg-color py-5 px-6 rounded-2xl mt-8 sticky bottom-0 w-full opacity-90'>
+        <div className='bg-secondary-bg-color py-5 px-6 rounded-2xl mt-8 sticky bottom-0 w-full border-black border-1'>
           <TelaGraph sku={tela.sku} />{' '}
         </div>
       )}
