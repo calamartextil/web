@@ -99,7 +99,7 @@ export default function CartContainer() {
                           </p>
                         </div>
                         <div className='flex flex-col justify-start items-start gap-2'>
-                          <LinkButton href={`/telas/${item.tela.sku}`}>Editar</LinkButton>
+                          <LinkButton href={`/telas/${item.tela.sku}`}>Editar estampas</LinkButton>
                           <Button
                             onClick={() => removeCartItemBySku(item.tela.sku)}
                             className='bg-red-500 text-white rounded-2xl'
