@@ -43,6 +43,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
       });
   };
 
+  
   return (
     <div
       className={`flex flex-wrap items-center justify-center w-full relative gap-2 ${
@@ -51,10 +52,12 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
     >
       <div className='absolute top-0 right-0'>
         {availability() > 0 && (
-          <p className='text-sm'>Restan: {availability()} mts</p>
+          <p className='text-sm text-white font-semibold'>
+            Restan: {availability()} mts
+          </p>
         )}
         {availability() <= 0 && (
-          <p className='text-sm'>
+          <p className='text-sm text-white font-semibold'>
             <Link href='/pedido'>Ver pedido</Link>
           </p>
         )}
@@ -62,7 +65,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
       {availability() !== telaAvailable(sku).telaTotal ? (
         generateGraph()
       ) : (
-        <p>Elegí las estampas</p>
+        <p className='text-sm text-white'>Todavía no hay estampas elegidas</p>
       )}
     </div>
   );
