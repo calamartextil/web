@@ -40,7 +40,7 @@ export default function TelaMtsInput({ setMts, mts }: TelaMtsInputProps) {
         <div className='w-full flex justify-between items-center gap-x-5'>
           <div className='grow'>
             <input
-              className='pl-3 w-8 p-0 bg-transparent border-0 focus:ring-0 text-white'
+              className='pl-3 w-11 p-0 bg-transparent border-0 focus:ring-0 text-white'
               type='number'
               value={mts}
               data-hs-input-number-input=''
