@@ -1,20 +1,21 @@
 'use client';
 
-import React, { useState, WheelEventHandler } from 'react';
+import { WheelEventHandler } from 'react';
 
 interface TelaMtsInputProps {
   setMts: (mts: number) => void;
   mts: number;
+  interval?: number;
 }
 
-export default function TelaMtsInput({ setMts, mts }: TelaMtsInputProps) {
+export default function TelaMtsInput({ setMts, mts, interval = 1 }: TelaMtsInputProps) {
   const handleDecrement = () => {
-    if (mts <= 1) return;
-    setMts(mts - 1);
+    if (mts <= interval) return;
+    setMts(mts - interval);
   };
 
   const handleIncrement = () => {
-    setMts(mts + 1);
+    setMts(mts + interval);
   };
 
   const preventWheel: WheelEventHandler<HTMLInputElement> = (e) => {
