@@ -62,51 +62,53 @@ const EstampaModal = ({
                 </div>
               </div>
               <div className='col_6'>
-                <div className='flex flex-col'>
-                  <h2 className='text-4xl mb-5'>{title}</h2>
-                  <div className='pb-5'>
-                  <TelaMtsInput
-                    setMts={handleInputChange}
-                    mts={mts}
-                    interval={0.5}
-                  />
-                  </div>
-                  
-                  <div className='pb-5'>
-                    <div className='flex justify-start gap-2 mt-4'>
-                      <p className='text-lg'>Escala:</p>
-                      <button
-                        className={`rounded-full w-8 h-8 flex justify-center items-center ${
-                          scale === Scale.S
-                            ? 'bg-third-bg-color'
-                            : 'bg-gray-200'
-                        }`}
-                        onClick={() => setScale(Scale.S)}
-                      >
-                        {Scale.S}
-                      </button>
-                      <button
-                        className={`rounded-full w-8 h-8 flex justify-center items-center ${
-                          scale === Scale.M
-                            ? 'bg-third-bg-color'
-                            : 'bg-gray-200'
-                        }`}
-                        onClick={() => setScale(Scale.M)}
-                      >
-                        {Scale.M}
-                      </button>
-                      <button
-                        className={`rounded-full w-8 h-8 flex justify-center items-center ${
-                          scale === Scale.L
-                            ? 'bg-third-bg-color'
-                            : 'bg-gray-200'
-                        }`}
-                        onClick={() => setScale(Scale.L)}
-                      >
-                        {Scale.L}
-                      </button>
+                <div className='flex flex-col justify-between h-full'>
+                  <div>
+                    <h2 className='text-4xl mb-5'>{title}</h2>
+                    <div className='pb-5'>
+                      <TelaMtsInput
+                        setMts={handleInputChange}
+                        mts={mts}
+                        interval={0.5}
+                      />
+                    </div>
+                    <div className='pb-5'>
+                      <div className='flex justify-start gap-2 mt-4'>
+                        <p className='text-lg'>Escala:</p>
+                        <button
+                          className={`rounded-full w-8 h-8 flex justify-center items-center ${
+                            scale === Scale.S
+                              ? 'bg-third-bg-color'
+                              : 'bg-gray-200'
+                          }`}
+                          onClick={() => setScale(Scale.S)}
+                        >
+                          {Scale.S}
+                        </button>
+                        <button
+                          className={`rounded-full w-8 h-8 flex justify-center items-center ${
+                            scale === Scale.M
+                              ? 'bg-third-bg-color'
+                              : 'bg-gray-200'
+                          }`}
+                          onClick={() => setScale(Scale.M)}
+                        >
+                          {Scale.M}
+                        </button>
+                        <button
+                          className={`rounded-full w-8 h-8 flex justify-center items-center ${
+                            scale === Scale.L
+                              ? 'bg-third-bg-color'
+                              : 'bg-gray-200'
+                          }`}
+                          onClick={() => setScale(Scale.L)}
+                        >
+                          {Scale.L}
+                        </button>
+                      </div>
                     </div>
                   </div>
+
                   <div className='flex justify-end items-center gap-5'>
                     <Button onClick={handleAddEstampa}>Agregar</Button>
                     <Button onClick={handleModal}>Cancelar</Button>
