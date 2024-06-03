@@ -1,29 +1,26 @@
 'use client';
 
-import React, { useState, WheelEventHandler } from 'react';
+import { WheelEventHandler } from 'react';
 
 interface TelaMtsInputProps {
   setMts: (mts: number) => void;
   mts: number;
+  interval?: number;
 }
 
-export default function TelaMtsInput({ setMts, mts }: TelaMtsInputProps) {
+export default function TelaMtsInput({ setMts, mts, interval = 1 }: TelaMtsInputProps) {
   const handleDecrement = () => {
-    if (mts <= 1) return;
-    setMts(mts - 0.5);
+    if (mts <= interval) return;
+    setMts(mts - interval);
   };
 
   const handleIncrement = () => {
-    setMts(mts + 0.5);
+    setMts(mts + interval);
   };
 
-  const preventWheel: WheelEventHandler<HTMLInputElement> = (
-    e
-  ) => {
-    const inputElement = e.target as HTMLInputElement; 
-    // Prevent the input value change
+  const preventWheel: WheelEventHandler<HTMLInputElement> = (e) => {
+    const inputElement = e.target as HTMLInputElement;
     inputElement.blur();
-    // Prevent the page/container scrolling
     e.stopPropagation();
     // Refocus immediately, on the next tick (after the current function is done)
     // setTimeout(() => {
@@ -40,7 +37,7 @@ export default function TelaMtsInput({ setMts, mts }: TelaMtsInputProps) {
         <div className='w-full flex justify-between items-center gap-x-5'>
           <div className='grow'>
             <input
-              className='pl-3 w-8 p-0 bg-transparent border-0 focus:ring-0 text-white'
+              className='pl-3 w-11 p-0 bg-transparent border-0 focus:ring-0 text-white'
               type='number'
               value={mts}
               data-hs-input-number-input=''
@@ -92,7 +89,9 @@ export default function TelaMtsInput({ setMts, mts }: TelaMtsInputProps) {
                 <path d='M12 5v14'></path>
               </svg>
             </button>
-            <p className='text-white text-lg ml-1'>{mts !== 1 ? `mts` : `mt  `}</p>
+            <p className='text-white text-lg ml-1'>
+              {mts !== 1 ? `mts` : `mt  `}
+            </p>
           </div>
         </div>
       </div>

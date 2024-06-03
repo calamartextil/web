@@ -32,29 +32,38 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
       .filter((cartItem) => cartItem.tela.sku === sku)
       .map((cartItem) => {
         return cartItem?.estampas?.map((estampa, index) => (
-          <Image
-            key={index}
-            src={estampa.estampa.image}
-            alt={estampa.estampa.title}
-            width={isScroll ? 80 : 80}
-            height={isScroll ? 80 : 80}
-          />
+          <div key={index} className='flex items-center justify-center gap-2 mr-3'>
+            <Image
+              className='rounded-2xl'
+              src={estampa.estampa.image}
+              alt={estampa.estampa.title}
+              width={isScroll ? 80 : 80}
+              height={isScroll ? 80 : 80}
+            />
+            <div>
+              <p className='text-sm'>{estampa.estampa.title}</p>
+              <p className='text-sm'>Escala {estampa.scale}</p>
+              <p className='text-sm'>{estampa.mts} mts</p>
+            </div>
+          </div>
         ));
       });
   };
 
   return (
     <div
-      className={`flex flex-wrap items-center justify-center w-full relative ${
+      className={`flex flex-wrap items-center justify-center w-full relative gap-2 ${
         isScroll ? 'min-h-1' : 'min-h-4'
       } gap-y-5`}
     >
       <div className='absolute top-0 right-0'>
         {availability() > 0 && (
-          <p className='text-sm'>Restan: {availability()} mts</p>
+          <p className='text-sm text-white font-semibold'>
+            Restan: {availability()} mts
+          </p>
         )}
         {availability() <= 0 && (
-          <p className='text-sm'>
+          <p className='text-sm text-white font-semibold'>
             <Link href='/pedido'>Ver pedido</Link>
           </p>
         )}
@@ -62,7 +71,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
       {availability() !== telaAvailable(sku).telaTotal ? (
         generateGraph()
       ) : (
-        <p>Elegí las estampas</p>
+        <p className='text-sm text-white'>Todavía no hay estampas elegidas</p>
       )}
     </div>
   );
