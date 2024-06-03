@@ -101,10 +101,18 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     };
     const updatedCart = cart.map((cartItem) => {
       if (cartItem.tela.sku === telaSku) {
-        return {
-          ...cartItem,
-          estampas: [...(cartItem.estampas || []), estampaItem],
-        };
+        const existingEstampa = cartItem.estampas?.find(
+          (estampa) =>
+            estampa.estampa.sku === estampaSku && estampa.scale === scale
+        );
+        if (existingEstampa) {
+          existingEstampa.mts += mts;
+        } else {
+          return {
+            ...cartItem,
+            estampas: [...(cartItem.estampas || []), estampaItem],
+          };
+        }
       }
       return cartItem;
     });
@@ -116,9 +124,9 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
       telaTotal:
         cart.find((cartItem) => cartItem.tela.sku === telaSku)?.mts || 0,
       estampasTotal:
-      cart
-      .find((cartItem) => cartItem.tela.sku === telaSku)
-      ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0,
+        cart
+          .find((cartItem) => cartItem.tela.sku === telaSku)
+          ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0,
     };
   };
 

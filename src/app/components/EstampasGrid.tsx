@@ -4,6 +4,7 @@ import { estampas } from '@/app/database/staticContent';
 
 export default function EstampasGrid() {
   return (
+    
     <div className='grid w-full'>
       {estampas.map((estampa, index) => (
         <div key={index} className='col_3'>
