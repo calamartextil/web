@@ -1,18 +1,23 @@
 'use server';
 
-//EXAMPLE DELETE!
+import dbConnect from '@/app/database/dbConnect';
+import Tela from '@/app/models/Tela';
 
-import { permanentRedirect } from 'next/navigation';
-import { revalidateTag } from 'next/cache';
+// export async function getAllTelas() { //Posible deprecated
+//   try {
+//     const res = await fetch('http://localhost:3000/api/telas');
+//     const telas = await res.json();
+//     return telas
+//   } catch (error: any) {
+//     console.log(error.message);
+//   }
 
-export async function updateUsername(username: string, formData: FormData) {
+export async function getAllTelas() {
+  await dbConnect();
   try {
-    // Call database
-    console.log('server')
-  } catch (error) {
-    // Handle errors
+    const telas = await Tela.find();
+    return telas;
+  } catch (error: any) {
+    console.log('Error: ', error.message);
   }
-
-  revalidateTag('username'); // Update all references to the username
-  permanentRedirect(`/profile/${username}`); // Navigate to the new user profile
 }

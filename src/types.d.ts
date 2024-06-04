@@ -6,9 +6,8 @@ export type Tela = {
   baseColor?: string;
   composition?: string;
   width?: number;
-  usos?: string;
+  usos?: string[];
   prices: number[];
-  minMeters?: number;
   images: {
     lisaUrl: string;
     estampadaUrl?: string;
