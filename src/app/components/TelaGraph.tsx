@@ -10,17 +10,16 @@ interface TelaGraphProps {
 }
 
 export default function TelaGraph({ sku }: TelaGraphProps) {
-  const { cart, telaAvailable } = useCartContext();
+  const { cart, telaAvailable, removeEstampaBySku} = useCartContext();
   const [isScroll, setIsScroll] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log('scroll', window.scrollY);
-      setIsScroll(window.scrollY > 170);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // useEffect(() => { //Use this only if need scroll animation - deprecated
+  //   const handleScroll = () => {
+  //     setIsScroll(window.scrollY > 170);
+  //   };
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   const availability = () => {
     const rest = telaAvailable(sku);
@@ -47,6 +46,11 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
               <p className='text-sm'>{estampa.estampa.title}</p>
               <p className='text-sm'>Escala {estampa.scale}</p>
               <p className='text-sm'>{estampa.mts} mts</p>
+              <button
+                className='text-sm text-white'
+                onClick={() =>
+                  removeEstampaBySku(sku, estampa.estampa.sku, estampa.scale)
+                } >Quitar</button>
             </div>
           </div>
         ));
