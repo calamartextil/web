@@ -1,5 +1,7 @@
 'use server';
 
+//EXAMPLE DELETE!
+
 import { permanentRedirect } from 'next/navigation';
 import { revalidateTag } from 'next/cache';
 

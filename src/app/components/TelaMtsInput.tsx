@@ -1,14 +1,21 @@
 'use client';
 
-import { WheelEventHandler } from 'react';
+import { WheelEventHandler, useEffect } from 'react';
 
 interface TelaMtsInputProps {
   setMts: (mts: number) => void;
   mts: number;
   interval?: number;
+  available?: number;
 }
 
-export default function TelaMtsInput({ setMts, mts, interval = 1 }: TelaMtsInputProps) {
+export default function TelaMtsInput({
+  setMts,
+  mts,
+  interval = 1,
+  available = 500,
+}: TelaMtsInputProps) {
+
   const handleDecrement = () => {
     if (mts <= interval) return;
     setMts(mts - interval);
@@ -29,7 +36,7 @@ export default function TelaMtsInput({ setMts, mts, interval = 1 }: TelaMtsInput
   };
 
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center pb-2'>
       <div
         className='py-2 px-3 bg-gray-100 rounded-2xl bg-third-bg-color'
         data-hs-input-number=''
@@ -41,7 +48,9 @@ export default function TelaMtsInput({ setMts, mts, interval = 1 }: TelaMtsInput
               type='number'
               value={mts}
               data-hs-input-number-input=''
-              onChange={(e) => setMts(Number(e.target.value))}
+              onChange={(e) =>
+                available === 0 && setMts(Number(e.target.value))
+              }
               onWheel={preventWheel}
             />
           </div>
@@ -69,6 +78,7 @@ export default function TelaMtsInput({ setMts, mts, interval = 1 }: TelaMtsInput
             </button>
             <button
               type='button'
+              disabled={available - mts === 0}
               className='size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-2xl border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800'
               data-hs-input-number-increment=''
               onClick={handleIncrement}

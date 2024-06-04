@@ -28,7 +28,9 @@ interface CartContextProps {
   telaAvailable: (telaSku: string) => {
     telaTotal: number;
     estampasTotal: number;
+    available: number;  
   };
+  removeEstampaBySku: (telaSku: string, estampaSku: string, estampaScale: string) => void;
 }
 
 interface CartContextProviderProps {
@@ -83,6 +85,22 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     setCart(cart.filter((cartItem) => cartItem.tela.sku !== sku));
   };
 
+  const removeEstampaBySku = (telaSku: string, estampaSku: string, estampaScale: string) => {
+    const updatedCart = cart.map((cartItem) => {
+      if (cartItem.tela.sku === telaSku) {
+        const updatedEstampas = cartItem.estampas?.filter(
+          (estampa) => estampa.estampa.sku !== estampaSku || estampa.scale !== estampaScale
+        );
+        return {
+          ...cartItem,
+          estampas: updatedEstampas,
+        };
+      }
+      return cartItem;
+    });
+    setCart(updatedCart as CartItem[]);
+  }
+
   const findCartItemBySku = (sku: string) => {
     return cart.find((cartItem) => cartItem.tela.sku === sku);
   };
@@ -127,6 +145,11 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cart
           .find((cartItem) => cartItem.tela.sku === telaSku)
           ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0,
+      available:
+        (cart.find((cartItem) => cartItem.tela.sku === telaSku)?.mts || 0) -
+        (cart
+          .find((cartItem) => cartItem.tela.sku === telaSku)
+          ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0),
     };
   };
 
@@ -143,6 +166,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         existsInCart,
         findCartItemBySku,
         addEstampaToTela,
+        removeEstampaBySku
       }}
     >
       {children}
