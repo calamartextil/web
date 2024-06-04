@@ -6,7 +6,7 @@ export default function TelaCard({ telaId, title, sku, prices, images }: Tela) {
   return (
     <div className='flex flex-col justify-center items-center bg-primary-bg-color py-5 px-6 rounded-2xl'>
       <div className='full-img-container mb-5'>
-        <Image fill={true} sizes='100%' src={images.lisaUrl} alt={title} className='rounded-2xl full-img' />
+        <Image fill={true} sizes='100%' src={images?.lisaUrl} alt={title} className='rounded-2xl full-img' />
       </div>
       <h3 className='text-xl'>{title}</h3>
       <p className='mb-4'>Desde ${prices[4]}</p>
