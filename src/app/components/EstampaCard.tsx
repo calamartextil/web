@@ -3,7 +3,6 @@
 import { Estampa } from '@/types';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { useCartContext } from '@/app/contexts/CartContext';
 import EstampaModal from '@/app/components/EstampaModal';
 
 export default function EstampaCard({

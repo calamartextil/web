@@ -15,7 +15,7 @@ export default function TelasGrid({
             telaId={tela.telaId}
             title={tela.title}
             sku={tela.sku}
-            price={tela.price}
+            prices={tela.prices}
             images={tela.images}
             categories={tela.categories}
           />

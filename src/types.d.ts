@@ -7,7 +7,7 @@ export type Tela = {
   composition?: string;
   width?: number;
   usos?: string;
-  price: number;
+  prices: number[];
   minMeters?: number;
   images: {
     lisaUrl: string;

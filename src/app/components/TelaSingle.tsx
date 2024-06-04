@@ -13,10 +13,8 @@ interface TelaProps {
 
 export default function TelaSingle({ tela }: TelaProps) {
   const [mts, setMts] = useState<number>(1);
-  const [price, setPrice] = useState<number>(tela?.price);
+  const [price, setPrice] = useState<number>(tela?.prices[0]);
   const { addCartItem } = useCartContext();
-  const priceFirstStep = 0.8;
-  const priceSecondStep = 0.5;
 
   const handleAddToCart = () => {
     addCartItem({ tela, mts, price, estampas: [] });
@@ -24,12 +22,18 @@ export default function TelaSingle({ tela }: TelaProps) {
 
   const handleInputChange = (mts: number) => {
     setMts(mts ? mts : 1);
-    setPrice( //TODO: Refactor this with many prices for steps. view xls
-      mts
-        ? mts *
-            tela?.price *
-            (mts > 20 ? priceSecondStep : mts > 10 ? priceFirstStep : 1)
-        : tela?.price
+    setPrice(
+      tela?.prices[
+        mts >= 0 && mts <= 5
+          ? 0
+          : mts >= 6 && mts <= 10
+          ? 1
+          : mts >= 11 && mts <= 30
+          ? 2
+          : mts >= 31 && mts <= 50
+          ? 3
+          : 4
+      ] * mts
     );
   };
   return (
@@ -52,18 +56,22 @@ export default function TelaSingle({ tela }: TelaProps) {
             <h3 className='mb-1'>Precios</h3>
             <ul className='mb-8'>
               <li>
-                <p className='text-sm'>Por 1/2 metro: ${tela?.price}</p>
+                <p className='text-sm'>De 1 a 5 mts: ${tela?.prices[0]}</p>
               </li>
               <li>
-                <p className='text-sm'>
-                  Más de 10 metros: ${tela?.price * priceFirstStep}
-                </p>
+                <p className='text-sm'>De 6 a 10 mts: ${tela?.prices[1]}</p>
               </li>
               <li>
-                <p className='text-sm'>
-                  Más de 20 metros: ${tela?.price * priceSecondStep}
-                </p>
+                <p className='text-sm'>De 11 a 30 mts: ${tela?.prices[2]}</p>
               </li>
+              <li>
+                <p className='text-sm'>De 31 a 50 mts: ${tela?.prices[3]}</p>
+              </li>
+              <li>
+                <p className='text-sm'>51 o más mts: ${tela?.prices[4]}</p>
+              </li>
+            
+              
             </ul>
           </div>
           <p className='mb-8 font-medium'>Total: ${price}</p>

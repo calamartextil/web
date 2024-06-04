@@ -127,6 +127,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cart
           .find((cartItem) => cartItem.tela.sku === telaSku)
           ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0,
+          
     };
   };
 
