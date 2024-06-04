@@ -28,6 +28,7 @@ interface CartContextProps {
   telaAvailable: (telaSku: string) => {
     telaTotal: number;
     estampasTotal: number;
+    available: number;  
   };
 }
 
@@ -127,7 +128,11 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cart
           .find((cartItem) => cartItem.tela.sku === telaSku)
           ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0,
-          
+      available:
+        (cart.find((cartItem) => cartItem.tela.sku === telaSku)?.mts || 0) -
+        (cart
+          .find((cartItem) => cartItem.tela.sku === telaSku)
+          ?.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) || 0),
     };
   };
 
