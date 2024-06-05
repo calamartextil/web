@@ -6,7 +6,7 @@ export default async function TelasGrid({
 }: {
   category?: string | null;
 }) {
-  const telas = await getAllTelas();
+  const telas = await getAllTelas(category);
 
   return (
     <div className='grid w-full'>
@@ -23,6 +23,11 @@ export default async function TelasGrid({
             />
           </div>
         ))}
+      {telas?.length === 0 && (
+        <div className='col_12 w-full flex items-center justify-center mt-8'>
+          <p className='text-sm'>Aún no hay telas en esta categoria</p>
+        </div>
+      )}
     </div>
   );
 }
