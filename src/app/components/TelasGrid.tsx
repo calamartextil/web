@@ -1,14 +1,12 @@
 import TelaCard from '@/app/components/TelaCard';
-
-import { getAllTelas } from '@/app/database/staticContent';
-import { getAllTelas as getAllTelasDb } from '@/app/database/actions';
+import { getAllTelas } from '@/app/database/actions';
 
 export default async function TelasGrid({
   category = null,
 }: {
   category?: string | null;
 }) {
-  const telas = await getAllTelasDb();
+  const telas = await getAllTelas();
 
   return (
     <div className='grid w-full'>
