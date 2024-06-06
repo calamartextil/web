@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { DM_Serif_Display, Outfit } from 'next/font/google';
 import './grid.css';
 import './globals.css';
-import Navbar from '@/app/components/Navbar';
+import Navbar from '@/app/components/Navbar/Navbar';
 import Footer from '@/app/components/Footer';
 import { CartContextProvider } from '@/app/contexts/CartContext';
 
