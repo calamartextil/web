@@ -2,30 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaSquareFacebook, FaSquareInstagram } from 'react-icons/fa6';
 import CartIcon from '@/app/components/Navbar/CartIcon';
+import Menu from '@/app/components/Navbar/Menu';
 
 const Navbar = () => {
-  const navBarItems = [
-    {
-      name: 'Telas y precios',
-      href: '/telas',
-    },
-    {
-      name: 'Estampas',
-      href: '/estampas',
-    },
-    {
-      name: 'Tu pedido',
-      href: '/pedido',
-    },
-    {
-      name: 'Nosotros',
-      href: '/nosotros',
-    },
-    {
-      name: 'Contacto',
-      href: '/contacto',
-    },
-  ];
 
   return (
     <div className='fixed top-0 z-50 w-full'>
@@ -36,15 +15,8 @@ const Navbar = () => {
               <Image src='/images/logo-color.svg' fill={true} alt='Calamar' />
             </div>
           </Link>
-          <nav className='hidden md:block font-outfit font-semibold text-md'>
-            <ul className='flex justify-center items-center gap-20'>
-              {navBarItems.map(({ name, href }, index) => (
-                <li key={index}>
-                  <Link href={href}>{name}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Menu />
+          
           <div className='flex justify-center items-center gap-4'>
             <a href=''>
               <FaSquareInstagram size='30' color='#F4C6E3' />
