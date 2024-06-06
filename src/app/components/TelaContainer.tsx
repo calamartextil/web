@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Tela } from '@/types';
 import { useCartContext } from '@/app/contexts/CartContext';
 import TelaGraph from '@/app/components/TelaGraph';
@@ -18,12 +17,12 @@ export default function TelaContainer({ tela }: TelaProps) {
     <div className='relative'>
       <div className='flex justify-between items-center'>
         <div className='flex justify-center items-center gap-5'>
-        <h1 className='text-5xl font-display mb-5'>{tela?.title}</h1>
-        {existsInCart(tela.sku) ? (
-          <p className='text-lg'>(Paso 2: Elegí las estampas)</p>
-        ) : (
-          <p className='text-lg'>(Paso 1: Elegí la tela)</p>
-        )}
+          <h1 className='text-5xl font-display mb-5'>{tela?.title}</h1>
+          {existsInCart(tela.sku) ? (
+            <p className='text-lg'>(Paso 2: Elegí las estampas)</p>
+          ) : (
+            <p className='text-lg'>(Paso 1: Elegí la tela)</p>
+          )}
         </div>
         {existsInCart(tela.sku) && (
           <button onClick={() => removeCartItemBySku(tela.sku)}>

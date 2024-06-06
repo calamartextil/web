@@ -1,36 +1,61 @@
+'use client';
+
 import Link from 'next/link';
+import { useActivePath } from '@/app/utils/helpers';
+
 export default function Sidebar() {
+  const checkActivePath = useActivePath();
+
+  const categories = [
+    {
+      name: 'Plana',
+      href: '/telas/categoria/tela-plana',
+    },
+    {
+      name: 'Punto',
+      href: '/telas/categoria/tela-de-punto',
+    },
+    {
+      name: 'Indumentaria',
+      href: '/telas/categoria/tela-para-indumentaria',
+    },
+    {
+      name: 'Decoración',
+      href: '/telas/categoria/tela-para-decoracion',
+    },
+    {
+      name: 'Con elastano',
+      href: '/telas/categoria/tela-con-elastano',
+    },
+    {
+      name: 'Impermeable',
+      href: '/telas/categoria/tela-impermeable',
+    },
+    {
+      name: 'Algodón',
+      href: '/telas/categoria/tela-de-algodon',
+    },
+    {
+      name: 'Poliéster',
+      href: '/telas/categoria/tela-de-poliester',
+    },
+  ];
+
   return (
     <div className='sidebar w-[250px]'>
       <h1 className='mb-8'>Categorías</h1>
       <nav>
         <ul>
-          <li className='mb-2 rounded-2xl bg-secondary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-plana'>Plana</Link>
-          </li>
-          <li className='mb-2 rounded-2xl bg-primary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-de-punto'>Punto</Link>
-          </li>
-          <li className='mb-2 rounded-2xl bg-primary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-para-indumentaria'>
-              Indumentaria
-            </Link>
-          </li>
-          <li className='mb-2 rounded-2xl bg-primary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-para-decoracion'>Decoración</Link>
-          </li>
-          <li className='mb-2 rounded-2xl bg-primary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-con-elastano'>Con elastano</Link>
-          </li>
-          <li className='mb-2 rounded-2xl bg-primary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-impermeable'>Impermeable</Link>
-          </li>
-          <li className='mb-2 rounded-2xl bg-primary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-de-algodon'>Algodón</Link>
-          </li>
-          <li className='mb-2 rounded-2xl bg-primary-bg-color py-2 pl-6'>
-            <Link href='/telas/categoria/tela-de-poliester'>Poliéster</Link>
-          </li>
+          {categories.map(({ name, href }, index) => (
+            <li
+              key={index}
+              className={`mb-2 rounded-2xl ${
+                checkActivePath(href) ? 'bg-secondary-bg-color' : 'bg-primary-bg-color'
+              } py-2 pl-6`}
+            >
+              <Link href={href}>{name}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>

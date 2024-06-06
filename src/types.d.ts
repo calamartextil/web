@@ -13,7 +13,7 @@ export type Tela = {
     estampadaUrl?: string;
     usosUrl?: string;
   };
-  categories: telasCategory[];
+  categories: TelasCategory[];
 };
 
 export type Estampa = {
@@ -26,10 +26,8 @@ export type Estampa = {
 };
 
 export type TelasCategory = {
-  id: string;
-  title: string;
-  description?: string;
-  image?: string;
+  slug: string;
+  name: string;
 };
 
 export type CartItem = {

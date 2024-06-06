@@ -1,4 +1,5 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema, Types } from 'mongoose';
+import { ITelaCategory } from './TelaCategory';
 export interface ITela extends Document {
   title: string;
   sku: string;
@@ -14,6 +15,7 @@ export interface ITela extends Document {
     usosUrl?: string;
   };
   // categories: telasCategory[];
+  categories: Types.ObjectId[] | ITelaCategory[];
 }
 
 const telaSchema: Schema = new Schema({
@@ -26,6 +28,7 @@ const telaSchema: Schema = new Schema({
   usos: { type: Array, required: true },
   prices: { type: Array, required: true },
   images: { type: Object, required: true },
+  categories: { type: Array, required: true },
 });
 
 const Tela = mongoose.models.Tela || mongoose.model<ITela>('Tela', telaSchema);
