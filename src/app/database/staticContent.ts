@@ -29,8 +29,8 @@ export const telas: Tela[] = [
     description: 'Tela fina, liviana y delicada.',
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
@@ -47,8 +47,8 @@ export const telas: Tela[] = [
     description: 'Tela muy resistente con una lámina de pvc en el reverso que la hace repelente al agua. ',
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
@@ -64,8 +64,8 @@ export const telas: Tela[] = [
     },
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
@@ -81,8 +81,8 @@ export const telas: Tela[] = [
     },
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
@@ -98,8 +98,8 @@ export const telas: Tela[] = [
     },
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
@@ -115,8 +115,8 @@ export const telas: Tela[] = [
     },
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
@@ -132,8 +132,8 @@ export const telas: Tela[] = [
     },
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
@@ -149,8 +149,8 @@ export const telas: Tela[] = [
     },
     categories: [
       {
-        id: '1',
-        title: 'Categoria 1',
+        slug: '1',
+        name: 'Categoria 1',
       },
     ],
   },
