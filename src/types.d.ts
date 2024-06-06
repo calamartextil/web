@@ -17,7 +17,7 @@ export type Tela = {
 };
 
 export type Estampa = {
-  id: string;
+  id?: string;
   title: string;
   sku: string;
   image: string;
@@ -26,6 +26,10 @@ export type Estampa = {
 };
 
 export type TelasCategory = {
+  slug: string;
+  name: string;
+};
+export type EstampasCategory = {
   slug: string;
   name: string;
 };

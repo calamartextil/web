@@ -49,11 +49,11 @@ export default function Sidebar() {
           {categories.map(({ name, href }, index) => (
             <li
               key={index}
-              className={`mb-2 rounded-2xl ${
+              className={`mb-2 rounded-2xl hover:bg-secondary-bg-color hover:bg-opacity-0 ${
                 checkActivePath(href) ? 'bg-secondary-bg-color' : 'bg-primary-bg-color'
               } py-2 pl-6`}
             >
-              <Link href={href}>{name}</Link>
+              <Link href={href} className='w-full h-full'>{name}</Link>
             </li>
           ))}
         </ul>

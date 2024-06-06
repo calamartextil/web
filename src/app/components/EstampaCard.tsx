@@ -23,8 +23,8 @@ export default function EstampaCard({
           className='rounded-2xl full-img'
         />
       </div>
-      <h3 className='text-xl mb-1'>{title}</h3>
-      <h4 className='text-sm mb-5'>{category}</h4>
+      <h3 className='text-xl mb-3'>{title}</h3>
+      {/* <h4 className='text-sm mb-5'>{category}</h4> */}
       <EstampaModal
         telaSku={telaSku.sku}
         estampaSku={sku}
