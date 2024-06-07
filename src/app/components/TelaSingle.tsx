@@ -43,7 +43,7 @@ export default function TelaSingle({ tela }: TelaProps) {
           <Image
             sizes='100%'
             fill={true}
-            src={tela?.images.lisaUrl}
+            src={`https://app.calamartextil.com/images/telas/${tela?.images.lisaUrl}`}
             alt={tela?.title}
             className='rounded-2xl full-img'
           />

@@ -41,6 +41,18 @@ export async function getAllTelas(
   }
 }
 
+export async function getTelaBySku(sku: string): Promise<ITela | null> {
+  await dbConnect();
+  try {
+    const tela = await Tela.findOne({ sku });
+    const plainTela = JSON.parse(JSON.stringify(tela));
+    return plainTela;
+  } catch (error: any) {
+    console.log(error.message);
+    return {} as ITela;
+  }
+}
+
 export async function getAllEstampas() {
   // try {
   //   const estampas = await Estampa.find().lean();
