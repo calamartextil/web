@@ -8,7 +8,7 @@ import { Estampa as IEstampa, Tela as ITela, TelasCategory } from '@/types';
 
 // export async function getAllTelas() { //Posible deprecated
 //   try {
-//     const res = await fetch('http://localhost:3000/api/telas');
+//     const res = await fetch('`${process.env.NEXT_PUBLIC_URL}/api/telas');
 //     const telas = await res.json();
 //     return telas
 //   } catch (error: any) {
@@ -61,7 +61,7 @@ export async function getAllEstampas() {
   //   return [];
   // }
   try {
-    const res = await fetch('http://localhost:3000/api/estampas');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/estampas`);
     const estampas = await res.json();
     console.log('fetching estampas')
     return estampas as IEstampa[];
