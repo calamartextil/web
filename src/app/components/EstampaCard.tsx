@@ -21,6 +21,8 @@ export default function EstampaCard({
           src={`https://app.calamartextil.com/images/estampas/${image}`}
           alt={title}
           className='rounded-2xl full-img'
+          placeholder='blur'
+          blurDataURL='/images/placeholder.jpg'
         />
       </div>
       <h3 className='text-xl mb-3'>{title}</h3>
