@@ -18,13 +18,15 @@ export default function EstampaCard({
       <div className='full-img-container mb-5'>
         <Image
           fill={true}
-          src={image}
+          src={`https://app.calamartextil.com/images/estampas/${image}`}
           alt={title}
           className='rounded-2xl full-img'
+          placeholder='blur'
+          blurDataURL='/images/placeholder.jpg'
         />
       </div>
-      <h3 className='text-xl mb-1'>{title}</h3>
-      <h4 className='text-sm mb-5'>{category}</h4>
+      <h3 className='text-xl mb-3'>{title}</h3>
+      {/* <h4 className='text-sm mb-5'>{category}</h4> */}
       <EstampaModal
         telaSku={telaSku.sku}
         estampaSku={sku}

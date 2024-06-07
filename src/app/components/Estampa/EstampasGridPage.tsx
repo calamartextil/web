@@ -1,21 +1,12 @@
-'use client'
 import {useState, useEffect} from 'react';
 import EstampaCard from '@/app/components/EstampaCard';
 // import { estampas } from '@/app/database/staticContent';
-import { getAllEstampas } from '../database/actions';
+import { getAllEstampas } from '@/app/database/actions';
 import { Estampa as IEstampa } from '@/types';
 
-export default function EstampasGrid() {
+export default async function EstampasGrid() {
 
-  const [estampas, setEstampas] = useState<IEstampa[]>([]);
-
-  useEffect(() => {
-    const fetchEstampas = async () => {
-      const estampas = await getAllEstampas();
-      if (estampas) setEstampas(estampas);
-    }
-    fetchEstampas();
-  }, []);
+const estampas = await getAllEstampas();
 
   return (
     <div className='grid w-full'>

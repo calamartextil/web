@@ -3,7 +3,8 @@
 import dbConnect from '@/app/database/dbConnect';
 import Tela from '@/app/models/Tela';
 import TelaCategory from '@/app/models/TelaCategory';
-import { Tela as ITela, TelasCategory } from '@/types';
+import Estampa from '@/app/models/Estampa';
+import { Estampa as IEstampa, Tela as ITela, TelasCategory } from '@/types';
 
 // export async function getAllTelas() { //Posible deprecated
 //   try {
@@ -30,8 +31,6 @@ export async function getAllTelas(
       }).populate('categories');
       if (telas?.length === 0) return { telas: [], category: categoryFromDb };
 
-      
-
       return { telas, category: categoryFromDb };
     }
     const telas = await Tela.find();
@@ -39,5 +38,34 @@ export async function getAllTelas(
   } catch (error: any) {
     console.log('Error: ', error.message);
     return { telas: [], category: null };
+  }
+}
+
+export async function getTelaBySku(sku: string): Promise<ITela | null> {
+  await dbConnect();
+  try {
+    const tela = await Tela.findOne({ sku });
+    const plainTela = JSON.parse(JSON.stringify(tela));
+    return plainTela;
+  } catch (error: any) {
+    console.log(error.message);
+    return {} as ITela;
+  }
+}
+
+export async function getAllEstampas() {
+  // try {
+  //   const estampas = await Estampa.find().lean();
+  //   return estampas.map((estampa: any) => estampa as IEstampa);
+  // } catch (error: any) {
+  //   return [];
+  // }
+  try {
+    const res = await fetch('http://localhost:3000/api/estampas');
+    const estampas = await res.json();
+    console.log('fetching estampas')
+    return estampas as IEstampa[];
+  } catch (error: any) {
+    console.log(error.message);
   }
 }
