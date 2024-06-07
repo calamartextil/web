@@ -62,7 +62,7 @@ const EstampaModal = ({
                 <div className='full-img-container mb-5'>
                   <Image
                     fill={true}
-                    src={image}
+                    src={`https://app.calamartextil.com/images/estampas/${image}`}
                     alt={title}
                     className='rounded-2xl full-img'
                   />
