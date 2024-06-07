@@ -2,6 +2,8 @@ import dbConnect from '@/app/database/dbConnect';
 import Estampa from '@/app/models/Estampa';
 import { NextResponse } from 'next/server';
 
+export const dynamic = "force-dynamic";
+
 export async function GET() { //Posible deprecated
   await dbConnect();
   try {
