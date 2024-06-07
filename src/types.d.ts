@@ -1,5 +1,5 @@
 export type Tela = {
-  telaId: string;
+  telaId?: string;
   title: string;
   sku: string;
   description?: string;

@@ -51,7 +51,7 @@ export async function getAllEstampas() {
   try {
     const res = await fetch('http://localhost:3000/api/estampas');
     const estampas = await res.json();
-    return estampas
+    return estampas as IEstampa[];
   } catch (error: any) {
     console.log(error.message);
   }
