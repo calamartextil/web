@@ -10,7 +10,7 @@ interface TelaGraphProps {
 }
 
 export default function TelaGraph({ sku }: TelaGraphProps) {
-  const { cart, telaAvailable, removeEstampaBySku} = useCartContext();
+  const { cart, telaAvailable, removeEstampaBySku } = useCartContext();
   const [isScroll, setIsScroll] = useState(false);
 
   // useEffect(() => { //Use this only if need scroll animation - deprecated
@@ -37,7 +37,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
           >
             <Image
               className='rounded-2xl'
-              src={estampa.estampa.image}
+              src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/estampas/${estampa.estampa.image}`}
               alt={estampa.estampa.title}
               width={isScroll ? 80 : 80}
               height={isScroll ? 80 : 80}
@@ -50,7 +50,10 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
                 className='text-sm text-white'
                 onClick={() =>
                   removeEstampaBySku(sku, estampa.estampa.sku, estampa.scale)
-                } >Quitar</button>
+                }
+              >
+                Quitar
+              </button>
             </div>
           </div>
         ));

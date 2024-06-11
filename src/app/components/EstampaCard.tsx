@@ -18,7 +18,7 @@ export default function EstampaCard({
       <div className='full-img-container mb-5'>
         <Image
           fill={true}
-          src={`https://app.calamartextil.com/images/estampas/${image}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/estampas/${image}`}
           alt={title}
           className='rounded-2xl full-img'
           placeholder='blur'
