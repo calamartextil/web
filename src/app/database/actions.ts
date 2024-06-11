@@ -76,6 +76,7 @@ export async function getAllEstampas() {
 export async function getAllEstampasPage(
   category: string | null = null
 ): Promise<{ estampas: IEstampa[]; category: EstampasCategory | null }> {
+  await dbConnect();
   try {
     if (category) {
       const categoryFromDb = await EstampaCategory.findOne({ slug: category });
