@@ -18,7 +18,7 @@ export default function CartResume() {
           <div className='flex gap-5 mb-5'>
             <Link href={`/telas/${item.tela.sku}`}>
               <Image
-                src={item.tela.images.lisaUrl}
+                src={`${process.env.NEXT_PUBLIC_IMAGES_URL}${item.tela.images.lisaUrl}`}
                 alt={item.tela.title}
                 width={100}
                 height={100}

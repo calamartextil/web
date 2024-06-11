@@ -6,6 +6,8 @@ import { useCartContext } from '@/app/contexts/CartContext';
 import Button from '@/app/components/Button';
 import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
+import { useRouter } from 'next/navigation';
+import LinkButton from './LinkButton';
 
 interface TelaProps {
   tela: Tela;
@@ -14,10 +16,25 @@ interface TelaProps {
 export default function TelaSingle({ tela }: TelaProps) {
   const [mts, setMts] = useState<number>(1);
   const [price, setPrice] = useState<number>(tela?.prices[0]);
-  const { addCartItem } = useCartContext();
+  const {
+    addCartItem,
+    handleSetActualtelas,
+    existsInCart,
+    removeCartItemBySku,
+  } = useCartContext();
+  const router = useRouter();
 
   const handleAddToCart = () => {
+    router.push('/estampas');
+    handleSetActualtelas(tela);
     addCartItem({ tela, mts, price, estampas: [] });
+  };
+
+  const inCart = existsInCart(tela.sku);
+
+  const handleEditEstampasClick = () => {
+    handleSetActualtelas(tela);
+    router.push('/estampas');
   };
 
   const handleInputChange = (mts: number) => {
@@ -37,48 +54,73 @@ export default function TelaSingle({ tela }: TelaProps) {
     );
   };
   return (
-    <div className='grid'>
-      <div className='col_6'>
-        <div className='full-img-container'>
-          <Image
-            sizes='100%'
-            fill={true}
-            src={`https://app.calamartextil.com/images/telas/${tela?.images.lisaUrl}`}
-            alt={tela?.title}
-            className='rounded-2xl full-img'
-          />
+    <div className='relative'>
+      <div className='flex justify-between items-center'>
+        <div className='flex justify-center items-center gap-5'>
+          <h1 className='text-5xl font-display mb-5'>{tela?.title}</h1>
+          <p className='text-lg'>(Paso 1: Elegí la tela)</p>
         </div>
       </div>
-      <div className='col_6'>
-        <div className='flex flex-col justify-center items-start'>
-          <div className='relative w-full mb-5'>
-            <p className='mb-8 mr-0 xl:mr-20'>{tela?.description}</p>
-            <h3 className='mb-1'>Precios</h3>
-            <ul className='mb-8'>
-              <li>
-                <p className='text-sm'>De 1 a 5 mts: ${tela?.prices[0]}</p>
-              </li>
-              <li>
-                <p className='text-sm'>De 6 a 10 mts: ${tela?.prices[1]}</p>
-              </li>
-              <li>
-                <p className='text-sm'>De 11 a 30 mts: ${tela?.prices[2]}</p>
-              </li>
-              <li>
-                <p className='text-sm'>De 31 a 50 mts: ${tela?.prices[3]}</p>
-              </li>
-              <li>
-                <p className='text-sm'>51 o más mts: ${tela?.prices[4]}</p>
-              </li>
-            
-              
-            </ul>
+      <div className='bg-primary-bg-color p-10 rounded-2xl'>
+        <div className='grid'>
+          <div className='col_6'>
+            <div className='full-img-container'>
+              <Image
+                sizes='100%'
+                fill={true}
+                src={`https://app.calamartextil.com/images/telas/${tela?.images.lisaUrl}`}
+                alt={tela?.title}
+                className='rounded-2xl full-img'
+              />
+            </div>
           </div>
-          <p className='mb-8 font-medium'>Total: ${price}</p>
-          <div className='flex items-center gap-2 mb-8'>
-            <TelaMtsInput setMts={handleInputChange} mts={mts} />
+          <div className='col_6'>
+            <div className='flex flex-col justify-center items-start'>
+              <div className='relative w-full mb-5'>
+                <p className='mb-8 mr-0 xl:mr-20'>{tela?.description}</p>
+                <h3 className='mb-1'>Precios</h3>
+                <ul className='mb-8'>
+                  <li>
+                    <p className='text-sm'>De 1 a 5 mts: ${tela?.prices[0]}</p>
+                  </li>
+                  <li>
+                    <p className='text-sm'>De 6 a 10 mts: ${tela?.prices[1]}</p>
+                  </li>
+                  <li>
+                    <p className='text-sm'>
+                      De 11 a 30 mts: ${tela?.prices[2]}
+                    </p>
+                  </li>
+                  <li>
+                    <p className='text-sm'>
+                      De 31 a 50 mts: ${tela?.prices[3]}
+                    </p>
+                  </li>
+                  <li>
+                    <p className='text-sm'>51 o más mts: ${tela?.prices[4]}</p>
+                  </li>
+                </ul>
+              </div>
+              <p className='mb-8 font-medium'>Total: ${price}</p>
+              {!inCart && (
+                <div className='flex items-center gap-2 mb-8'>
+                  <TelaMtsInput setMts={handleInputChange} mts={mts} />
+                </div>
+              )}
+
+              {inCart && (
+                <div className='flex justify-start items-center gap-5'>
+                  <Button onClick={handleEditEstampasClick}>
+                    Editar estampas
+                  </Button>
+                  <Button onClick={() => removeCartItemBySku(tela.sku)}>
+                    Quitar tela
+                  </Button>
+                </div>
+              )}
+              {!inCart && <Button onClick={handleAddToCart}>Agregar</Button>}
+            </div>
           </div>
-          <Button onClick={handleAddToCart}>Agregar</Button>
         </div>
       </div>
     </div>

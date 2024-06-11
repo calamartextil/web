@@ -7,13 +7,14 @@ import {
   useEffect,
   ReactNode,
 } from 'react';
-import { CartItem, Estampa } from '@/types';
+import { CartItem, Estampa, Tela } from '@/types';
 import { getEstampaBySku } from '../database/staticContent';
 
 interface CartContextProps {
   cart: CartItem[];
   cartTotal: number;
   cartQty: number;
+  actualTela: Tela;
   addCartItem: (item: CartItem) => void;
   removeCartItem: (item: CartItem) => void;
   removeCartItemBySku: (sku: string) => void;
@@ -28,9 +29,15 @@ interface CartContextProps {
   telaAvailable: (telaSku: string) => {
     telaTotal: number;
     estampasTotal: number;
-    available: number;  
+    available: number;
   };
-  removeEstampaBySku: (telaSku: string, estampaSku: string, estampaScale: string) => void;
+  removeEstampaBySku: (
+    telaSku: string,
+    estampaSku: string,
+    estampaScale: string
+  ) => void;
+  handleSetActualtelas: (tela: Tela) => void;
+  actualTelaInfo: () => CartItem | undefined;
 }
 
 interface CartContextProviderProps {
@@ -45,8 +52,10 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   const [cart, setCart] = useState<CartItem[]>([]);
   const cartTotal = cart.reduce((acc, item) => acc + item.price, 0);
   const cartQty = cart.length;
+  const [actualTela, setActualTela] = useState<Tela>({} as Tela);
 
   const sumarizeCartItemsByTela = (cart: CartItem[]) => {
+    //TODO deprecated
     return cart.reduce((acc, item) => {
       const existingItem = acc.find(
         (cartItem) => cartItem.tela.telaId === item.tela.telaId
@@ -67,6 +76,13 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
 
   //CART
 
+  const handleSetActualtelas = (tela: Tela) => {
+    setActualTela(tela);
+  };
+
+  const actualTelaInfo = () =>
+    cart.find((cartItem) => cartItem.tela.sku === actualTela.sku) || undefined;
+
   const existsInCart = (sku: string) => {
     return cart.some((cartItem) => cartItem.tela.sku === sku);
   };
@@ -85,11 +101,16 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     setCart(cart.filter((cartItem) => cartItem.tela.sku !== sku));
   };
 
-  const removeEstampaBySku = (telaSku: string, estampaSku: string, estampaScale: string) => {
+  const removeEstampaBySku = (
+    telaSku: string,
+    estampaSku: string,
+    estampaScale: string
+  ) => {
     const updatedCart = cart.map((cartItem) => {
       if (cartItem.tela.sku === telaSku) {
         const updatedEstampas = cartItem.estampas?.filter(
-          (estampa) => estampa.estampa.sku !== estampaSku || estampa.scale !== estampaScale
+          (estampa) =>
+            estampa.estampa.sku !== estampaSku || estampa.scale !== estampaScale
         );
         return {
           ...cartItem,
@@ -99,7 +120,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
       return cartItem;
     });
     setCart(updatedCart as CartItem[]);
-  }
+  };
 
   const findCartItemBySku = (sku: string) => {
     return cart.find((cartItem) => cartItem.tela.sku === sku);
@@ -159,6 +180,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cart,
         cartTotal,
         cartQty,
+        actualTela,
         telaAvailable,
         addCartItem,
         removeCartItem,
@@ -166,7 +188,9 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         existsInCart,
         findCartItemBySku,
         addEstampaToTela,
-        removeEstampaBySku
+        removeEstampaBySku,
+        handleSetActualtelas,
+        actualTelaInfo,
       }}
     >
       {children}

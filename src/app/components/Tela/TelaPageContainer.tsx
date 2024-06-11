@@ -1,12 +1,13 @@
 import LinkButton from '@/app/components/LinkButton';
 import TelaContainer from '@/app/components/TelaContainer';
+import TelaSingle from '@/app/components/TelaSingle';
 import { getTelaBySku } from '@/app/database/actions';
 
-export default async function TelaPageContainer({sku}:{sku:string}) {
+export default async function TelaPageContainer({ sku }: { sku: string }) {
   const tela = await getTelaBySku(sku);
   return (
     <div>
-      {tela && <TelaContainer tela={tela} key={tela.sku} />}
+      {tela && <TelaSingle tela={tela} />}
       {!tela && (
         <div className='flex flex-col items-center justify-center'>
           <p>Tela no encontrada</p>
@@ -14,5 +15,5 @@ export default async function TelaPageContainer({sku}:{sku:string}) {
         </div>
       )}
     </div>
-  )
+  );
 }
