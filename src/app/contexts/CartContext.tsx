@@ -111,7 +111,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     mts: number,
     scale: string
   ) => {
-    const estampa = getEstampaBySku(estampaSku) || ({} as Estampa);
+    const estampa = getEstampaBySku(estampaSku) || ({} as Estampa); //TODO FIX THIS!!!!!
     const estampaItem = {
       estampa,
       mts,

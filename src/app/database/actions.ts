@@ -4,7 +4,13 @@ import dbConnect from '@/app/database/dbConnect';
 import Tela from '@/app/models/Tela';
 import TelaCategory from '@/app/models/TelaCategory';
 import Estampa from '@/app/models/Estampa';
-import { Estampa as IEstampa, Tela as ITela, TelasCategory } from '@/types';
+import {
+  EstampasCategory,
+  Estampa as IEstampa,
+  Tela as ITela,
+  TelasCategory,
+} from '@/types';
+import EstampaCategory from '../models/EstampaCategory';
 
 // export async function getAllTelas() { //Posible deprecated
 //   try {
@@ -31,10 +37,13 @@ export async function getAllTelas(
       }).populate('categories');
       if (telas?.length === 0) return { telas: [], category: categoryFromDb };
 
-      return { telas, category: categoryFromDb };
+      return {
+        telas: JSON.parse(JSON.stringify(telas)),
+        category: categoryFromDb,
+      };
     }
     const telas = await Tela.find();
-    return { telas, category: null };
+    return { telas: JSON.parse(JSON.stringify(telas)), category: null };
   } catch (error: any) {
     console.log('Error: ', error.message);
     return { telas: [], category: null };
@@ -54,18 +63,47 @@ export async function getTelaBySku(sku: string): Promise<ITela | null> {
 }
 
 export async function getAllEstampas() {
-  // try {
-  //   const estampas = await Estampa.find().lean();
-  //   return estampas.map((estampa: any) => estampa as IEstampa);
-  // } catch (error: any) {
-  //   return [];
-  // }
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/estampas`);
     const estampas = await res.json();
-    console.log('fetching estampas')
+    console.log('fetching estampas');
     return estampas as IEstampa[];
   } catch (error: any) {
     console.log(error.message);
+  }
+}
+
+export async function getAllEstampasPage(
+  category: string | null = null
+): Promise<{ estampas: IEstampa[]; category: EstampasCategory | null }> {
+  try {
+    if (category) {
+      const categoryFromDb = await EstampaCategory.findOne({ slug: category });
+      if (!categoryFromDb) {
+        console.log(`Category "${category}" not found.`);
+        return { estampas: [], category: null };
+      }
+      const estampas = await Estampa.find({
+        category: categoryFromDb._id,
+      }).populate('category');
+      if (estampas?.length === 0)
+        return { estampas: [], category: categoryFromDb };
+
+      return {
+        estampas: JSON.parse(JSON.stringify(estampas)),
+        category: categoryFromDb,
+      };
+    }
+    const estampas = await Estampa.find();
+    return {
+      estampas: JSON.parse(JSON.stringify(estampas)),
+      category: null,
+    } as {
+      estampas: IEstampa[];
+      category: EstampasCategory | null;
+    };
+  } catch (error: any) {
+    console.log(error.message);
+    return { estampas: [], category: null };
   }
 }
