@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
-import EstampasGridPage from '@/app/components/Estampa/EstampasGridPage';
+import EstampasGrid from '@/app/components/Estampa/EstampasGrid';
 import Loading from '@/app/components/Loading';
 export default function Estampas() {
   return (
     <Suspense fallback={<Loading />}>
-      <EstampasGridPage />
+      <EstampasGrid />
     </Suspense>
   );
 }

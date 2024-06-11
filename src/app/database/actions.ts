@@ -62,18 +62,18 @@ export async function getTelaBySku(sku: string): Promise<ITela | null> {
   }
 }
 
-export async function getAllEstampas() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/estampas`);
-    const estampas = await res.json();
-    console.log('fetching estampas');
-    return estampas as IEstampa[];
-  } catch (error: any) {
-    console.log(error.message);
-  }
-}
+// export async function getAllEstampas() { //TODO: Deprecated
+//   try {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/estampas`);
+//     const estampas = await res.json();
+//     console.log('fetching estampas');
+//     return estampas as IEstampa[];
+//   } catch (error: any) {
+//     console.log(error.message);
+//   }
+// }
 
-export async function getAllEstampasPage(
+export async function getAllEstampas(
   category: string | null = null
 ): Promise<{ estampas: IEstampa[]; category: EstampasCategory | null }> {
   await dbConnect();
