@@ -8,8 +8,6 @@ import {
   ReactNode,
 } from 'react';
 import { CartItem, Estampa, Tela } from '@/types';
-import { getEstampaBySku } from '../database/staticContent';
-
 interface CartContextProps {
   cart: CartItem[];
   cartTotal: number;
@@ -22,7 +20,7 @@ interface CartContextProps {
   findCartItemBySku: (sku: string) => CartItem | undefined;
   addEstampaToTela: (
     telaSku: string,
-    estampaSku: string,
+    estampa: Estampa,
     mts: number,
     scale: string
   ) => void;
@@ -128,11 +126,11 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
 
   const addEstampaToTela = (
     telaSku: string,
-    estampaSku: string,
+    estampa: Estampa,
     mts: number,
     scale: string
   ) => {
-    const estampa = getEstampaBySku(estampaSku) || ({} as Estampa); //TODO FIX THIS!!!!!
+    // const estampa = getEstampaBySku(estampaSku) || ({} as Estampa); //TODO FIX THIS!!!!!
     const estampaItem = {
       estampa,
       mts,
@@ -142,7 +140,8 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
       if (cartItem.tela.sku === telaSku) {
         const existingEstampa = cartItem.estampas?.find(
           (estampa) =>
-            estampa.estampa.sku === estampaSku && estampa.scale === scale
+            estampa.estampa.sku === estampa.estampa.sku &&
+            estampa.scale === scale
         );
         if (existingEstampa) {
           existingEstampa.mts += mts;

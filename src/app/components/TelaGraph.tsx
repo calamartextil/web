@@ -41,6 +41,8 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
               alt={estampa.estampa.title}
               width={isScroll ? 80 : 80}
               height={isScroll ? 80 : 80}
+              placeholder='blur'
+              blurDataURL='/images/placeholder.jpg'
             />
             <div>
               <p className='text-sm'>{estampa.estampa.title}</p>
@@ -72,9 +74,14 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
             Restan: {availability()} mts
           </p>
         ) : (
-          <p className='text-sm text-white font-semibold'>
-            <Link href='/pedido'>Ver pedido</Link>
-          </p>
+          <div className='flex flex-col items-end gap-2'>
+            <p className='text-sm text-white font-semibold'>
+              <Link href='/pedido'>Ver pedido</Link>
+            </p>
+            <p className='text-sm text-white font-semibold'>
+              <Link href='/telas'>Elegir otra tela</Link>
+            </p>
+          </div>
         )}
       </div>
       {telaAvailable(sku).available !== telaAvailable(sku).telaTotal ? (

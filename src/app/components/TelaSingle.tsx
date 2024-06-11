@@ -7,7 +7,6 @@ import Button from '@/app/components/Button';
 import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import { useRouter } from 'next/navigation';
-import LinkButton from './LinkButton';
 
 interface TelaProps {
   tela: Tela;
@@ -33,8 +32,8 @@ export default function TelaSingle({ tela }: TelaProps) {
   const inCart = existsInCart(tela.sku);
 
   const handleEditEstampasClick = () => {
-    handleSetActualtelas(tela);
     router.push('/estampas');
+    handleSetActualtelas(tela);
   };
 
   const handleInputChange = (mts: number) => {
@@ -68,7 +67,7 @@ export default function TelaSingle({ tela }: TelaProps) {
               <Image
                 sizes='100%'
                 fill={true}
-                src={`https://app.calamartextil.com/images/telas/${tela?.images.lisaUrl}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${tela?.images.lisaUrl}`}
                 alt={tela?.title}
                 className='rounded-2xl full-img'
               />
@@ -101,6 +100,7 @@ export default function TelaSingle({ tela }: TelaProps) {
                   </li>
                 </ul>
               </div>
+              {inCart && <p className='mb-6 font-medium'>Largo seleccionado: {mts} mts</p>}
               <p className='mb-8 font-medium'>Total: ${price}</p>
               {!inCart && (
                 <div className='flex items-center gap-2 mb-8'>

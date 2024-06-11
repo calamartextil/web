@@ -15,11 +15,7 @@ export default async function EstampasGridPage({
         estampasDb.estampas.map((estampa: IEstampa, index) => (
           <div key={index} className='col_3'>
             <EstampaCardPage
-              id={estampa.id}
-              title={estampa.title}
-              sku={estampa.sku}
-              image={estampa.image}
-              category={estampa.category}
+              estampa={estampa}
             />
           </div>
         ))}
