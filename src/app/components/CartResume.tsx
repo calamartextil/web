@@ -23,6 +23,8 @@ export default function CartResume() {
                 width={100}
                 height={100}
                 className='rounded-xl'
+                placeholder='blur'
+                blurDataURL='/images/placeholder.jpg'
               />
             </Link>
             <div className='flex justify-between items-start w-full'>
@@ -56,6 +58,8 @@ export default function CartResume() {
                   width={60}
                   height={60}
                   className='mb-2 rounded-xl'
+                  placeholder='blur'
+                  blurDataURL='/images/placeholder.jpg'
                 />
                 <h3 className='text-sm'>{estampa.estampa.title}</h3>
                 <p className='text-xs'>{estampa.mts} mts</p>

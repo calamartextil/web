@@ -1,6 +1,5 @@
 import LinkButton from '@/app/components/LinkButton';
-import TelaContainer from '@/app/components/TelaContainer';
-import TelaSingle from '@/app/components/TelaSingle';
+import TelaSingle from '@/app/components/Tela/TelaSingle';
 import { getTelaBySku } from '@/app/database/actions';
 
 export default async function TelaPageContainer({ sku }: { sku: string }) {

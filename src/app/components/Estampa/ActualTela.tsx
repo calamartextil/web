@@ -17,7 +17,10 @@ export default function ActualTela() {
             <p className='text-lg'>(Paso 2: Elegí las estampas)</p>
           </div>
           <div>
-            <Button onClick={() => removeCartItemBySku(actualTela.tela.sku)}>
+            <Button
+              className='bg-red-500 text-white'
+              onClick={() => removeCartItemBySku(actualTela.tela.sku)}
+            >
               Quitar tela
             </Button>
           </div>

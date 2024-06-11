@@ -7,6 +7,7 @@ import Button from '@/app/components/Button';
 import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import { useRouter } from 'next/navigation';
+// import TelaGraphContainer from '@/app/components/TelaGraphContainer';
 
 interface TelaProps {
   tela: Tela;
@@ -100,7 +101,11 @@ export default function TelaSingle({ tela }: TelaProps) {
                   </li>
                 </ul>
               </div>
-              {inCart && <p className='mb-6 font-medium'>Largo seleccionado: {mts} mts</p>}
+              {inCart && (
+                <p className='mb-6 font-medium'>
+                  Largo seleccionado: {mts} mts
+                </p>
+              )}
               <p className='mb-8 font-medium'>Total: ${price}</p>
               {!inCart && (
                 <div className='flex items-center gap-2 mb-8'>
@@ -113,7 +118,7 @@ export default function TelaSingle({ tela }: TelaProps) {
                   <Button onClick={handleEditEstampasClick}>
                     Editar estampas
                   </Button>
-                  <Button onClick={() => removeCartItemBySku(tela.sku)}>
+                  <Button className='bg-red-500 text-white' onClick={() => removeCartItemBySku(tela.sku)}>
                     Quitar tela
                   </Button>
                 </div>
@@ -123,6 +128,7 @@ export default function TelaSingle({ tela }: TelaProps) {
           </div>
         </div>
       </div>
+      {/* <TelaGraphContainer /> */}
     </div>
   );
 }

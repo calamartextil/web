@@ -1,5 +1,5 @@
-import EstampaCardPage from '@/app/components/Estampa/EstampaCardPage';
-import { getAllEstampasPage } from '@/app/database/actions';
+import EstampaCard from '@/app/components/Estampa/EstampaCard';
+import { getAllEstampas } from '@/app/database/actions';
 import { Estampa as IEstampa } from '@/types';
 import TelaGraphContainer from '@/app/components/TelaGraphContainer';
 import ActualTela from '@/app/components/Estampa/ActualTela';
@@ -9,16 +9,19 @@ export default async function EstampasGridPage({
 }: {
   category?: string | null;
 }) {
-  const estampasDb = await getAllEstampasPage(category);
+  const estampasDb = await getAllEstampas(category);
 
   return (
     <>
       <ActualTela />
+      <h1 className='text-2xl mb-5'>
+        {category ? estampasDb.category?.name : `Todas las estampas`}
+      </h1>
       <div className='grid w-full'>
         {estampasDb.estampas &&
           estampasDb.estampas.map((estampa: IEstampa, index) => (
             <div key={index} className='col_3'>
-              <EstampaCardPage estampa={estampa} />
+              <EstampaCard estampa={estampa} />
             </div>
           ))}
       </div>
