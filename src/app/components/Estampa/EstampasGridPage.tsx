@@ -1,26 +1,28 @@
-import {useState, useEffect} from 'react';
-import EstampaCard from '@/app/components/EstampaCard';
-// import { estampas } from '@/app/database/staticContent';
-import { getAllEstampas } from '@/app/database/actions';
+import EstampaCardPage from '@/app/components/Estampa/EstampaCardPage';
+import { getAllEstampasPage } from '@/app/database/actions';
 import { Estampa as IEstampa } from '@/types';
 
-export default async function EstampasGrid() {
-
-const estampas = await getAllEstampas();
+export default async function EstampasGridPage({
+  category = null,
+}: {
+  category?: string | null;
+}) {
+  const estampasDb = await getAllEstampasPage(category);
 
   return (
     <div className='grid w-full'>
-      {estampas && estampas.map((estampa, index) => (
-        <div key={index} className='col_3'>
-          <EstampaCard
-            id={estampa.id}
-            title={estampa.title}
-            sku={estampa.sku}
-            image={estampa.image}
-            category={estampa.category}
-          />
-        </div>
-      ))}
+      {estampasDb.estampas &&
+        estampasDb.estampas.map((estampa: IEstampa, index) => (
+          <div key={index} className='col_3'>
+            <EstampaCardPage
+              id={estampa.id}
+              title={estampa.title}
+              sku={estampa.sku}
+              image={estampa.image}
+              category={estampa.category}
+            />
+          </div>
+        ))}
     </div>
   );
 }

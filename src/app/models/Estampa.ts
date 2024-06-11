@@ -6,7 +6,7 @@ export interface IEstampa extends Document {
   sku: string;
   image: string;
   description?: string;
-  category: IEstampaCategory;
+  category: Types.ObjectId[] | IEstampaCategory;
 }
 
 const EstampaSchema: Schema = new Schema({
@@ -14,7 +14,7 @@ const EstampaSchema: Schema = new Schema({
   sku: { type: String, required: true },
   image: { type: String, required: true },
   description:{ type: String, required: false },
-  category: { type: String, required: true },
+  category: { type: Types.ObjectId, required: true },
 });
 
 const Estampa = mongoose.models.Estampa || mongoose.model<IEstampa>('Estampa', EstampaSchema);

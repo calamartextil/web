@@ -1,4 +1,4 @@
-import Sidebar from '@/app/components/Sidebar';
+import Sidebar from '@/app/components/Estampa/Sidebar';
 
 export default function EstampasLayout({
   children, // will be a page or nested layout
