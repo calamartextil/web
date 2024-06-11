@@ -1,4 +1,4 @@
-import TelaCard from '@/app/components/TelaCard';
+import TelaCard from '@/app/components/Tela/TelaCard';
 import { getAllTelas } from '@/app/database/actions';
 
 export default async function TelasGrid({

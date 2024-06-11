@@ -18,11 +18,13 @@ export default function CartResume() {
           <div className='flex gap-5 mb-5'>
             <Link href={`/telas/${item.tela.sku}`}>
               <Image
-                src={item.tela.images.lisaUrl}
+                src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${item.tela.images.lisaUrl}`}
                 alt={item.tela.title}
                 width={100}
                 height={100}
                 className='rounded-xl'
+                placeholder='blur'
+                blurDataURL='/images/placeholder.jpg'
               />
             </Link>
             <div className='flex justify-between items-start w-full'>
@@ -35,7 +37,7 @@ export default function CartResume() {
               </div>
               <div className='flex flex-col justify-start items-start gap-2'>
                 <LinkButton href={`/telas/${item.tela.sku}`}>
-                  Editar estampas
+                  Ver tela
                 </LinkButton>
                 <Button
                   onClick={() => removeCartItemBySku(item.tela.sku)}
@@ -51,13 +53,14 @@ export default function CartResume() {
             {item?.estampas?.map((estampa, index) => (
               <div key={index}>
                 <Image
-                  src={estampa.estampa.image}
+                  src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/estampas/${estampa.estampa.image}`}
                   alt={estampa.estampa.title}
                   width={60}
                   height={60}
                   className='mb-2 rounded-xl'
+                  placeholder='blur'
+                  blurDataURL='/images/placeholder.jpg'
                 />
-
                 <h3 className='text-sm'>{estampa.estampa.title}</h3>
                 <p className='text-xs'>{estampa.mts} mts</p>
                 <p className='text-xs'>Escala: {estampa.scale}</p>

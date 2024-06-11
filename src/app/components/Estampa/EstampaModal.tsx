@@ -5,13 +5,10 @@ import Button from '@/app/components/Button';
 import { useCartContext } from '@/app/contexts/CartContext';
 import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
+import type { Estampa } from '@/types';
 
 interface EstampaModalProps {
-  telaSku: string;
-  estampaSku: string;
-  image: string;
-  title: string;
-  category: string;
+  estampa: Estampa;
 }
 
 enum Scale {
@@ -20,14 +17,8 @@ enum Scale {
   L = 'L',
 }
 
-const EstampaModal = ({
-  telaSku,
-  estampaSku,
-  image,
-  title,
-  category,
-}: EstampaModalProps) => {
-  const { addEstampaToTela, telaAvailable } = useCartContext();
+const EstampaModal = ({ estampa }: EstampaModalProps) => {
+  const { addEstampaToTela, telaAvailable, actualTela } = useCartContext();
   const [available, setAvailable] = useState<number>(0.5);
   const [openModal, setModal] = useState(false);
   const [mts, setMts] = useState<number>(0.5);
@@ -38,16 +29,16 @@ const EstampaModal = ({
   };
 
   useEffect(() => {
-    setAvailable(telaAvailable(telaSku).available);
-  }, [telaSku, telaAvailable]);
+    setAvailable(telaAvailable(actualTela.sku).available);
+  }, [actualTela.sku, telaAvailable]);
 
   const handleAddEstampa = () => {
-    addEstampaToTela(telaSku, estampaSku, mts, scale);
+    addEstampaToTela(actualTela.sku, estampa, mts, scale);
     handleModal();
   };
 
   const handleInputChange = (mts: number) => {
-    if (telaAvailable(telaSku).available === 0) return;
+    if (telaAvailable(actualTela.sku).available === 0) return;
     setMts(mts ? mts : 0.5);
   };
 
@@ -62,8 +53,8 @@ const EstampaModal = ({
                 <div className='full-img-container mb-5'>
                   <Image
                     fill={true}
-                    src={`https://app.calamartextil.com/images/estampas/${image}`}
-                    alt={title}
+                    src={`https://app.calamartextil.com/images/estampas/${estampa.image}`}
+                    alt={estampa.title}
                     className='rounded-2xl full-img'
                   />
                 </div>
@@ -71,7 +62,7 @@ const EstampaModal = ({
               <div className='col_6'>
                 <div className='flex flex-col justify-between h-full'>
                   <div>
-                    <h2 className='text-4xl mb-5'>{title}</h2>
+                    <h2 className='text-4xl mb-5'>{estampa.title}</h2>
                     <div className='pb-2'>
                       {available > 0 && (
                         <>
@@ -79,17 +70,18 @@ const EstampaModal = ({
                             setMts={handleInputChange}
                             mts={mts}
                             interval={0.5}
-                            available={telaAvailable(telaSku).available}
+                            available={telaAvailable(actualTela?.sku).available}
                           />
                           <p className='text-xs'>
                             Espacio en tela disponible:{' '}
-                            {telaAvailable(telaSku).available} mts
+                            {telaAvailable(actualTela?.sku).available} mts
                           </p>
                         </>
                       )}
                       {available === 0 && (
                         <p className='text-xs'>
-                          No hay espacio disponible en la tela. Por favor quitá alguna estampa
+                          No hay espacio disponible en la tela. Por favor quitá
+                          alguna estampa
                         </p>
                       )}
                     </div>
