@@ -1,5 +1,5 @@
-import CartContainer from '@/app/components/CartContainer';
-import CartPrice from '../components/CartPrice';
+import CartContainer from '@/app/components/Cart/CartContainer';
+import CartPrice from '@/app/components/Cart/CartPrice';
 
 export default function Cart() {
   return (

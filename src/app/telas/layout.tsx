@@ -1,4 +1,4 @@
-import Sidebar from '@/app/components/Sidebar';
+import Sidebar from '@/app/components/Tela/Sidebar';
 
 export default function TelasLayout({
   children, // will be a page or nested layout

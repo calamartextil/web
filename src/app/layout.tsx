@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { DM_Serif_Display, Outfit } from 'next/font/google';
 import './grid.css';
 import './globals.css';
-import Navbar from '@/app/components/Navbar/Navbar';
+import NavbarContainer from '@/app/components/Navbar/NavbarContainer';
 import Footer from '@/app/components/Footer';
 import { CartContextProvider } from '@/app/contexts/CartContext';
 
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang='es'>
       <body className={`${dmSerifDisplay.variable} ${outfit.variable} relative`}>
         <CartContextProvider>
-        <Navbar />
+        <NavbarContainer />
         {children}
         <Footer />
         </CartContextProvider>

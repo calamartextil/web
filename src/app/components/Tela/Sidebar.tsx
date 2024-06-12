@@ -42,7 +42,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className='sidebar w-[250px]'>
+    <div className='sidebar w-[250px] transition-all'>
       <h1 className='mb-8'>Categorías</h1>
       <nav>
         <ul>
@@ -53,7 +53,7 @@ export default function Sidebar() {
             >
               <Link href={href} className={`block w-full mb-2 rounded-2xl hover:bg-secondary-bg-color hover:bg-opacity-0 ${
                 checkActivePath(href) ? 'bg-secondary-bg-color' : 'bg-primary-bg-color'
-              } py-2 pl-6`}>{name}</Link>
+              } py-2 pl-6 transition-all`}>{name}</Link>
             </li>
           ))}
         </ul>

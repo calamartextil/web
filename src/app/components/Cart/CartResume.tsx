@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Button from '@/app/components/Button';
 import LinkButton from '@/app/components/LinkButton';
 import { useCartContext } from '@/app/contexts/CartContext';
+import CartMiniEstampas from './CartMiniEstampas';
+import { EstampaCart } from '@/types';
 
 export default function CartResume() {
   const { cart, removeCartItemBySku } = useCartContext();
@@ -48,25 +50,9 @@ export default function CartResume() {
               </div>
             </div>
           </div>
-
-          <div className='flex flex-wrap justify-start items-center gap-2'>
-            {item?.estampas?.map((estampa, index) => (
-              <div key={index}>
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/estampas/${estampa.estampa.image}`}
-                  alt={estampa.estampa.title}
-                  width={60}
-                  height={60}
-                  className='mb-2 rounded-xl'
-                  placeholder='blur'
-                  blurDataURL='/images/placeholder.jpg'
-                />
-                <h3 className='text-sm'>{estampa.estampa.title}</h3>
-                <p className='text-xs'>{estampa.mts} mts</p>
-                <p className='text-xs'>Escala: {estampa.scale}</p>
-              </div>
-            ))}
-          </div>
+          <CartMiniEstampas
+            estampasCart={item?.estampas || ([] as EstampaCart[])}
+          />
         </div>
       ))}
     </div>

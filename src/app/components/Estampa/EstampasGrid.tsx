@@ -17,15 +17,24 @@ export default async function EstampasGridPage({
       <h1 className='text-2xl mb-5'>
         {category ? estampasDb.category?.name : `Todas las estampas`}
       </h1>
-      <div className='grid w-full'>
-        {estampasDb.estampas &&
-          estampasDb.estampas.map((estampa: IEstampa, index) => (
-            <div key={index} className='col_3'>
-              <EstampaCard estampa={estampa} />
-            </div>
-          ))}
-      </div>
-      <TelaGraphContainer />
+      {estampasDb.estampas.length === 0 && (
+        <div className='w-full flex items-center justify-center mt-8'>
+          <p className='text-sm'>Aún no hay estampas en este catálogo</p>
+        </div>
+      )}
+      {estampasDb.estampas.length > 0 && (
+        <>
+          <div className='grid w-full'>
+            {estampasDb.estampas &&
+              estampasDb.estampas.map((estampa: IEstampa, index) => (
+                <div key={index} className='col_3'>
+                  <EstampaCard estampa={estampa} />
+                </div>
+              ))}
+          </div>
+          <TelaGraphContainer />
+        </>
+      )}
     </>
   );
 }
