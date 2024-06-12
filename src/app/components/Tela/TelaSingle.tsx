@@ -7,7 +7,9 @@ import Button from '@/app/components/Button';
 import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import { useRouter } from 'next/navigation';
-// import TelaGraphContainer from '@/app/components/TelaGraphContainer';
+import CartMiniEstampas from '@/app/components/Cart/CartMiniEstampas';
+import { EstampaCart } from '@/types';
+import LinkButton from '../LinkButton';
 
 interface TelaProps {
   tela: Tela;
@@ -21,6 +23,7 @@ export default function TelaSingle({ tela }: TelaProps) {
     handleSetActualtelas,
     existsInCart,
     removeCartItemBySku,
+    findCartItemBySku,
   } = useCartContext();
   const router = useRouter();
 
@@ -60,6 +63,14 @@ export default function TelaSingle({ tela }: TelaProps) {
           <h1 className='text-5xl font-display mb-5'>{tela?.title}</h1>
           <p className='text-lg'>(Paso 1: Elegí la tela)</p>
         </div>
+        {inCart && (
+          <Button
+            className='bg-cancel-text-color'
+            onClick={() => removeCartItemBySku(tela.sku)}
+          >
+            Quitar tela
+          </Button>
+        )}
       </div>
       <div className='bg-primary-bg-color p-10 rounded-2xl'>
         <div className='grid'>
@@ -101,12 +112,22 @@ export default function TelaSingle({ tela }: TelaProps) {
                   </li>
                 </ul>
               </div>
-              {inCart && (
-                <p className='mb-6 font-medium'>
-                  Largo seleccionado: {mts} mts
-                </p>
-              )}
+
               <p className='mb-8 font-medium'>Total: ${price}</p>
+              {inCart && (
+                <div className='bg-secondary-bg-color px-3 py-3 w-full rounded-2xl mb-6'>
+                  <div className='mb-5'>
+                    <CartMiniEstampas
+                      estampasCart={
+                        findCartItemBySku(tela.sku)?.estampas ||
+                        ([] as EstampaCart[])
+                      }
+                    />
+                  </div>
+                  <p className='text-sm'>Largo seleccionado: {mts} mts</p>
+                </div>
+              )}
+
               {!inCart && (
                 <div className='flex items-center gap-2 mb-8'>
                   <TelaMtsInput setMts={handleInputChange} mts={mts} />
@@ -118,9 +139,7 @@ export default function TelaSingle({ tela }: TelaProps) {
                   <Button onClick={handleEditEstampasClick}>
                     Editar estampas
                   </Button>
-                  <Button className='bg-cancel-text-color' onClick={() => removeCartItemBySku(tela.sku)}>
-                    Quitar tela
-                  </Button>
+                  <LinkButton href='/pedido'>Ver pedido</LinkButton>
                 </div>
               )}
               {!inCart && <Button onClick={handleAddToCart}>Agregar</Button>}

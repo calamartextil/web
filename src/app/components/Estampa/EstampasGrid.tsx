@@ -18,7 +18,9 @@ export default async function EstampasGridPage({
         {category ? estampasDb.category?.name : `Todas las estampas`}
       </h1>
       {estampasDb.estampas.length === 0 && (
-        <h1>Aún hay estampas en esta catálogo</h1>
+        <div className='w-full flex items-center justify-center mt-8'>
+          <p className='text-sm'>Aún no hay estampas en este catálogo</p>
+        </div>
       )}
       {estampasDb.estampas.length > 0 && (
         <>

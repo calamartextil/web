@@ -54,3 +54,9 @@ export type Cart = {
   items: cartItem[];
   total: number;
 };
+
+export type EstampaCart = {
+  estampa: Estampa;
+  mts: number;
+  scale: string;
+};

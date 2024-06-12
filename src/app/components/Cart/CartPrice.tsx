@@ -1,6 +1,6 @@
 'use client';
 
-import { useCartContext } from '../contexts/CartContext';
+import { useCartContext } from '../../contexts/CartContext';
 
 export default function CartPrice() {
   const { cartTotal } = useCartContext();
