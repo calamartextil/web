@@ -128,7 +128,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                     {available > 0 && (
                       <Button onClick={handleAddEstampa}>Agregar</Button>
                     )}
-                    <Button onClick={handleModal}>Cancelar</Button>
+                    <Button className='bg-cancel-text-color' onClick={handleModal}>Cancelar</Button>
                   </div>
                 </div>
               </div>

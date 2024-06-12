@@ -11,8 +11,9 @@ interface TelaGraphProps {
 
 export default function TelaGraph({ sku }: TelaGraphProps) {
   const { cart, telaAvailable, removeEstampaBySku } = useCartContext();
-  const [isScroll, setIsScroll] = useState(false);
 
+  //Scroll animation
+  // const [isScroll, setIsScroll] = useState(false);
   // useEffect(() => { //Use this only if need scroll animation - deprecated
   //   const handleScroll = () => {
   //     setIsScroll(window.scrollY > 170);
@@ -39,15 +40,15 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
               className='rounded-2xl'
               src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/estampas/${estampa.estampa.image}`}
               alt={estampa.estampa.title}
-              width={isScroll ? 80 : 80}
-              height={isScroll ? 80 : 80}
+              width={70}
+              height={70}
               placeholder='blur'
               blurDataURL='/images/placeholder.jpg'
             />
-            <div>
-              <p className='text-sm'>{estampa.estampa.title}</p>
-              <p className='text-sm'>Escala {estampa.scale}</p>
-              <p className='text-sm'>{estampa.mts} mts</p>
+            <div className='flex flex-col justify-center items-start gap-0'>
+              <p className='text-sm font-medium leading-none mb-1'>{estampa.estampa.title}</p>
+              <p className='text-xs leading-none mb-1'>Escala {estampa.scale}</p>
+              <p className='text-xs leading-none mb-1'>{estampa.mts} mts</p>
               <button
                 className='text-sm text-white'
                 onClick={() =>
@@ -64,8 +65,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
 
   return (
     <div
-      className={`flex flex-wrap items-center justify-center w-full relative gap-2 ${
-        isScroll ? 'min-h-1' : 'min-h-4'
+      className={`flex flex-wrap items-center justify-center w-full relative gap-2 min-h-4
       } gap-y-5`}
     >
       <div className='absolute top-0 right-0'>

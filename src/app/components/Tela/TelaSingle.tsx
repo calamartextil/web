@@ -118,7 +118,7 @@ export default function TelaSingle({ tela }: TelaProps) {
                   <Button onClick={handleEditEstampasClick}>
                     Editar estampas
                   </Button>
-                  <Button className='bg-red-500 text-white' onClick={() => removeCartItemBySku(tela.sku)}>
+                  <Button className='bg-cancel-text-color' onClick={() => removeCartItemBySku(tela.sku)}>
                     Quitar tela
                   </Button>
                 </div>
