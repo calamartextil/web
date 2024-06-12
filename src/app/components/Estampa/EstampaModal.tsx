@@ -46,7 +46,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
     <div>
       <Button onClick={handleModal}>Elegir</Button>
       {openModal && (
-        <div className='fixed top-0 left-0 w-full h-full bg-white bg-opacity-80 flex justify-center items-center z-20'>
+        <div className='fixed top-0 left-0 w-full h-full bg-white bg-opacity-80 flex justify-center items-center z-20 transition-all'>
           <div className=' w-3/4 lg:w-2/4 bg-primary-bg-color p-10 rounded-2xl shadow-lg '>
             <div className='grid'>
               <div className='col_6'>

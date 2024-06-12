@@ -30,7 +30,7 @@ export default function Sidebar() {
             >
               <Link href={href} className={`block w-full mb-2 rounded-2xl hover:bg-secondary-bg-color hover:bg-opacity-0 ${
                 checkActivePath(href) ? 'bg-secondary-bg-color' : 'bg-primary-bg-color'
-              } py-2 pl-6`}>{name}</Link>
+              } py-2 pl-6 transition-all`}>{name}</Link>
             </li>
           ))}
         </ul>

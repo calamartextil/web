@@ -1,5 +1,4 @@
 'use client';
-import { useState, useEffect } from 'react';
 
 import { useCartContext } from '@/app/contexts/CartContext';
 import Image from 'next/image';
@@ -11,16 +10,6 @@ interface TelaGraphProps {
 
 export default function TelaGraph({ sku }: TelaGraphProps) {
   const { cart, telaAvailable, removeEstampaBySku } = useCartContext();
-
-  //Scroll animation
-  // const [isScroll, setIsScroll] = useState(false);
-  // useEffect(() => { //Use this only if need scroll animation - deprecated
-  //   const handleScroll = () => {
-  //     setIsScroll(window.scrollY > 170);
-  //   };
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
 
   const availability = () => {
     const rest = telaAvailable(sku);
@@ -66,7 +55,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
   return (
     <div
       className={`flex flex-wrap items-center justify-center w-full relative gap-2 min-h-4
-      } gap-y-5`}
+      } gap-y-5 transition-all`}
     >
       <div className='absolute top-0 right-0'>
         {telaAvailable(sku).available > 0 ? (
