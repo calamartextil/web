@@ -82,3 +82,20 @@ input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+.slick-prev:before, .slick-next:before {
+  color: black!important;
+  font-size: 30px!important;
+}
+.slick-prev, .slick-next{
+  width: 30px!important;
+  height: 30px!important;
+  z-index: 1!important;
+  
+}
+.slick-prev{
+  left: 20px!important;
+}
+.slick-next{
+  right: 20px!important;
+}
