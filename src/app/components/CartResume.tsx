@@ -41,9 +41,9 @@ export default function CartResume() {
                 </LinkButton>
                 <Button
                   onClick={() => removeCartItemBySku(item.tela.sku)}
-                  className='bg-red-500 text-white rounded-2xl'
+                  className='bg-cancel-text-color'
                 >
-                  Eliminar
+                  Quitar tela
                 </Button>
               </div>
             </div>

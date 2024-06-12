@@ -130,7 +130,6 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     mts: number,
     scale: string
   ) => {
-    // const estampa = getEstampaBySku(estampaSku) || ({} as Estampa); //TODO FIX THIS!!!!!
     const estampaItem = {
       estampa,
       mts,
@@ -140,7 +139,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
       if (cartItem.tela.sku === telaSku) {
         const existingEstampa = cartItem.estampas?.find(
           (estampa) =>
-            estampa.estampa.sku === estampa.estampa.sku &&
+            estampa.estampa.sku === estampaItem.estampa.sku &&
             estampa.scale === scale
         );
         if (existingEstampa) {
