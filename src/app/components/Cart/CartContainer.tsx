@@ -1,7 +1,7 @@
 'use client';
 import { useCartContext } from '@/app/contexts/CartContext';
-import CartResume from '@/app/components/CartResume';
-import CartForm from './CartForm';
+import CartResume from '@/app/components/Cart/CartResume';
+import CartForm from '@/app/components/Cart/CartForm';
 export default function CartContainer() {
   const { cartQty } = useCartContext();
   return (

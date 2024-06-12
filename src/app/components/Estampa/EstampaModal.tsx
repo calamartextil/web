@@ -46,7 +46,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
     <div>
       <Button onClick={handleModal}>Elegir</Button>
       {openModal && (
-        <div className='fixed top-0 left-0 w-full h-full bg-white bg-opacity-80 flex justify-center items-center z-20'>
+        <div className='fixed top-0 left-0 w-full h-full bg-white bg-opacity-80 flex justify-center items-center z-20 transition-all'>
           <div className=' w-3/4 lg:w-2/4 bg-primary-bg-color p-10 rounded-2xl shadow-lg '>
             <div className='grid'>
               <div className='col_6'>
@@ -62,7 +62,11 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
               <div className='col_6'>
                 <div className='flex flex-col justify-between h-full'>
                   <div>
-                    <h2 className='text-4xl mb-5'>{estampa.title}</h2>
+                    <h2 className='text-4xl mb-5'>{estampa?.title}</h2>
+                    {estampa?.description !== '' && (
+                      <p className='text-sm mb-5'>{estampa?.description}</p>
+                    )}
+
                     <div className='pb-2'>
                       {available > 0 && (
                         <>
@@ -78,11 +82,17 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                           </p>
                         </>
                       )}
-                      {available === 0 && (
+                      {!actualTela.sku ? (
                         <p className='text-xs'>
-                          No hay espacio disponible en la tela. Por favor quitá
-                          alguna estampa
+                          Por favor seleccioná una tela para agregar la estampa
                         </p>
+                      ) : (
+                        available === 0 && (
+                          <p className='text-xs'>
+                            No hay espacio disponible en la tela. Por favor
+                            quitá alguna estampa
+                          </p>
+                        )
                       )}
                     </div>
                     {available > 0 && (
@@ -128,7 +138,12 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                     {available > 0 && (
                       <Button onClick={handleAddEstampa}>Agregar</Button>
                     )}
-                    <Button className='bg-cancel-text-color' onClick={handleModal}>Cancelar</Button>
+                    <Button
+                      className='bg-cancel-text-color'
+                      onClick={handleModal}
+                    >
+                      Cancelar
+                    </Button>
                   </div>
                 </div>
               </div>
