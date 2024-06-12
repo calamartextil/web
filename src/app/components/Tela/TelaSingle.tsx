@@ -80,32 +80,55 @@ export default function TelaSingle({ tela }: TelaProps) {
           </div>
           <div className='col_6'>
             <div className='flex flex-col justify-center items-start'>
-              <div className='relative w-full mb-5'>
+              <div className='relative w-full mb-2'>
                 <p className='mb-8 mr-0 xl:mr-20'>{tela?.description}</p>
-                <h3 className='mb-1'>Precios</h3>
-                <ul className='mb-8'>
-                  <li>
-                    <p className='text-sm'>De 1 a 5 mts: ${tela?.prices[0]}</p>
-                  </li>
-                  <li>
-                    <p className='text-sm'>De 6 a 10 mts: ${tela?.prices[1]}</p>
-                  </li>
-                  <li>
-                    <p className='text-sm'>
-                      De 11 a 30 mts: ${tela?.prices[2]}
-                    </p>
-                  </li>
-                  <li>
-                    <p className='text-sm'>
-                      De 31 a 50 mts: ${tela?.prices[3]}
-                    </p>
-                  </li>
-                  <li>
-                    <p className='text-sm'>51 o más mts: ${tela?.prices[4]}</p>
-                  </li>
-                </ul>
+                <div className='mb-2'>
+                  <h3 className='mb-1'>Color de base</h3>
+                  <p className='text-sm'>{tela?.baseColor}</p>
+                </div>
+                <div className='mb-2'>
+                  <h3 className='mb-1'>Composición</h3>
+                  <p className='text-sm'>{tela?.composition}</p>
+                </div>
+                <div className='mb-2'>
+                {tela?.usos && (
+                  <div>
+                    <h3 className='mb-1'>Usos</h3>
+                    <p className='text-sm'>{tela?.usos.join(', ')}</p>
+                  </div>
+                )}
               </div>
-
+                <div className='mb-5'>
+                  <h3 className='mb-1'>Precios</h3>
+                  <ul className='mb-1'>
+                    <li>
+                      <p className='text-sm'>
+                        De 1 a 5 mts: ${tela?.prices[0]}
+                      </p>
+                    </li>
+                    <li>
+                      <p className='text-sm'>
+                        De 6 a 10 mts: ${tela?.prices[1]}
+                      </p>
+                    </li>
+                    <li>
+                      <p className='text-sm'>
+                        De 11 a 30 mts: ${tela?.prices[2]}
+                      </p>
+                    </li>
+                    <li>
+                      <p className='text-sm'>
+                        De 31 a 50 mts: ${tela?.prices[3]}
+                      </p>
+                    </li>
+                    <li>
+                      <p className='text-sm'>
+                        51 o más mts: ${tela?.prices[4]}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               <p className='mb-8 font-medium'>Total: ${price}</p>
               {inCart && (
                 <div className='bg-secondary-bg-color px-3 py-3 w-full rounded-2xl mb-6'>
