@@ -12,10 +12,12 @@ export default function ActualTela() {
         <div className='mb-10 flex justify-between items-center'>
           <div className='flex justify-center items-center gap-5'>
             <h1 className='text-5xl font-display mb-5'>
-              {actualTela?.tela?.title}
+              Tela {actualTela?.tela?.title}
+              <span className='text-sm ml-2'>({actualTela.mts} mts)</span>
             </h1>
             <p className='text-lg'>(Paso 2: Elegí las estampas)</p>
           </div>
+
           <div>
             <Button
               className='bg-cancel-text-color'
@@ -29,9 +31,9 @@ export default function ActualTela() {
       {!actualTela && (
         <div className='mb-10 flex justify-between items-center'>
           <div className='flex justify-center items-center gap-5'>
-            <h1 className='text-5xl font-display mb-5'>
+            <h2 className='text-2xl font-display mb-5 leading-none'>
               No hay tela seleccionada
-            </h1>
+            </h2>
           </div>
           <div className='flex'>
             <LinkButton href='/telas'>Agregar tela</LinkButton>

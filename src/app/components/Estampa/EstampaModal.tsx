@@ -62,7 +62,11 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
               <div className='col_6'>
                 <div className='flex flex-col justify-between h-full'>
                   <div>
-                    <h2 className='text-4xl mb-5'>{estampa.title}</h2>
+                    <h2 className='text-4xl mb-5'>{estampa?.title}</h2>
+                    {estampa?.description !== '' && (
+                      <p className='text-sm mb-5'>{estampa?.description}</p>
+                    )}
+
                     <div className='pb-2'>
                       {available > 0 && (
                         <>
@@ -78,11 +82,17 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                           </p>
                         </>
                       )}
-                      {available === 0 && (
+                      {!actualTela.sku ? (
                         <p className='text-xs'>
-                          No hay espacio disponible en la tela. Por favor quitá
-                          alguna estampa
+                          Por favor seleccioná una tela para agregar la estampa
                         </p>
+                      ) : (
+                        available === 0 && (
+                          <p className='text-xs'>
+                            No hay espacio disponible en la tela. Por favor
+                            quitá alguna estampa
+                          </p>
+                        )
                       )}
                     </div>
                     {available > 0 && (
@@ -128,7 +138,12 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                     {available > 0 && (
                       <Button onClick={handleAddEstampa}>Agregar</Button>
                     )}
-                    <Button className='bg-cancel-text-color' onClick={handleModal}>Cancelar</Button>
+                    <Button
+                      className='bg-cancel-text-color'
+                      onClick={handleModal}
+                    >
+                      Cancelar
+                    </Button>
                   </div>
                 </div>
               </div>

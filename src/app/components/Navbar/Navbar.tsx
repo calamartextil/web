@@ -13,15 +13,20 @@ const Navbar = ({ isScroll }: { isScroll: boolean }) => {
             isScroll ? `h-[50px] pt-3` : `h-[105px]`
           } bg-primary-bg-color`}
         >
-          <Link href='/'>
-            <div className='relative w-24 h-24'>
-              <Image
-                src={`/images/${isScroll ? `logo-h.svg` : `logo.svg`}`}
-                fill={true}
-                alt='Calamar'
-              />
-            </div>
-          </Link>
+          <div className='w-32'>
+            <Link href='/'>
+              <div
+                className={`relative ${isScroll ? `w-32 h-20` : `w-24 h-24`}`}
+              >
+                <Image
+                  src={`/images/${isScroll ? `logo-h.svg` : `logo.svg`}`}
+                  fill={true}
+                  alt='Calamar'
+                />
+              </div>
+            </Link>
+          </div>
+
           <Menu />
 
           <div className='flex justify-center items-center gap-4 min-w-40'>
