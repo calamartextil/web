@@ -9,7 +9,8 @@ import TelaMtsInput from '@/app/components/TelaMtsInput';
 import { useRouter } from 'next/navigation';
 import CartMiniEstampas from '@/app/components/Cart/CartMiniEstampas';
 import { EstampaCart } from '@/types';
-import LinkButton from '../LinkButton';
+import LinkButton from '@/app/components/LinkButton';
+import TelaSlider from '@/app/components/Tela/TelaSlider';
 
 interface TelaProps {
   tela: Tela;
@@ -75,15 +76,7 @@ export default function TelaSingle({ tela }: TelaProps) {
       <div className='bg-primary-bg-color p-10 rounded-2xl'>
         <div className='grid'>
           <div className='col_6'>
-            <div className='full-img-container'>
-              <Image
-                sizes='100%'
-                fill={true}
-                src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${tela?.images.lisaUrl}`}
-                alt={tela?.title}
-                className='rounded-2xl full-img'
-              />
-            </div>
+            <TelaSlider images={tela?.images} />
           </div>
           <div className='col_6'>
             <div className='flex flex-col justify-center items-start'>
