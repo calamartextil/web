@@ -18,7 +18,7 @@ export default function ActualTela() {
           </div>
           <div>
             <Button
-              className='bg-red-500 text-white'
+              className='bg-cancel-text-color'
               onClick={() => removeCartItemBySku(actualTela.tela.sku)}
             >
               Quitar tela

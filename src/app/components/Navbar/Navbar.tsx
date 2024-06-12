@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className='relative'>
         <div className='flex justify-between items-center px-20 pt-1 h-[105px] bg-primary-bg-color'>
           <Link href='/'>
-            <div className='relative w-20 h-20'>
+            <div className='relative w-24 h-24'>
               <Image src='/images/logo.svg' fill={true} alt='Calamar' />
             </div>
           </Link>

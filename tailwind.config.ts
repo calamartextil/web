@@ -13,6 +13,7 @@ const config: Config = {
         'secondary-bg-color': 'var(--secondary-bg-color)',
         'third-bg-color': 'var(--third-bg-color)',
         'fourth-bg-color': 'var(--fourth-bg-color)',
+        'cancel-text-color': 'var(--cancel-text-color)',
       },
       fontFamily: {
         'display': ['var(--font-display)'],
