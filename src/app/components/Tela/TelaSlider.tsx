@@ -24,8 +24,8 @@ export default function TelaSlider({ images }: TelaSliderProps) {
     slidesToScroll: 1,
   };
   return (
-    
-      <Slider {...settings}>
+    <Slider {...settings}>
+      {images?.lisaUrl && (
         <div className='full-img-container'>
           <Image
             sizes='100%'
@@ -35,25 +35,29 @@ export default function TelaSlider({ images }: TelaSliderProps) {
             className='rounded-2xl full-img'
           />
         </div>
+      )}
+      {images?.estampadaUrl && (
         <div className='full-img-container'>
           <Image
             sizes='100%'
             fill={true}
-            src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${images.lisaUrl}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${images.estampadaUrl}`}
             alt={`Lisa`}
             className='rounded-2xl full-img'
           />
         </div>
+      )}
+      {images?.usosUrl && (
         <div className='full-img-container'>
           <Image
             sizes='100%'
             fill={true}
-            src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${images.lisaUrl}`}
+            src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${images.usosUrl}`}
             alt={`Lisa`}
             className='rounded-2xl full-img'
           />
         </div>
-      </Slider>
-   
+      )}
+    </Slider>
   );
 }
