@@ -11,6 +11,13 @@ export default async function EstampasGridPage({
 }) {
   const estampasDb = await getAllEstampas(category);
 
+  const estampaTuDise = {
+    title: "Tu diseño",
+    sku: "TU-DISE",
+    image: `placeholder.jpg`,
+    description: "Envianos tu propio diseño y lo estampamos",
+  } as IEstampa
+
   return (
     <>
       <ActualTela />
@@ -25,6 +32,11 @@ export default async function EstampasGridPage({
       {estampasDb.estampas.length > 0 && (
         <>
           <div className='grid w-full'>
+            {!category && (
+              <div className='col_3'>
+              <EstampaCard estampa={estampaTuDise} />
+            </div>
+            )}
             {estampasDb.estampas &&
               estampasDb.estampas.map((estampa: IEstampa, index) => (
                 <div key={index} className='col_3'>
