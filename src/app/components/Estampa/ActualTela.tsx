@@ -32,7 +32,7 @@ export default function ActualTela() {
         <div className='mb-10 flex justify-between items-center'>
           <div className='flex justify-center items-center gap-5'>
             <h2 className='text-2xl font-display mb-5 leading-none'>
-              No hay tela seleccionada
+              Comenzá eligiendo una tela
             </h2>
           </div>
           <div className='flex'>
