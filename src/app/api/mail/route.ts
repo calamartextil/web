@@ -1,34 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import sgMail from '@sendgrid/mail';
-import dynamic from 'next/dynamic';
 
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
-    const { body } = req;
+    const data = await req.json();
+    const contactData = data.contactData;
+    const cart = data.cart;
+    const cartTotal = data.total;
     sgMail.setApiKey(process.env.SENDGRID_API_KEY ?? 'DEFAULT_API_KEY');
-    // const msg = {
-    //   to: 'leanamaro@gmail.com', // Change to your recipient
-    //   from: 'web@calamartextil.com', // Change to your verified sender
-    //   subject: 'Sending with SendGrid is Fun',
-    //   text: 'and easy to do anywhere, even with Node.js',
-    //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    // };
 
     const msg = {
       from: {
         email: 'web@calamartextil.com',
       },
-      subject: 'Nuevo pedido en la web',
+      subject: `Nuevo pedido en la web de ${contactData.name} ${contactData.apellido}`,
       personalizations: [
         {
           to: [
             {
-              email: 'leanamaro@gmail.com',
-              name: 'Leandro Amaro',
+              email: contactData.email,
+              name: contactData.name,
             },
           ],
           dynamic_template_data: {
-            name: 'Leandrito',
+            name: contactData.name,
+            items: cart,
+            total: cartTotal,
           },
         },
       ],
@@ -36,11 +33,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
     };
 
     await sgMail.send(msg);
-    return NextResponse.json({ message: 'Email enviado com sucesso!' });
+    return NextResponse.json({
+      message:
+        'Recibimos tu pedido!. Nos contactaremos en las próximas 48hrs. Muchas gracias!',
+    });
   } catch (error: any) {
     return NextResponse.json({
       error: error.message as string,
-      message: 'Ha ocurrido un error',
+      message:
+        'Ocurrió un error al enviar el mail. Por favor, intentá nuevamente. O contactate con nosotros.',
     });
   }
 }
