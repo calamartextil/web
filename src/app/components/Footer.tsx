@@ -1,4 +1,4 @@
-import { FaSquareFacebook, FaSquareInstagram } from 'react-icons/fa6';
+import { FaSquareFacebook, FaSquareInstagram, FaTiktok } from 'react-icons/fa6';
 import Image from 'next/image';
 
 const Footer = () => {
@@ -16,6 +16,9 @@ const Footer = () => {
             </a>
             <a href='#' target='_blank'>
               <FaSquareFacebook size='20' color='#000' />
+            </a>
+            <a href='#' target='_blank'>
+              <FaTiktok size='20' color='#000' />
             </a>
           </div>
         </footer>

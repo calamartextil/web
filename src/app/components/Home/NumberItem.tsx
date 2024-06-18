@@ -6,9 +6,9 @@ interface NumberItemProps {
   icon: string;
   alt: string;
   title: string;
-  caption: string;
+  caption?: string;
   description: string;
-  href: string;
+  href?: string;
 }
 
 const NumberItem = ({
@@ -30,9 +30,6 @@ const NumberItem = ({
       <div className='w-20 h-20 relative mb-8'>
         <Image src={icon} alt={alt} fill={true} />
       </div>
-      <LinkButton href={href} invert={true}>
-        {caption}
-      </LinkButton>
     </div>
   );
 };

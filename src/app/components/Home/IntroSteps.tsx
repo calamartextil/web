@@ -1,5 +1,6 @@
 import Inner from '@/app/components/Inner';
-import NumberItem from '@/app/components/NumberItem';
+import NumberItem from '@/app/components/Home/NumberItem';
+import LinkButton from '@/app/components/LinkButton';
 
 const IntroSteps = () => {
   return (
@@ -36,8 +37,8 @@ const IntroSteps = () => {
               </div>
               <div className='col_4'>
                 <NumberItem
-                 image={'/images/icons/3.svg'}
-                 icon={'/images/icons/Pedido.svg'}
+                  image={'/images/icons/3.svg'}
+                  icon={'/images/icons/Pedido.svg'}
                   alt={'Paso 1'}
                   title='Envianos tu pedido'
                   caption='Pedido'
@@ -46,10 +47,16 @@ const IntroSteps = () => {
                 />
               </div>
             </div>
+            <div className='mt-5 flex'>
+            <LinkButton href={'/telas'} invert={true}>
+              Comenzar
+            </LinkButton>
+            </div>
+            
           </>
         </Inner>
       </section>
-      <div className="absolute w-full h-[54px] left-0 z-10 bg-[url('/images/ondas_orange_bottom.svg')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]"></div>
+      <div className="absolute w-full h-[54px] left-0 z-20 bg-[url('/images/ondas_orange_bottom.svg')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]"></div>
     </div>
   );
 };
