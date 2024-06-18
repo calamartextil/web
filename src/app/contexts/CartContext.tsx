@@ -67,10 +67,10 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     }, [] as CartItem[]);
   };
 
-  useEffect(() => {
-    //JUST FOR DEBUGGING REMOVE LATER
-    console.log(cart);
-  }, [cart]);
+  // useEffect(() => {
+  //   //JUST FOR DEBUGGING REMOVE LATER
+  //   console.log(cart);
+  // }, [cart]);
 
   //CART
 
