@@ -96,6 +96,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   };
 
   const removeCartItemBySku = (sku: string) => {
+    if (actualTela.sku === sku) setActualTela({} as Tela);
     setCart(cart.filter((cartItem) => cartItem.tela.sku !== sku));
   };
 
