@@ -11,10 +11,10 @@ const navBarItems = [
     name: 'Estampas',
     href: '/estampas',
   },
-  {
-    name: 'Tu pedido',
-    href: '/pedido',
-  },
+  // {
+  //   name: 'Tu pedido',
+  //   href: '/pedido',
+  // },
   {
     name: 'Nosotros',
     href: '/nosotros',
@@ -23,6 +23,11 @@ const navBarItems = [
     name: 'Contacto',
     href: '/contacto',
   },
+  {
+    name: 'Tienda de stock',
+    href: 'https://calamartextil.com.ar/',
+    externalLink: true,
+  },
 ];
 
 export default function Menu() {
@@ -30,9 +35,9 @@ export default function Menu() {
   return (
     <nav className='hidden md:block font-outfit font-semibold text-md'>
       <ul className='flex justify-center items-center gap-20'>
-        {navBarItems.map(({ name, href }, index) => (
+        {navBarItems.map(({ name, href, externalLink }, index) => (
           <li key={index}>
-            <Link href={href} className={checkActivePath(href) ? 'active' : ''}>
+            <Link href={href} target={externalLink ? '_blank' : '' } className={checkActivePath(href) ? 'active' : ''}>
               {name}
             </Link>
           </li>

@@ -172,7 +172,13 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
 
                   <div className='flex justify-end items-center gap-5'>
                     {available > 0 && (
-                      <Button disabled={scale === null} title="Elegí una escala" onClick={handleAddEstampa}>Agregar</Button>
+                      <Button
+                        disabled={scale === null}
+                        title='Elegí una escala'
+                        onClick={handleAddEstampa}
+                      >
+                        Agregar
+                      </Button>
                     )}
                     <Button
                       className='bg-cancel-text-color'
