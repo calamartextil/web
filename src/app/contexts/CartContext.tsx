@@ -13,6 +13,8 @@ interface CartContextProps {
   cartTotal: number;
   cartQty: number;
   actualTela: Tela;
+  scalePopUp: boolean;
+  setScalePopUp: (value: boolean) => void;
   addCartItem: (item: CartItem) => void;
   removeCartItem: (item: CartItem) => void;
   removeCartItemBySku: (sku: string) => void;
@@ -51,21 +53,8 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   const cartTotal = cart.reduce((acc, item) => acc + item.price, 0);
   const cartQty = cart.length;
   const [actualTela, setActualTela] = useState<Tela>({} as Tela);
+  const [scalePopUp, setScalePopUp] = useState<boolean>(false);
 
-  const sumarizeCartItemsByTela = (cart: CartItem[]) => {
-    //TODO deprecated
-    return cart.reduce((acc, item) => {
-      const existingItem = acc.find(
-        (cartItem) => cartItem.tela.telaId === item.tela.telaId
-      );
-      if (existingItem) {
-        existingItem.mts += item.mts;
-        existingItem.price += item.price;
-        return acc;
-      }
-      return [...acc, item];
-    }, [] as CartItem[]);
-  };
 
   // useEffect(() => {
   //   //JUST FOR DEBUGGING REMOVE LATER
@@ -180,6 +169,8 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cartTotal,
         cartQty,
         actualTela,
+        scalePopUp,
+        setScalePopUp,
         telaAvailable,
         addCartItem,
         removeCartItem,

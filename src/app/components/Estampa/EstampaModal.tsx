@@ -7,6 +7,7 @@ import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import type { Estampa } from '@/types';
 import LinkButton from '@/app/components/LinkButton';
+import EscalaModal from '@/app/components/Estampa/EscalasModal';
 
 interface EstampaModalProps {
   estampa: Estampa;
@@ -22,7 +23,8 @@ enum Scale {
 const TU_DISE_SKU = 'TU-DISE';
 
 const EstampaModal = ({ estampa }: EstampaModalProps) => {
-  const { addEstampaToTela, telaAvailable, actualTela } = useCartContext();
+  const { addEstampaToTela, telaAvailable, actualTela, setScalePopUp } =
+    useCartContext();
   const [available, setAvailable] = useState<number>(0.5);
   const [openModal, setModal] = useState(false);
   const [mts, setMts] = useState<number>(0.5);
@@ -110,8 +112,8 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                     </div>
                     {available > 0 && (
                       <div className='pb-5'>
-                        <div className='flex justify-start gap-2 mt-4'>
-                          <p className='text-lg'>Escala:</p>
+                        <div className='flex justify-start items-center gap-2 mt-4'>
+                          <p className='text-sm'>Escala:</p>
                           <button
                             className={`rounded-full w-8 h-8 flex justify-center items-center ${
                               scale === Scale.S
@@ -157,11 +159,11 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                         </div>
                         {estampa?.sku === TU_DISE_SKU && scale === Scale.C && (
                           <p className='text-xs mt-3'>
-                            Por favor incluí los detalles de tu escala custom en
+                            Por favor incluí los detalles de tu escala en
                             los comentarios del pedido.
                           </p>
                         )}
-                        <button className='mt-2'>
+                        <button onClick={() => setScalePopUp(true)} className='mt-2'>
                           <span className='text-xs underline underline-offset-4'>
                             Consultá las escalas
                           </span>
