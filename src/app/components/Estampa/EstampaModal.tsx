@@ -6,6 +6,7 @@ import { useCartContext } from '@/app/contexts/CartContext';
 import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import type { Estampa } from '@/types';
+import LinkButton from '@/app/components/LinkButton';
 
 interface EstampaModalProps {
   estampa: Estampa;
@@ -15,14 +16,17 @@ enum Scale {
   S = 'S',
   M = 'M',
   L = 'L',
+  C = 'Custom',
 }
+
+const TU_DISE_SKU = 'TU-DISE';
 
 const EstampaModal = ({ estampa }: EstampaModalProps) => {
   const { addEstampaToTela, telaAvailable, actualTela } = useCartContext();
   const [available, setAvailable] = useState<number>(0.5);
   const [openModal, setModal] = useState(false);
   const [mts, setMts] = useState<number>(0.5);
-  const [scale, setScale] = useState<string>(Scale.S);
+  const [scale, setScale] = useState<Scale | null>(null);
   const handleModal = () => {
     setMts(0.5);
     setModal(!openModal);
@@ -30,10 +34,11 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
 
   useEffect(() => {
     setAvailable(telaAvailable(actualTela.sku).available);
+    setScale(null);
   }, [actualTela.sku, telaAvailable]);
 
   const handleAddEstampa = () => {
-    addEstampaToTela(actualTela.sku, estampa, mts, scale);
+    addEstampaToTela(actualTela.sku, estampa, mts, scale as Scale);
     handleModal();
   };
 
@@ -62,7 +67,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
               <div className='col_6'>
                 <div className='flex flex-col justify-between h-full'>
                   <div>
-                    <h2 className='text-4xl mb-5'>{estampa?.title}</h2>
+                    <h2 className='text-4xl mb-2'>{estampa?.title}</h2>
                     {estampa?.description !== '' && (
                       <p className='text-sm mb-5'>{estampa?.description}</p>
                     )}
@@ -83,9 +88,17 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                         </>
                       )}
                       {!actualTela.sku ? (
-                        <p className='text-xs'>
-                          Por favor seleccioná una tela para agregar la estampa
-                        </p>
+                        <>
+                          <p className='text-xs mb-5'>
+                            Por favor primero elegí una tela para agregar la
+                            estampa
+                          </p>
+                          <div className='flex'>
+                            <LinkButton href='/telas' className='mt-2'>
+                              Elegir tela
+                            </LinkButton>
+                          </div>
+                        </>
                       ) : (
                         available === 0 && (
                           <p className='text-xs'>
@@ -129,14 +142,37 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                           >
                             {Scale.L}
                           </button>
+                          {estampa?.sku === TU_DISE_SKU && (
+                            <button
+                              className={`rounded-full h-8 px-4 flex justify-center items-center ${
+                                scale === Scale.C
+                                  ? 'bg-third-bg-color'
+                                  : 'bg-gray-200'
+                              }`}
+                              onClick={() => setScale(Scale.C)}
+                            >
+                              {Scale.C}
+                            </button>
+                          )}
                         </div>
+                        {estampa?.sku === TU_DISE_SKU && scale === Scale.C && (
+                          <p className='text-xs mt-3'>
+                            Por favor incluí los detalles de tu escala custom en
+                            los comentarios del pedido.
+                          </p>
+                        )}
+                        <button className='mt-2'>
+                          <span className='text-xs underline underline-offset-4'>
+                            Consultá las escalas
+                          </span>
+                        </button>
                       </div>
                     )}
                   </div>
 
                   <div className='flex justify-end items-center gap-5'>
                     {available > 0 && (
-                      <Button onClick={handleAddEstampa}>Agregar</Button>
+                      <Button disabled={scale === null} title="Elegí una escala" onClick={handleAddEstampa}>Agregar</Button>
                     )}
                     <Button
                       className='bg-cancel-text-color'
