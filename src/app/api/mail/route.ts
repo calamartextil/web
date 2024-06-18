@@ -1,11 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import sgMail from '@sendgrid/mail';
+import { formatNumber } from '@/app/utils/prices';
+import { estampas } from '@/app/database/staticContent';
 
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const data = await req.json();
     const contactData = data.contactData;
     const cart = data.cart;
+    const cartFormated = cart.map((item: any) => {
+      return {
+        ...item,
+        price: formatNumber(item.price),
+      };
+    });
     const cartTotal = data.total;
     sgMail.setApiKey(process.env.SENDGRID_API_KEY ?? 'DEFAULT_API_KEY');
 
@@ -39,8 +47,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
             cp: contactData.cp,
             mensaje: contactData.mensaje,
             tuDisenio: contactData.tuDisenio,
-            items: cart,
-            total: cartTotal,
+            items: cartFormated,
+            total: formatNumber(cartTotal),
           },
         },
       ],

@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { Tela } from '@/types';
 import { useCartContext } from '@/app/contexts/CartContext';
 import Button from '@/app/components/Button';
-import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import { useRouter } from 'next/navigation';
 import CartMiniEstampas from '@/app/components/Cart/CartMiniEstampas';
 import { EstampaCart } from '@/types';
 import LinkButton from '@/app/components/LinkButton';
 import TelaSlider from '@/app/components/Tela/TelaSlider';
+import { formatNumber } from '@/app/utils/prices';
 
 interface TelaProps {
   tela: Tela;
@@ -91,45 +91,48 @@ export default function TelaSingle({ tela }: TelaProps) {
                   <p className='text-sm'>{tela?.composition}</p>
                 </div>
                 <div className='mb-2'>
-                {tela?.usos && (
-                  <div>
-                    <h3 className='mb-1'>Usos</h3>
-                    <p className='text-sm'>{tela?.usos.join(', ')}</p>
-                  </div>
-                )}
-              </div>
+                  {tela?.usos && (
+                    <div>
+                      <h3 className='mb-1'>Usos</h3>
+                      <p className='text-sm'>{tela?.usos.join(', ')}</p>
+                    </div>
+                  )}
+                </div>
                 <div className='mb-5'>
                   <h3 className='mb-1'>Precios</h3>
                   <ul className='mb-1'>
                     <li>
                       <p className='text-sm'>
-                        De 1 a 5 mts: ${tela?.prices[0]}
+                        De 1 a 5 mts: ${formatNumber(tela?.prices[0])}
                       </p>
                     </li>
                     <li>
                       <p className='text-sm'>
-                        De 6 a 10 mts: ${tela?.prices[1]}
+                        De 6 a 10 mts: ${formatNumber(tela?.prices[1])}
                       </p>
                     </li>
                     <li>
                       <p className='text-sm'>
-                        De 11 a 30 mts: ${tela?.prices[2]}
+                        De 11 a 30 mts: ${formatNumber(tela?.prices[2])}
                       </p>
                     </li>
                     <li>
                       <p className='text-sm'>
-                        De 31 a 50 mts: ${tela?.prices[3]}
+                        De 31 a 50 mts: ${formatNumber(tela?.prices[3])}
                       </p>
                     </li>
                     <li>
                       <p className='text-sm'>
-                        51 o más mts: ${tela?.prices[4]}
+                        51 o más mts: ${formatNumber(tela?.prices[4])}
                       </p>
                     </li>
                   </ul>
                 </div>
               </div>
-              <p className='mb-8 text-2xl font-medium'>Total: ${price} <span className='text-sm'>(Precio final - IVA incluido)</span></p>
+              <p className='mb-8 text-2xl font-medium'>
+                Total: ${formatNumber(price)}{' '}
+                <span className='text-sm'>(Precio final - IVA incluido)</span>
+              </p>
               {inCart && (
                 <div className='bg-secondary-bg-color px-3 py-3 w-full rounded-2xl mb-6'>
                   <div className='mb-5'>
@@ -163,7 +166,6 @@ export default function TelaSingle({ tela }: TelaProps) {
           </div>
         </div>
       </div>
-      {/* <TelaGraphContainer /> */}
     </div>
   );
 }
