@@ -4,6 +4,7 @@ interface LinkButtonProps {
   children: React.ReactNode;
   href: string;
   invert?: boolean;
+  externalLink?: boolean;
   className?: string;
 }
 
@@ -11,10 +12,12 @@ const LinkButton = ({
   children,
   href,
   invert = false,
+  externalLink,
   className,
 }: LinkButtonProps) => {
   return (
     <Link
+      target={externalLink ? '_blank' : ''}
       className={`${
         invert && `bg-transparent text-black border-white border-2`
       } ${className} bg-black text-white text-sm w-36 text-center py-2 px-1 rounded-2xl hover:opacity-70`}

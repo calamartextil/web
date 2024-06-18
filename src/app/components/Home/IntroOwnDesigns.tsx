@@ -4,15 +4,17 @@ import Inner from '@/app/components/Inner';
 const IntroOwnDesigns = () => {
   return (
     <div className='relative'>
-      <section className='bg-primary-bg-color'>
+      <section className='bg-primary-bg-color overflow-y-hidden'>
         <Inner>
           <>
-            <p className='text-2xl font-normal'>¿Queres estampar</p>
-            <div className='relative w-[400px] text-center h-36 mb-8'>
-              <h2 className='text-7xl font-normal absolute top-0 left-0 right-0 w-[400px] z-20 mx-auto my-0'>
+            <div className='relative w-[600px] text-center h-44 mb-8'>
+              <p className='text-2xl font-semibold absolute -top-8 left-0 right-0 z-20'>
+                ¿Queres estampar
+              </p>
+              <h2 className='text-7xl font-normal absolute top-0 left-0 right-0 w-[600px] z-20 mx-auto my-0'>
                 tus propios diseños?
               </h2>
-              <div className='inline-bloock bg-fourth-bg-color w-[400px] h-[70px] mx-auto my-0 absolute top-10 left-0 right-0 z-10 rounded-full'></div>
+              <div className='inline-bloock bg-fourth-bg-color w-[600px] h-[600px] mx-auto my-0 absolute -top-[400px] left-0 right-0 z-10 rounded-full'></div>
             </div>
 
             <p className='text-2xl text-center max-w-[500px] mb-12'>

@@ -7,6 +7,7 @@ import LinkButton from '@/app/components/LinkButton';
 import { useCartContext } from '@/app/contexts/CartContext';
 import CartMiniEstampas from './CartMiniEstampas';
 import { EstampaCart } from '@/types';
+import { formatNumber } from '@/app/utils/prices';
 
 export default function CartResume() {
   const { cart, removeCartItemBySku } = useCartContext();
@@ -35,7 +36,7 @@ export default function CartResume() {
                 <p className='text-sm'>
                   Largo: {item.mts} {item.mts !== 1 ? `mts` : `mt`}
                 </p>
-                <p className='text-lg font-medium'>Subtotal: ${item.price}</p>
+                <p className='text-lg font-medium'>Subtotal: ${formatNumber(item?.price)}</p>
               </div>
               <div className='flex flex-col justify-start items-start gap-2'>
                 <LinkButton href={`/telas/${item.tela.sku}`}>

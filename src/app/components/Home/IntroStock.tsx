@@ -42,7 +42,9 @@ const IntroStock = () => {
               </div>
             ))}
           </div>
-          <LinkButton href={`/estampas`}>Ver más</LinkButton>
+          <LinkButton externalLink={true} href={`https://calamartextil.com.ar`}>
+            Visitar tienda
+          </LinkButton>
         </>
       </Inner>
     </section>
