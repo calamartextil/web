@@ -5,6 +5,7 @@ import './globals.css';
 import NavbarContainer from '@/app/components/Navbar/NavbarContainer';
 import Footer from '@/app/components/Footer';
 import { CartContextProvider } from '@/app/contexts/CartContext';
+import WspIcon from '@/app/components/WspIcon';
 
 
 const dmSerifDisplay = DM_Serif_Display({ 
@@ -37,6 +38,7 @@ export default function RootLayout({
         {children}
         <Footer />
         </CartContextProvider>
+        <WspIcon />
       </body>
     </html>
   );

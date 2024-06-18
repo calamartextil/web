@@ -15,7 +15,7 @@ export default async function EstampasGridPage({
     title: "Tu diseño",
     sku: "TU-DISE",
     image: `placeholder.jpg`,
-    description: "Envianos tu propio diseño y lo estampamos",
+    description: "Envianos tu propio diseño y lo estampamos. Recibimos archivos en formato AI o PDF, mediante link a weTransfer o Google Drive.",
   } as IEstampa
 
   return (

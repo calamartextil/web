@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaSquareFacebook, FaSquareInstagram } from 'react-icons/fa6';
+import { FaSquareFacebook, FaSquareInstagram, FaTiktok } from 'react-icons/fa6';
 import CartIcon from '@/app/components/Navbar/CartIcon';
 import Menu from '@/app/components/Navbar/Menu';
 
@@ -38,6 +38,9 @@ const Navbar = ({ isScroll }: { isScroll: boolean }) => {
             </a>
             <a href=''>
               <FaSquareFacebook size={isScroll ? `20` : `30`} color='#F4C6E3' />
+            </a>
+            <a href=''>
+              <FaTiktok size={isScroll ? `20` : `30`} color='#F4C6E3' />
             </a>
             <CartIcon isScroll={isScroll} />
           </div>
