@@ -22,14 +22,29 @@ export async function POST(req: NextRequest, res: NextResponse) {
               name: contactData.name,
             },
           ],
+          bcc: [
+            {
+              email: `calamartextilweb@gmail.com`,
+              name: `calamarTextil`,
+            },
+          ],
           dynamic_template_data: {
             name: contactData.name,
+            apellido: contactData.apellido,
+            email: contactData.email,
+            telefono: contactData.telefono,
+            direccion: contactData.direccion,
+            localidad: contactData.localidad,
+            provincia: contactData.provincia,
+            cp: contactData.cp,
+            mensaje: contactData.mensaje,
+            tuDisenio: contactData.tuDisenio,
             items: cart,
             total: cartTotal,
           },
         },
       ],
-      templateId: 'd-3bc494aa6bc14cf6b275a360312e6ee9',
+      templateId: process.env.SENDGRID_TEMPLATE_ID ?? 'DEFAULT_TEMPLATE_ID',
     };
 
     await sgMail.send(msg);
