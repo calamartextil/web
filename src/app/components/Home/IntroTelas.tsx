@@ -27,9 +27,11 @@ const IntroTelas = () => {
       <section className='bg-primary-bg-color'>
         <Inner>
           <>
-            <h2>Nuestras telas</h2>
-            <p className='mb-10'>Gran variedad de bases disponibles</p>
-            <div className='grid mb-10'>
+            <h2 className='text-4xl lg:text-6xl'>Nuestras telas</h2>
+            <p className='mb-10 text-sm lg:text-2xl'>
+              Gran variedad de bases disponibles
+            </p>
+            <div className='grid mb-10 gap-3'>
               {telas.map(({ image }: { image: string }, index) => (
                 <div key={index} className='col_4 col_mb_6'>
                   <div className='full-img-container'>

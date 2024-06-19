@@ -33,8 +33,8 @@ const navBarItems = [
 export default function Menu() {
   const checkActivePath = useActivePath();
   return (
-    <nav className='hidden md:block font-outfit font-semibold text-md'>
-      <ul className='flex justify-center items-center gap-20'>
+    <nav className='font-outfit font-semibold text-md'>
+      <ul className='flex justify-center items-center gap-12'>
         {navBarItems.map(({ name, href, externalLink }, index) => (
           <li key={index}>
             <Link href={href} target={externalLink ? '_blank' : '' } className={checkActivePath(href) ? 'active' : ''}>

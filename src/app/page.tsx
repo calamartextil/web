@@ -7,7 +7,7 @@ import IntroStock from '@/app/components/Home/IntroStock';
 
 export default function Home() {
   return (
-    <main className=''>
+    <main>
       <Hero />
       <IntroSteps />
       <IntroOwnDesigns />
