@@ -26,9 +26,11 @@ const IntroStock = () => {
     <section className='pb-52'>
       <Inner>
         <>
-          <h2>Tienda de stock</h2>
-          <p className='mb-10'>Telas listas para que te las lleves.</p>
-          <div className='grid mb-10'>
+          <h2 className='text-4xl lg:text-6xl'>Tienda de stock</h2>
+          <p className='mb-10 text-sm lg:text-2xl'>
+            Telas listas para que te las lleves.
+          </p>
+          <div className='grid mb-10 gap-3'>
             {telas.map(({ image }: { image: string }, index) => (
               <div key={index} className='col_4 col_mb_6'>
                 <div className='full-img-container block'>

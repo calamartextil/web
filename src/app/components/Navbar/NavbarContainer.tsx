@@ -1,6 +1,7 @@
-'use client'
+'use client';
 import { useState, useEffect } from 'react';
 import Navbar from '@/app/components/Navbar/Navbar';
+import NavbarMobile from '@/app/components/Navbar/NavbarMobile';
 
 export default function NavbarContainer() {
   const [isScroll, setIsScroll] = useState(false);
@@ -12,5 +13,14 @@ export default function NavbarContainer() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <Navbar isScroll={isScroll} />;
+  return (
+    <>
+      <div className='hidden lg:block'>
+        <Navbar isScroll={isScroll} />
+      </div>
+      <div className='lg:hidden relative'>
+        <NavbarMobile isScroll={true} />
+      </div>
+    </>
+  );
 }

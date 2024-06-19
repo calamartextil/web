@@ -4,15 +4,22 @@ import Image from 'next/image';
 const Hero = () => {
   return (
     <div className='relative'>
-      <section className='bg-fourth-bg-color pt-60 min-h-[900px] relative mt-11'>
-        <div className='absolute right-0 top-6'>
-          <Image src={`/images/hero_img.png`} alt={`Calamar Textil`} width={700} height={700} />
+      <section className='bg-fourth-bg-color lg:pt-60 lg:min-h-[900px] relative mt-11'>
+        <div className='absolute right-0 top-1 sm:top-6'>
+          <div className='hidden lg:block w-[600px] h-[600px]'>
+            <Image
+              className='full-img'
+              src={`/images/hero_img.png`}
+              alt={`Calamar Textil`}
+             fill={true}
+            />
+          </div>
         </div>
-        <div className='flex flex-col gap-2 ml-16'>
-          <h1 className='text-6xl max-w-[700px] leading-12 mb-5'>
+        <div className='flex flex-col gap-2 ml-0 lg:ml-8'>
+          <h1 className='text-4xl lg:text-6xl sm:max-w-[400px] lg:max-w-[500px] xl:max-w-[700px] leading-12 mb-3 lg:mb-5'>
             La estampa que quieras en la tela que quieras.
           </h1>
-          <p className='text-xl mb-8'>
+          <p className='text-xl mb-5 lg:mb-8'>
             Ahora la tela ideal para tu proyecto es posible!
           </p>
           <LinkButton className={`bg-white !text-black`} href='/telas'>
