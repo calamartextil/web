@@ -9,7 +9,9 @@ export default function EstampasLayout({
   return (
     <div className='relative'>
       <div className=' pt-48 flex content-start gap-6 px-10 pb-40'>
-        <Sidebar />
+        <div className='hidden lg:block'>
+          <Sidebar />
+        </div>
         <main>{children}</main>
         <EscalaModal />
       </div>
