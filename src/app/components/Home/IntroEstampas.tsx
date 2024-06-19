@@ -59,7 +59,7 @@ const IntroEstampas = () => {
       <section>
         <Inner>
           <>
-            <h2 className='text-center'>Catálogo de estampas</h2>
+            <h2 className='text-center leading-12 text-4xl mb-3 lg:text-6xl'>Catálogo de estampas</h2>
             <p className='text-center mb-10'>
               Más de mil diseños para que elijas
             </p>

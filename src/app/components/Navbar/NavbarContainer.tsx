@@ -15,10 +15,10 @@ export default function NavbarContainer() {
 
   return (
     <>
-      <div className='hidden md:block'>
+      <div className='hidden lg:block'>
         <Navbar isScroll={isScroll} />
       </div>
-      <div className='md:hidden relative'>
+      <div className='lg:hidden relative'>
         <NavbarMobile isScroll={true} />
       </div>
     </>

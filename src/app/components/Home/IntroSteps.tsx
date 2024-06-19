@@ -8,8 +8,8 @@ const IntroSteps = () => {
       <section className='bg-secondary-bg-color'>
         <Inner>
           <>
-            <h2 className='font-outfit text-2xl'>Tu tela ideal</h2>
-            <p className='font-display text-6xl text-white mb-20 text-center'>
+            <h2 className='font-outfit text-2xl mb-3'>Tu tela ideal</h2>
+            <p className='font-display text-4xl lg:text-6xl text-white mb-10 lg:mb-20 text-center'>
               en 3 simples pasos
             </p>
             <div className='grid'>
