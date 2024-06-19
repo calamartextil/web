@@ -59,18 +59,20 @@ export default function TelaSingle({ tela }: TelaProps) {
   };
   return (
     <div className='relative'>
-      <div className='flex justify-between items-center'>
-        <div className='flex justify-center items-center gap-5'>
-          <h1 className='text-5xl font-display mb-5'>{tela?.title}</h1>
+      <div className='mb-10 flex flex-col-reverse lg:flex-row justify-between items-center gap-4 lg:gap-0'>
+        <div className='w-full lg:w-2/3 flex flex-col lg:flex-row justify-start items-start lg:items-center gap-1 lg:gap-2'>
+          <h1 className='text-5xl font-display mb-0 lg:mb-5'>{tela?.title}</h1>
           <p className='text-lg'>(Paso 1: Elegí la tela)</p>
         </div>
         {inCart && (
-          <Button
-            className='bg-cancel-text-color'
-            onClick={() => removeCartItemBySku(tela.sku)}
-          >
-            Quitar tela
-          </Button>
+          <div className='flex w-full lg:w-1/3 justify-end'>
+            <Button
+              className='bg-cancel-text-color'
+              onClick={() => removeCartItemBySku(tela.sku)}
+            >
+              Quitar tela
+            </Button>
+          </div>
         )}
       </div>
       <div className='bg-primary-bg-color p-10 rounded-2xl'>
