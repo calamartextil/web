@@ -4,7 +4,7 @@ import Inner from '@/app/components/Inner';
 const IntroOwnDesigns = () => {
   return (
     <div className='relative'>
-      <section className='bg-primary-bg-color overflow-y-hidden'>
+      <section className='bg-primary-bg-color overflow-x-hidden'>
         <Inner>
           <>
             <div className='relative w-[600px] text-center h-44 mb-8'>
