@@ -25,21 +25,28 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
             key={index}
             className='flex items-center justify-center gap-2 mr-3'
           >
-            <Image
-              className='rounded-2xl'
-              src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/estampas/${estampa.estampa.image}`}
-              alt={estampa.estampa.title}
-              width={70}
-              height={70}
-              placeholder='blur'
-              blurDataURL='/images/placeholder.jpg'
-            />
-            <div className='flex flex-col justify-center items-start gap-0'>
-              <p className='text-sm font-medium leading-none mb-1'>{estampa.estampa.title}</p>
-              <p className='text-xs leading-none mb-1'>Escala {estampa.scale}</p>
+            <div className='hidden lg:block'>
+              <Image
+                className='rounded-2xl'
+                src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/estampas/${estampa.estampa.image}`}
+                alt={estampa.estampa.title}
+                width={70}
+                height={70}
+                placeholder='blur'
+                blurDataURL='/images/placeholder.jpg'
+              />
+            </div>
+
+            <div className='flex lg:flex-col justify-center items-center lg:items-start gap-2 lg:gap-0'>
+              <p className='text-sm font-medium leading-none mb-1'>
+                {estampa.estampa.title}
+              </p>
+              <p className='text-xs leading-none mb-1'>
+                Escala {estampa.scale}
+              </p>
               <p className='text-xs leading-none mb-1'>{estampa.mts} mts</p>
               <button
-                className='text-sm text-white'
+                className='text-sm text-white leading-0 pb-1 lg:pb-0'
                 onClick={() =>
                   removeEstampaBySku(sku, estampa.estampa.sku, estampa.scale)
                 }
@@ -54,8 +61,8 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
 
   return (
     <div
-      className={`flex flex-wrap items-center justify-center w-full relative gap-2 min-h-4
-      } gap-y-5 transition-all`}
+      className={`flex flex-wrap items-center justify-start lg:justify-center w-full relative gap-2 min-h-4
+      } gap-y-1 lg:gap-y-5 transition-all pt-8 lg:pt-0`}
     >
       <div className='absolute top-0 right-0'>
         {telaAvailable(sku).available > 0 ? (
@@ -63,7 +70,7 @@ export default function TelaGraph({ sku }: TelaGraphProps) {
             Restan: {availability()} mts
           </p>
         ) : (
-          <div className='flex flex-col items-end gap-2'>
+          <div className='flex flex-row-reverse lg:flex-col items-end gap-3 lg:gap-2'>
             <p className='text-sm text-white font-semibold'>
               <Link href='/pedido'>Ver pedido</Link>
             </p>

@@ -133,7 +133,7 @@ export default function TelaSingle({ tela }: TelaProps) {
               </div>
               <p className='mb-8 text-2xl font-medium'>
                 Total: ${formatNumber(price)}{' '}
-                <span className='text-sm'>(Precio final - IVA incluido)</span>
+                <span className='text-sm inline-block lg:inline'>(Precio final - IVA incluido)</span>
               </p>
               {inCart && (
                 <div className='bg-secondary-bg-color px-3 py-3 w-full rounded-2xl mb-6'>
