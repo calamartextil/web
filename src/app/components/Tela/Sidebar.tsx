@@ -2,58 +2,23 @@
 
 import Link from 'next/link';
 import { useActivePath } from '@/app/utils/helpers';
+import { telasCategories } from '@/app/database/staticContent';
 
 export default function Sidebar() {
   const checkActivePath = useActivePath();
-
-  const categories = [
-    {
-      name: 'Plana',
-      href: '/telas/categoria/tela-plana',
-    },
-    {
-      name: 'Punto',
-      href: '/telas/categoria/tela-de-punto',
-    },
-    {
-      name: 'Indumentaria',
-      href: '/telas/categoria/tela-para-indumentaria',
-    },
-    {
-      name: 'Decoración',
-      href: '/telas/categoria/tela-para-decoracion',
-    },
-    {
-      name: 'Con elastano',
-      href: '/telas/categoria/tela-con-elastano',
-    },
-    {
-      name: 'Impermeable',
-      href: '/telas/categoria/tela-impermeable',
-    },
-    {
-      name: 'Algodón',
-      href: '/telas/categoria/tela-de-algodon',
-    },
-    {
-      name: 'Poliéster',
-      href: '/telas/categoria/tela-de-poliester',
-    },
-  ];
-
   return (
     <div className='sidebar w-[250px] transition-all'>
       <h1 className='mb-8'>Categorías</h1>
       <nav>
         <ul>
-          {categories.map(({ name, href }, index) => (
+          {telasCategories.map(({ title, href }, index) => (
             <li
               key={index}
               className={`w-full`}
             >
               <Link href={href} className={`block w-full mb-2 rounded-2xl hover:bg-secondary-bg-color hover:bg-opacity-0 ${
                 checkActivePath(href) ? 'bg-secondary-bg-color' : 'bg-primary-bg-color'
-              } py-2 pl-6 transition-all`}>{name}</Link>
+              } py-2 pl-6 transition-all`}>{title}</Link>
             </li>
           ))}
         </ul>
