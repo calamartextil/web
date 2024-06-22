@@ -9,9 +9,9 @@ export default function CartPrice() {
     <>
       {cartTotal > 0 && (
         <div>
-          <p className='bg-primary-bg-color py-5 px-6 rounded-2xl text-xl font-medium'>
+          <p className='bg-primary-bg-color py-5 px-6 rounded-2xl text-xl font-medium text-center'>
             {`Total $${formatNumber(cartTotal)} `}
-            <span className='text-sm'>(Precio final - IVA incluido)</span>
+            <span className='text-xs inline-block w-full md:inline'>(Precio final - IVA incluido)</span>
           </p>
         </div>
       )}
