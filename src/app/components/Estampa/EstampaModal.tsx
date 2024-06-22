@@ -54,7 +54,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
       <Button onClick={handleModal}>Elegir</Button>
       {openModal && (
         <div className='fixed top-0 left-0 w-full h-full bg-white bg-opacity-80 flex justify-center items-center z-20 transition-all'>
-          <div className=' w-3/4 lg:w-2/4 bg-primary-bg-color p-10 rounded-2xl shadow-lg '>
+          <div className=' w-5/6 lg:w-2/4 bg-primary-bg-color py-5 px-5 rounded-2xl shadow-lg w- '>
             <div className='grid'>
               <div className='col_6'>
                 <div className='full-img-container mb-5'>
@@ -95,11 +95,6 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                             Por favor primero elegí una tela para agregar la
                             estampa
                           </p>
-                          <div className='flex'>
-                            <LinkButton href='/telas' className='mt-2'>
-                              Elegir tela
-                            </LinkButton>
-                          </div>
                         </>
                       ) : (
                         available === 0 && (
@@ -159,11 +154,14 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                         </div>
                         {estampa?.sku === TU_DISE_SKU && scale === Scale.C && (
                           <p className='text-xs mt-3'>
-                            Por favor incluí los detalles de tu escala en
-                            los comentarios del pedido.
+                            Por favor incluí los detalles de tu escala en los
+                            comentarios del pedido.
                           </p>
                         )}
-                        <button onClick={() => setScalePopUp(true)} className='mt-2'>
+                        <button
+                          onClick={() => setScalePopUp(true)}
+                          className='mt-2'
+                        >
                           <span className='text-xs underline underline-offset-4'>
                             Consultá las escalas
                           </span>
@@ -181,6 +179,11 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                       >
                         Agregar
                       </Button>
+                    )}
+                    {!actualTela.sku && (
+                      <LinkButton href='/telas'>
+                        Elegir tela
+                      </LinkButton>
                     )}
                     <Button
                       className='bg-cancel-text-color'

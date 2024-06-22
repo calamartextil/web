@@ -32,13 +32,13 @@ export default function CartResume() {
             </Link>
             <div className='flex justify-between items-start w-full'>
               <div className='flex flex-col'>
-                <h2 className='leading-none mb-1'>{item.tela.title}</h2>
+                <h2 className='leading-none mb-1 text-2xl lg:text-4xl'>{item.tela.title}</h2>
                 <p className='text-sm'>
                   Largo: {item.mts} {item.mts !== 1 ? `mts` : `mt`}
                 </p>
                 <p className='text-lg font-medium'>Subtotal: ${formatNumber(item?.price)}</p>
               </div>
-              <div className='flex flex-col justify-start items-start gap-2'>
+              <div className='hidden lg:flex flex-col justify-start items-start gap-2'>
                 <LinkButton href={`/telas/${item.tela.sku}`}>
                   Ver tela
                 </LinkButton>
@@ -54,6 +54,17 @@ export default function CartResume() {
           <CartMiniEstampas
             estampasCart={item?.estampas || ([] as EstampaCart[])}
           />
+          <div className='flex lg:hidden justify-center items-center gap-2 pt-3'>
+                <LinkButton href={`/telas/${item.tela.sku}`}>
+                  Ver tela
+                </LinkButton>
+                <Button
+                  onClick={() => removeCartItemBySku(item.tela.sku)}
+                  className='bg-cancel-text-color'
+                >
+                  Quitar tela
+                </Button>
+              </div>
         </div>
       ))}
     </div>
