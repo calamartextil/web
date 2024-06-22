@@ -3,9 +3,9 @@ import CartPrice from '@/app/components/Cart/CartPrice';
 
 export default function Cart() {
   return (
-    <div className='pt-52 px-28 pb-56'>
-      <div className='flex justify-between items-center w-full'>
-        <h1 className='font-display text-5xl'>Tu pedido</h1>
+    <div className='pt-40 lg:pt-52 px-10'>
+      <div className='flex flex-col md:flex-row justify-between items-center lg:items-start w-full mb-3'>
+        <h1 className='font-display text-4xl md:text-6xl mb-5'>Tu pedido</h1>
         <CartPrice />
       </div>
       <CartContainer />

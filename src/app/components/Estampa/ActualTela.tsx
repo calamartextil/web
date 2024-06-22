@@ -36,7 +36,7 @@ export default function ActualTela() {
       {!actualTela && (
         <div className='mb-10 flex justify-between items-center'>
           <div className='flex justify-center items-center gap-5'>
-            <h2 className='text-2xl font-display mb-5 leading-none'>
+            <h2 className='text-sm lg:text-2xl font-display lg:mb-5 leading-none'>
               Comenzá eligiendo una tela
             </h2>
           </div>
