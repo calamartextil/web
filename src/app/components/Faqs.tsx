@@ -48,14 +48,14 @@ const Faqs: React.FC = () => {
   };
 
   return (
-    <div>
+    <div id='faqs'>
       {faqs.map((faq, index) => (
         <div key={index} className='mb-5'>
           <div
-            className='bg-primary-bg-color text-lg rounded-2xl px-3 max-w-3/4 min-w-[600px] mb-1 h-16 flex justify-between items-center cursor-pointer'
+            className='bg-primary-bg-color text-lg rounded-2xl px-3 w-full mb-1 h-16 flex justify-between items-center cursor-pointer'
             onClick={() => toggleFaq(index)}
           >
-            <h3>{faq.title}</h3>
+            <h3 className='leading-6'>{faq.title}</h3>
             <div>
               {faq.isOpen ? (
                 <FaAngleUp />
