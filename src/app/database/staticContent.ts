@@ -1,17 +1,88 @@
 import { Estampa, Tela } from '@/types';
 
-export const categories = [
+export const telasCategories = [
   {
-    id: '1',
-    title: 'Categoria 1',
+    title: 'Plana',
+    href: '/telas/categoria/tela-plana',
   },
   {
-    id: '2',
-    title: 'Categoria 2',
+    title: 'Punto',
+    href: '/telas/categoria/tela-de-punto',
   },
   {
-    id: '3',
-    title: 'Categoria 3',
+    title: 'Indumentaria',
+    href: '/telas/categoria/tela-para-indumentaria',
+  },
+  {
+    title: 'Decoración',
+    href: '/telas/categoria/tela-para-decoracion',
+  },
+  {
+    title: 'Con elastano',
+    href: '/telas/categoria/tela-con-elastano',
+  },
+  {
+    title: 'Impermeable',
+    href: '/telas/categoria/tela-impermeable',
+  },
+  {
+    title: 'Algodón',
+    href: '/telas/categoria/tela-de-algodon',
+  },
+  {
+    title: 'Poliéster',
+    href: '/telas/categoria/tela-de-poliester',
+  },
+];
+
+export const estampasCategories = [
+  {
+    title: 'Botanico',
+    description: 'Flores y muchos colores.',
+    image: '/images/icons/Botanico.svg',
+    href: '/estampas/catalogo/botanico',
+  },
+  {
+    title: 'Animales',
+    description: '¡Miauuuuuuu!',
+    image: '/images/icons/Animales.svg',
+    href: '/estampas/catalogo/animales',
+  },
+  {
+    title: 'Kids',
+    description: 'Para los más pequeños.',
+    image: '/images/icons/Kids.svg',
+    href: '/estampas/catalogo/kids',
+  },
+  {
+    title: 'Popurri',
+    description: 'De todo un poco.',
+    image: '/images/icons/Popurri.svg',
+    href: '/estampas/catalogo/popurri',
+  },
+  {
+    title: 'Comida',
+    description: 'Muchas cosas ricas.',
+    image: '/images/icons/Comida.svg',
+    href: '/estampas/catalogo/comida',
+  },
+  {
+    title: 'Abstracto',
+    description: 'Un mundo de formas.',
+    image: '/images/icons/Abstracto.svg',
+    href: '/estampas/catalogo/abstracto',
+  },
+  {
+    title: 'Básicos',
+    description: 'Para armar combinaciones.',
+    image: '/images/icons/Basicos.svg',
+    href: '/estampas/catalogo/basicos',
+  },
+  {
+    title: '¡Tu diseño!',
+    description: 'Tu sueño. Tus ideas. ',
+    image: '/images/icons/Tu-diseno.svg',
+    href: '/estampas/catalogo/tu-diseno',
   },
 ];
 
@@ -34,126 +105,6 @@ export const telas: Tela[] = [
       },
     ],
   },
-  {
-    telaId: '2',
-    title: 'Cordura',
-    sku: 'sku2',
-    prices: [500, 400, 300, 200, 100],
-    images: {
-      lisaUrl: '/images/dummy/telas/CEY-estampada.jpg',
-      estampadaUrl: 'https://via.placeholder.com/150',
-      usosUrl: 'https://via.placeholder.com/150',
-    },
-    description: 'Tela muy resistente con una lámina de pvc en el reverso que la hace repelente al agua. ',
-    categories: [
-      {
-        slug: '1',
-        name: 'Categoria 1',
-      },
-    ],
-  },
-  {
-    telaId: '3',
-    title: 'Tela 3',
-    sku: 'sku3',
-    prices: [500, 400, 300, 200, 100],
-    images: {
-      lisaUrl: '/images/dummy/telas/CIRE-OPACO-estampada.jpg',
-      estampadaUrl: 'https://via.placeholder.com/150',
-      usosUrl: 'https://via.placeholder.com/150',
-    },
-    categories: [
-      {
-        slug: '1',
-        name: 'Categoria 1',
-      },
-    ],
-  },
-  {
-    telaId: '4',
-    title: 'Tela 4',
-    sku: 'sku4',
-    prices: [500, 400, 300, 200, 100],
-    images: {
-      lisaUrl: '/images/dummy/telas/CORDURA..jpg',
-      estampadaUrl: 'https://via.placeholder.com/150',
-      usosUrl: 'https://via.placeholder.com/150',
-    },
-    categories: [
-      {
-        slug: '1',
-        name: 'Categoria 1',
-      },
-    ],
-  },
-  {
-    telaId: '5',
-    title: 'Tela 5',
-    sku: 'sku5',
-    prices: [500, 400, 300, 200, 100],
-    images: {
-      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
-      estampadaUrl: 'https://via.placeholder.com/150',
-      usosUrl: 'https://via.placeholder.com/150',
-    },
-    categories: [
-      {
-        slug: '1',
-        name: 'Categoria 1',
-      },
-    ],
-  },
-  {
-    telaId: '6',
-    title: 'Tela 6',
-    sku: 'sku6',
-    prices: [500, 400, 300, 200, 100],
-    images: {
-      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
-      estampadaUrl: 'https://via.placeholder.com/150',
-      usosUrl: 'https://via.placeholder.com/150',
-    },
-    categories: [
-      {
-        slug: '1',
-        name: 'Categoria 1',
-      },
-    ],
-  },
-  {
-    telaId: '7',
-    title: 'Tela 7',
-    sku: 'sku7',
-    prices: [500, 400, 300, 200, 100],
-    images: {
-      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
-      estampadaUrl: 'https://via.placeholder.com/150',
-      usosUrl: 'https://via.placeholder.com/150',
-    },
-    categories: [
-      {
-        slug: '1',
-        name: 'Categoria 1',
-      },
-    ],
-  },
-  {
-    telaId: '8',
-    title: 'Tela 8',
-    sku: 'sku8',
-    prices: [500, 400, 300, 200, 100],
-    images: {
-      lisaUrl: '/images/dummy/telas/BATISTA-stampada.jpg',
-      estampadaUrl: 'https://via.placeholder.com/150',
-      usosUrl: 'https://via.placeholder.com/150',
-    },
-    categories: [
-      {
-        slug: '1',
-        name: 'Categoria 1',
-      },
-    ],
-  },
 ];
 
 export const estampas: Estampa[] = [
@@ -162,55 +113,6 @@ export const estampas: Estampa[] = [
     title: 'Estampa 1',
     sku: 'AB-001',
     image: '/images/dummy/estampas/AB-001.jpg',
-    category: 'Categoria 1',
-  },
-  {
-    id: '2',
-    title: 'Estampa 2',
-    sku: 'AN-001',
-    image: '/images/dummy/estampas/AN-001.jpg',
-    category: 'Categoria 1',
-  },
-  {
-    id: '3',
-    title: 'Estampa 3',
-    sku: 'AN-002',
-    image: '/images/dummy/estampas/AN-002.jpg',
-    category: 'Categoria 1',
-  },
-  {
-    id: '4',
-    title: 'Estampa 4',
-    sku: 'BO-001',
-    image: '/images/dummy/estampas/BO-001..jpg',
-    category: 'Categoria 1',
-  },
-  {
-    id: '5',
-    title: 'Estampa 5',
-    sku: 'BO-002',
-    image: '/images/dummy/estampas/BO-002.jpg',
-    category: 'Categoria 1',
-  },
-  {
-    id: '6',
-    title: 'Estampa 6',
-    sku: 'BO-003',
-    image: '/images/dummy/estampas/BO-003.jpg',
-    category: 'Categoria 1',
-  },
-  {
-    id: '7',
-    title: 'Estampa 7',
-    sku: 'BS-001',
-    image: '/images/dummy/estampas/BS-001.jpg',
-    category: 'Categoria 1',
-  },
-  {
-    id: '8',
-    title: 'Estampa 8',
-    sku: 'CM-001',
-    image: '/images/dummy/estampas/CM-001.jpg',
     category: 'Categoria 1',
   },
 ];

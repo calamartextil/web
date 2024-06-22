@@ -2,42 +2,22 @@
 
 import { useRouter } from 'next/navigation';
 
-const categories = [
-  {
-    name: 'Plana',
-    href: '/telas/categoria/tela-plana',
-  },
-  {
-    name: 'Punto',
-    href: '/telas/categoria/tela-de-punto',
-  },
-  {
-    name: 'Indumentaria',
-    href: '/telas/categoria/tela-para-indumentaria',
-  },
-  {
-    name: 'Decoración',
-    href: '/telas/categoria/tela-para-decoracion',
-  },
-  {
-    name: 'Con elastano',
-    href: '/telas/categoria/tela-con-elastano',
-  },
-  {
-    name: 'Impermeable',
-    href: '/telas/categoria/tela-impermeable',
-  },
-  {
-    name: 'Algodón',
-    href: '/telas/categoria/tela-de-algodon',
-  },
-  {
-    name: 'Poliéster',
-    href: '/telas/categoria/tela-de-poliester',
-  },
-];
+type Category = {
+  title: string;
+  href: string;
+  description?: string;
+  image?: string;
+};
 
-export default function FiltersSelect() {
+export default function FiltersSelect({
+  categories,
+  title,
+  defaultHref
+}: {
+  categories: Category[];
+  title: string;
+  defaultHref: string;
+}) {
   const router = useRouter();
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -50,11 +30,11 @@ export default function FiltersSelect() {
         className='bg-primary-bg-color w-full appearance-none border-none focus:outline-none transition-all'
         onChange={(e) => handleSelect(e)}
       >
-        <option value=''>Ver categorías</option>
-        <option value='/telas'>Todas</option>
+        <option value=''>{title}</option>
+        <option value={defaultHref}>Todas</option>
         {categories.map((category, index) => (
           <option key={index} value={category.href} className='text-white'>
-            {category.name}
+            {category.title}
           </option>
         ))}
       </select>
