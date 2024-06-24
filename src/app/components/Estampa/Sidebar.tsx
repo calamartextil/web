@@ -7,7 +7,7 @@ import { estampasCategories } from '@/app/database/staticContent';
 export default function Sidebar() {
   const checkActivePath = useActivePath();
   return (
-    <div className='sidebar w-[250px]'>
+    <div className='sidebar fixed top-0 left-0 w-[250px] mt-48 pl-8 pr-2'>
       <h1 className='mb-8'>Catálogos</h1>
       <nav>
         <ul>
