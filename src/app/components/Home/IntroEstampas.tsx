@@ -28,6 +28,14 @@ const IntroEstampas = () => {
                   </div>
                 )
               )}
+              <div className='col_3 col_tb_6 col_mb_6 mb-5'>
+                <IconItem
+                  title={`¡Tu diseño!`}
+                  description={`Tu sueño. Tus ideas.`}
+                  image={`/images/icons/Tu-diseno.svg`}
+                  href={`/estampas`}
+                />
+              </div>
             </div>
             <LinkButton href={`/estampas`}>Ver más</LinkButton>
           </>

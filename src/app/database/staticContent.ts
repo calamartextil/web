@@ -77,13 +77,7 @@ export const estampasCategories = [
     description: 'Para armar combinaciones.',
     image: '/images/icons/Basicos.svg',
     href: '/estampas/catalogo/basicos',
-  },
-  {
-    title: '¡Tu diseño!',
-    description: 'Tu sueño. Tus ideas. ',
-    image: '/images/icons/Tu-diseno.svg',
-    href: '/estampas/catalogo/tu-diseno',
-  },
+  }
 ];
 
 export const telas: Tela[] = [
