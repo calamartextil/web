@@ -18,7 +18,7 @@ const IntroSteps = () => {
                   image={'/images/icons/1.svg'}
                   icon={'/images/icons/Tela.svg'}
                   alt={'Paso 1'}
-                  title='Elegí la tela'
+                  title='ELEGÍ LA TELA'
                   caption='Ver todas'
                   description='Hay gran variedad de bases'
                   href='/telas'
@@ -29,7 +29,7 @@ const IntroSteps = () => {
                   image={'/images/icons/2.svg'}
                   icon={'/images/icons/Estampa.svg'}
                   alt={'Paso 1'}
-                  title='Elegí las estampas y su tamaño'
+                  title='ELEGÍ LAS ESTAMPAS'
                   caption='Estampas'
                   description='Tu producto a tu medida'
                   href='/estampas'
@@ -40,7 +40,7 @@ const IntroSteps = () => {
                   image={'/images/icons/3.svg'}
                   icon={'/images/icons/Pedido.svg'}
                   alt={'Paso 1'}
-                  title='Envianos tu pedido'
+                  title='ENVIANOS TU PEDIDO'
                   caption='Pedido'
                   description='Y listo'
                   href='/pedido'
