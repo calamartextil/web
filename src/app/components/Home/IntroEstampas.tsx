@@ -9,11 +9,11 @@ const IntroEstampas = () => {
       <section>
         <Inner>
           <>
-            <h2 className='text-center leading-12 text-4xl mb-3 lg:text-6xl'>
+            <h2 className='text-center leading-12 text-4xl mb-5 lg:text-6xl'>
               Catálogo de estampas
             </h2>
-            <p className='text-center mb-10'>
-              Más de mil diseños para que elijas
+            <p className='text-center text-sm lg:text-2xl mb-14 font-semibold'>
+            ¡Muchos diseños para que elijas!
             </p>
             <div className='grid w-full mb-10'>
               {estampasCategories.map(
@@ -31,7 +31,7 @@ const IntroEstampas = () => {
               <div className='col_3 col_tb_6 col_mb_6 mb-5'>
                 <IconItem
                   title={`¡Tu diseño!`}
-                  description={`Tu sueño. Tus ideas.`}
+                  description={`Tu sueño. Tus ideas`}
                   image={`/images/icons/Tu-diseno.svg`}
                   href={`/estampas`}
                 />

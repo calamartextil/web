@@ -19,7 +19,7 @@ const Hero = () => {
           <h1 className='text-4xl lg:text-6xl sm:max-w-[400px] lg:max-w-[500px] xl:max-w-[700px] leading-12 mb-3 lg:mb-5'>
             La estampa que quieras en la tela que quieras.
           </h1>
-          <p className='text-xl mb-5 lg:mb-8'>
+          <p className='text-2xl mb-5 lg:mb-8'>
             Ahora la tela ideal para tu proyecto es posible!
           </p>
           <LinkButton className={`bg-white !text-black`} href='/telas'>

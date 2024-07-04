@@ -8,7 +8,7 @@ export default function TelaGraphContainer() {
   return (
     <>
       {inCart && (
-        <div className='bg-secondary-bg-color py-2 px-6 rounded-2xl mt-8 sticky bottom-0 w-full border-black border-1'>
+        <div className='bg-secondary-bg-color py-2 px-6 rounded-2xl mt-8 sticky bottom-0 w-10/12 lg:w-11/12 border-black border-1'>
           <TelaGraph sku={inCart.tela?.sku} />{' '}
         </div>
       )}

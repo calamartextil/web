@@ -26,8 +26,8 @@ const IntroStock = () => {
     <section className='pb-52'>
       <Inner>
         <>
-          <h2 className='text-4xl lg:text-6xl'>Tienda de stock</h2>
-          <p className='mb-10 text-sm lg:text-2xl'>
+          <h2 className='text-4xl lg:text-6xl mb-5'>Tienda de stock</h2>
+          <p className='text-center text-sm lg:text-2xl mb-14 font-semibold'>
             Telas listas para que te las lleves.
           </p>
           <div className='grid mb-10 gap-3'>
@@ -44,7 +44,7 @@ const IntroStock = () => {
               </div>
             ))}
           </div>
-          <LinkButton externalLink={true} href={`https://calamartextil.com.ar`}>
+          <LinkButton externalLink={true} href={`https://tienda.calamartextil.com`}>
             Visitar tienda
           </LinkButton>
         </>

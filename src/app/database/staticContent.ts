@@ -33,12 +33,20 @@ export const telasCategories = [
     title: 'Poliéster',
     href: '/telas/categoria/tela-de-poliester',
   },
+  {
+    title: 'Forrería',
+    href: '/telas/categoria/forreria',
+  },
+  {
+    title: 'Bolsos',
+    href: '/telas/categoria/bolsos',
+  },
 ];
 
 export const estampasCategories = [
   {
     title: 'Botanico',
-    description: 'Flores y muchos colores.',
+    description: 'Flores y muchos colores',
     image: '/images/icons/Botanico.svg',
     href: '/estampas/catalogo/botanico',
   },
@@ -50,31 +58,31 @@ export const estampasCategories = [
   },
   {
     title: 'Kids',
-    description: 'Para los más pequeños.',
+    description: 'Para los más pequeños',
     image: '/images/icons/Kids.svg',
     href: '/estampas/catalogo/kids',
   },
   {
     title: 'Popurri',
-    description: 'De todo un poco.',
+    description: 'De todo un poco',
     image: '/images/icons/Popurri.svg',
     href: '/estampas/catalogo/popurri',
   },
   {
     title: 'Comida',
-    description: 'Muchas cosas ricas.',
+    description: 'Muchas cosas ricas',
     image: '/images/icons/Comida.svg',
     href: '/estampas/catalogo/comida',
   },
   {
     title: 'Abstracto',
-    description: 'Un mundo de formas.',
+    description: 'Un mundo de formas',
     image: '/images/icons/Abstracto.svg',
     href: '/estampas/catalogo/abstracto',
   },
   {
     title: 'Básicos',
-    description: 'Para armar combinaciones.',
+    description: 'Para armar combinaciones',
     image: '/images/icons/Basicos.svg',
     href: '/estampas/catalogo/basicos',
   }

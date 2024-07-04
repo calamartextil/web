@@ -17,7 +17,7 @@ enum Scale {
   S = 'S',
   M = 'M',
   L = 'L',
-  C = 'Custom',
+  X = 'X',
 }
 
 const TU_DISE_SKU = 'TU-DISE';
@@ -141,18 +141,18 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                           </button>
                           {estampa?.sku === TU_DISE_SKU && (
                             <button
-                              className={`rounded-full h-8 px-4 flex justify-center items-center ${
-                                scale === Scale.C
+                              className={`rounded-full w-8 h-8 px-4 flex justify-center items-center ${
+                                scale === Scale.X
                                   ? 'bg-third-bg-color'
                                   : 'bg-gray-200'
                               }`}
-                              onClick={() => setScale(Scale.C)}
+                              onClick={() => setScale(Scale.X)}
                             >
-                              {Scale.C}
+                              {Scale.X}
                             </button>
                           )}
                         </div>
-                        {estampa?.sku === TU_DISE_SKU && scale === Scale.C && (
+                        {estampa?.sku === TU_DISE_SKU && scale === Scale.X && (
                           <p className='text-xs mt-3'>
                             Por favor incluí los detalles de tu escala en los
                             comentarios del pedido.

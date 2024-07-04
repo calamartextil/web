@@ -38,6 +38,7 @@ interface CartContextProps {
   ) => void;
   handleSetActualtelas: (tela: Tela) => void;
   actualTelaInfo: () => CartItem | undefined;
+  cartAvailable: () => number;
 }
 
 interface CartContextProviderProps {
@@ -162,6 +163,17 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
     };
   };
 
+  const cartAvailable = () => {
+    return cart.reduce(
+      (acc, cartItem) =>
+        acc +
+        cartItem.mts -
+        (cartItem.estampas?.reduce((acc, estampa) => acc + estampa.mts, 0) ||
+          0),
+      0
+    );
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -181,6 +193,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         removeEstampaBySku,
         handleSetActualtelas,
         actualTelaInfo,
+        cartAvailable,
       }}
     >
       {children}
