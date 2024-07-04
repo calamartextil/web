@@ -2,7 +2,7 @@ import Image from 'next/image';
 import LinkButton from '@/app/components/LinkButton';
 
 interface NumberItemProps {
-  image: string;
+  step: string;
   icon: string;
   alt: string;
   title: string;
@@ -12,7 +12,7 @@ interface NumberItemProps {
 }
 
 const NumberItem = ({
-  image,
+  step,
   icon,
   alt,
   title,
@@ -22,14 +22,14 @@ const NumberItem = ({
 }: NumberItemProps) => {
   return (
     <div className='flex flex-col justify-center items-center text-center'>
-      <div className='w-20 h-20 relative mb-5'>
-        <Image src={image} alt={alt} fill={true} />
+      <div className='w-8 h-8 relative mb-6 text-sm text-white bg-black rounded-full flex items-center justify-center text-center'>
+        {step}
       </div>
-      <div className='w-28 h-28 relative mb-8'>
+      <div className='w-28 h-28 relative mb-10'>
         <Image src={icon} alt={alt} fill={true} />
       </div>
-      <h3 className='text-xl leading-0'>{title}</h3>
-      <p className='text-sm lg:text-xl mb-5'>{description}</p>
+      <h3 className='text-xl leading-0 mb-1'>{title}</h3>
+      <p className='text-sm lg:text-lg mb-5'>{description}</p>
     </div>
   );
 };

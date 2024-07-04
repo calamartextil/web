@@ -8,14 +8,16 @@ const IntroSteps = () => {
       <section className='bg-secondary-bg-color'>
         <Inner>
           <>
-            <h2 className='font-outfit text-2xl mb-3'>Tu tela ideal</h2>
-            <p className='font-display text-4xl lg:text-6xl text-white mb-10 lg:mb-20 text-center'>
+            <h2 className='font-outfit text-2xl mb-1 font-semibold'>
+              Tu tela ideal
+            </h2>
+            <p className='font-display text-4xl lg:text-6xl text-black mb-10 lg:mb-20 text-center'>
               en 3 simples pasos
             </p>
             <div className='grid'>
               <div className='col_4'>
                 <NumberItem
-                  image={'/images/icons/1.svg'}
+                  step={'1'}
                   icon={'/images/icons/Tela.svg'}
                   alt={'Paso 1'}
                   title='ELEGÍ LA TELA'
@@ -26,7 +28,7 @@ const IntroSteps = () => {
               </div>
               <div className='col_4'>
                 <NumberItem
-                  image={'/images/icons/2.svg'}
+                  step={'2'}
                   icon={'/images/icons/Estampa.svg'}
                   alt={'Paso 1'}
                   title='ELEGÍ LAS ESTAMPAS'
@@ -37,22 +39,21 @@ const IntroSteps = () => {
               </div>
               <div className='col_4'>
                 <NumberItem
-                  image={'/images/icons/3.svg'}
+                  step={'3'}
                   icon={'/images/icons/Pedido.svg'}
                   alt={'Paso 1'}
                   title='ENVIANOS TU PEDIDO'
                   caption='Pedido'
-                  description='Y listo'
+                  description='¡Y listo!'
                   href='/pedido'
                 />
               </div>
             </div>
-            <div className='mt-5 flex'>
-            <LinkButton href={'/telas'} invert={true}>
-              Comenzar
-            </LinkButton>
+            <div className='mt-8 flex'>
+              <LinkButton href={'/telas'} invert={true}>
+                Comenzar
+              </LinkButton>
             </div>
-            
           </>
         </Inner>
       </section>
