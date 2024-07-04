@@ -1,5 +1,6 @@
 import TelaCard from '@/app/components/Tela/TelaCard';
 import { getAllTelas } from '@/app/database/actions';
+import Link from 'next/link';
 
 export default async function TelasGrid({
   category = null,
@@ -10,9 +11,18 @@ export default async function TelasGrid({
 
   return (
     <>
-      <h1 className='font-display text-5xl mb-8'>
-        {category ? telasFromDb.category?.name : `Todas las telas`}
-      </h1>
+      <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center mb-10 lg:mb-0'>
+        <h1 className='font-display text-5xl mb-4 lg:mb-8'>
+          {category ? telasFromDb.category?.name : `Todas las telas`}
+        </h1>
+        <Link
+          href='/envio-de-archivos'
+          className='text-xs underline underline-offset-4'
+        >
+          ¿Como preparo mis archivos?
+        </Link>
+      </div>
+
       <div className='grid w-full'>
         {telasFromDb?.telas &&
           (telasFromDb?.telas).map((tela, index) => (

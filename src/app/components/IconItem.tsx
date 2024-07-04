@@ -14,7 +14,7 @@ const IconItem = ({ title, description, image, href }: IconItemProps) => {
       <div className='relative w-24 h-24 mb-5'>
         <Image src={image} fill={true} alt={title} />
       </div>
-      <h3 className='text-center text-2xl'>{title}</h3>
+      <h3 className='text-center text-2xl'>{title.toUpperCase()}</h3>
       <p className='text-center text-sm lg:text-xl'>{description}</p>
     </Link>
   );

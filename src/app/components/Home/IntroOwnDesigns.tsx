@@ -7,7 +7,7 @@ const IntroOwnDesigns = () => {
       <section className='bg-primary-bg-color overflow-x-hidden'>
         <Inner>
           <>
-            <div className='relative w-[600px] text-center h-28 mb-8 lg:h-44 lg:mb-6'>
+            <div className='relative w-[600px] text-center h-28 mb-8 lg:h-44 lg:mb-12'>
               <p className='text-2xl font-semibold absolute -top-10 lg:-top-8 left-0 right-0 z-20'>
                 ¿Queres estampar
               </p>
@@ -18,13 +18,15 @@ const IntroOwnDesigns = () => {
             </div>
 
             <p className='lg:text-2xl text-center max-w-[500px] mb-12'>
-              Envianos tus archivos y los revisamos en detalle para asegurarnos
-              que estén bien y que en la tela se vayan a ver perfectos.
+              Revisamos en detalle tus archivos para asegurarte un resultado
+              perfecto.
             </p>
-            <h2 className='text-center leading-10 mb-5'>Exclusividad garantizada</h2>
-            <p className='mb-10 text-center'>
+            <h2 className='text-center leading-10 mb-1 lg:mb-3 text-2xl lg:text-4xl'>
+              Exclusividad garantizada
+            </h2>
+            <p className='lg:text-2xl mb-14 text-center max-w-[500px]'>
               Tus archivos serán utilizados únicamente en tus pedidos las veces
-              lo necesites.
+              que quieras.
             </p>
             <LinkButton href={`/telas`}>Ver más</LinkButton>
           </>

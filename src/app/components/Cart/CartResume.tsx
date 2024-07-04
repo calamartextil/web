@@ -10,7 +10,7 @@ import { EstampaCart } from '@/types';
 import { formatNumber } from '@/app/utils/prices';
 
 export default function CartResume() {
-  const { cart, removeCartItemBySku } = useCartContext();
+  const { cart, removeCartItemBySku, telaAvailable } = useCartContext();
   return (
     <div className='flex flex-col justify-start items-start gap-3'>
       {cart.map((item, index) => (
@@ -32,11 +32,15 @@ export default function CartResume() {
             </Link>
             <div className='flex justify-between items-start w-full'>
               <div className='flex flex-col'>
-                <h2 className='leading-none mb-1 text-2xl lg:text-4xl'>{item.tela.title}</h2>
+                <h2 className='leading-none mb-1 text-2xl lg:text-4xl'>
+                  {item.tela.title}
+                </h2>
                 <p className='text-sm'>
                   Largo: {item.mts} {item.mts !== 1 ? `mts` : `mt`}
                 </p>
-                <p className='text-lg font-medium'>Subtotal: ${formatNumber(item?.price)}</p>
+                <p className='text-lg font-medium'>
+                  Subtotal: ${formatNumber(item?.price)}
+                </p>
               </div>
               <div className='hidden lg:flex flex-col justify-start items-start gap-2'>
                 <LinkButton href={`/telas/${item.tela.sku}`}>
@@ -54,17 +58,23 @@ export default function CartResume() {
           <CartMiniEstampas
             estampasCart={item?.estampas || ([] as EstampaCart[])}
           />
+          <div>
+            {telaAvailable(item.tela.sku).available > 0 && (
+              <p className='text-cancel-text-color font-semibold text-sm mt-5'>
+                Por favor completá las estampas de esta tela para realizar el
+                pedido
+              </p>
+            )}
+          </div>
           <div className='flex lg:hidden justify-center items-center gap-2 pt-3'>
-                <LinkButton href={`/telas/${item.tela.sku}`}>
-                  Ver tela
-                </LinkButton>
-                <Button
-                  onClick={() => removeCartItemBySku(item.tela.sku)}
-                  className='bg-cancel-text-color'
-                >
-                  Quitar tela
-                </Button>
-              </div>
+            <LinkButton href={`/telas/${item.tela.sku}`}>Ver tela</LinkButton>
+            <Button
+              onClick={() => removeCartItemBySku(item.tela.sku)}
+              className='bg-cancel-text-color'
+            >
+              Quitar tela
+            </Button>
+          </div>
         </div>
       ))}
     </div>

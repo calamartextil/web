@@ -21,7 +21,7 @@ type FormData = {
 
 const ContactForm = () => {
   const [mailResponse, setMailResponse] = useState(null);
-  const { cart, cartTotal } = useCartContext();
+  const { cart, cartTotal, cartAvailable } = useCartContext();
 
   const validateEmail = (value: string) => {
     let error;
@@ -268,11 +268,17 @@ const ContactForm = () => {
                 <button
                   className='bg-third-bg-color text-white text-sm w-40 text-center py-4 px-2 rounded-2xl hover:opacity-70 mx-auto my-0'
                   type='submit'
-                  // disabled={isSubmitting} //TODO Enable when ready
+                  disabled={isSubmitting || cartAvailable() > 0} //TODO Enable when ready
                 >
                   Hacer pedido
                 </button>
               </div>
+              {cartAvailable() > 0 && (
+                <p className='text-cancel-text-color font-semibold text-sm mt-5'>
+                  Para realizar el pedido, por favor completá las estampas de
+                  las telas indicadas
+                </p>
+              )}
             </Form>
           )}
         </Formik>
