@@ -6,10 +6,12 @@ import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 import { useCartContext } from '@/app/contexts/CartContext';
+import Link from 'next/link';
 type FormData = {
   email: string;
   userName: string;
   userApellido?: string;
+  emprendimiento?: string;
   telefono: string;
   direccion: string;
   localidad: string;
@@ -84,6 +86,7 @@ const ContactForm = () => {
     const contactData = {
       name: formData.userName,
       apellido: formData.userApellido,
+      emprendimiento: formData.emprendimiento,
       email: formData.email,
       telefono: formData.telefono,
       direccion: formData.direccion,
@@ -116,6 +119,7 @@ const ContactForm = () => {
             email: '',
             userName: '',
             userApellido: '',
+            emprendimiento: '',
             telefono: '',
             direccion: '',
             localidad: '',
@@ -131,7 +135,7 @@ const ContactForm = () => {
           {({ errors, touched, isSubmitting }) => (
             <Form>
               <div className={`grid gap-4`}>
-                <div className={`col_6 col_tb_12 relative`}>
+                <div className={`col_3 col_tb_12 relative`}>
                   <Field
                     name='userName'
                     placeholder='Nombre'
@@ -146,10 +150,17 @@ const ContactForm = () => {
                     </div>
                   )}
                 </div>
-                <div className={`col_6 col_tb_12 relative`}>
+                <div className={`col_3 col_tb_12 relative`}>
                   <Field
                     name='userApellido'
                     placeholder='Apellido'
+                    className={`w-full rounded-2xl py-2 px-4`}
+                  />
+                </div>
+                <div className={`col_6 col_tb_12 relative`}>
+                  <Field
+                    name='emprendimiento'
+                    placeholder='Emprendimiento'
                     className={`w-full rounded-2xl py-2 px-4`}
                   />
                 </div>
@@ -255,7 +266,7 @@ const ContactForm = () => {
                 <div className={`col_12 relative`}>
                   <Field
                     name='tuDisenio'
-                    placeholder='Tu diseño. Link a weTransfer'
+                    placeholder='Copiá acá el link de wetransfer con tus archivos'
                     className={`w-full rounded-2xl py-2 px-4`}
                   />
                 </div>
@@ -264,13 +275,54 @@ const ContactForm = () => {
               {mailResponse && (
                 <div className={`text-sm mt-4 italic`}>{mailResponse}</div>
               )}
+              <div className='mt-3'>
+                <p className='mb-5'>
+                  <Link
+                    className='text-xs underline underline-offset-4'
+                    href='/envio-de-archivos'
+                  >
+                    ¿Cómo cargar los archivos a Wetransfer?
+                  </Link>
+                </p>
+
+                <p className='text-sm mb-2'>
+                  En el transcurso del día recibirás la confirmación de tu
+                  pedido con los datos para poder hacer el pago. Para dar curso
+                  al pedido debe abonarse el 100% de la orden.
+                </p>
+                <p className='text-sm mb-2'>
+                  Los pedidos estarán listos para ser retirados o enviados entre
+                  los 15 y 20 días hábiles desde la recepción del pago y la
+                  confirmación de los archivos (tus propios diseños). Si está
+                  listo antes te avisaremos.
+                </p>
+                <p className='text-xs italic mb-2'>
+                  *Se prevé una tolerancia máxima del 5% por posibles fallas que
+                  sean parte del proceso tecnológico de tejido y sublimado.
+                </p>
+                <p className='text-xs italic mb-2'>
+                  **En caso de tratarse de productos grandes como lonas o
+                  manteles, si se ven afectados por una falla no se considerará
+                  el total de la dimensión del producto al calcularse el
+                  porcentaje de falla. El proceso impide garantizar la
+                  inexistencia total de fallas en dimensiones extensas.
+                </p>
+                <p className='text-xs italic mb-2'>
+                  ***La cordura ocasionalmente puede presentar a lo largo algún
+                  enganche de hilo propio de la tela y no tiene descuento.
+                </p>
+                <p className='text-xs italic mb-2'>
+                  **Los pedidos mayores a 20 metros pueden entregarse en más de
+                  1 paño.
+                </p>
+              </div>
               <div className='flex justify-center items-center mt-8 mb-3'>
                 <button
-                  className='bg-third-bg-color text-white text-sm w-40 text-center py-4 px-2 rounded-2xl hover:opacity-70 mx-auto my-0'
+                  className={`bg-third-bg-color text-white text-sm w-40 text-center py-4 px-2 rounded-2xl hover:opacity-70 mx-auto my-0 ${cartAvailable() > 0 && 'cursor-not-allowed'}`}
                   type='submit'
                   disabled={isSubmitting || cartAvailable() > 0} //TODO Enable when ready
                 >
-                  Hacer pedido
+                  Enviar pedido
                 </button>
               </div>
               {cartAvailable() > 0 && (
