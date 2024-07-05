@@ -29,8 +29,8 @@ const NavbarMobile = ({ isScroll }: { isScroll: boolean }) => {
         </div>
         <div
           className={`fixed w-full ${
-            isScroll ? `h-[54px]` : `h-[55px]`
-          } top-12 left-0 z-50 bg-[url('/images/ondas_cream_bottom.svg')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]`}
+            isScroll ? `h-[30px]` : `h-[55px]`
+          } top-12 left-0 z-50 bg-[url('/images/waves/wave-primary.svg')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]`}
         ></div>
       </div>
     </div>
