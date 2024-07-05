@@ -83,25 +83,29 @@ export default function TelaSingle({ tela }: TelaProps) {
           <div className='col_6'>
             <div className='flex flex-col justify-center items-start'>
               <div className='relative w-full mb-2'>
-                <p className='mb-8 mr-0 xl:mr-20'>{tela?.description}</p>
-                <div className='mb-2'>
-                  <h3 className='mb-1'>Color de base</h3>
+                <p className='mb-3 mr-0 xl:mr-20'>{tela?.description}</p>
+                <div className='mb-1'>
+                  <h3 className='mb-0'>Color de base</h3>
                   <p className='text-sm'>{tela?.baseColor}</p>
                 </div>
-                <div className='mb-2'>
-                  <h3 className='mb-1'>Composición</h3>
+                <div className='mb-1'>
+                  <h3 className='mb-0'>Ancho</h3>
+                  <p className='text-sm'>{tela?.width} mts</p>
+                </div>
+                <div className='mb-1'>
+                  <h3 className='mb-0'>Composición</h3>
                   <p className='text-sm'>{tela?.composition}</p>
                 </div>
-                <div className='mb-2'>
+                <div className='mb-1'>
                   {tela?.usos && (
                     <div>
-                      <h3 className='mb-1'>Usos</h3>
+                      <h3 className='mb-0'>Usos</h3>
                       <p className='text-sm'>{tela?.usos.join(', ')}</p>
                     </div>
                   )}
                 </div>
                 <div className='mb-5'>
-                  <h3 className='mb-1'>Precios</h3>
+                  <h3 className='mb-0'>Precios</h3>
                   <ul className='mb-1'>
                     <li>
                       <p className='text-sm'>

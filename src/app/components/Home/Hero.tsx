@@ -19,9 +19,13 @@ const Hero = () => {
           <h1 className='text-4xl lg:text-6xl sm:max-w-[400px] lg:max-w-[500px] xl:max-w-[700px] leading-12 mb-3 lg:mb-5'>
             La estampa que quieras en la tela que quieras.
           </h1>
-          <p className='text-2xl mb-5 lg:mb-8'>
+          <p className='text-2xl mb-2 lg:mb-4'>
             Ahora la tela ideal para tu proyecto es posible!
           </p>
+          <div className='flex justify-start items-center mb-8'>
+            <Image src={`/images/icons/envios.svg`} alt={`Calamar Textil`} width={60} height={60} />
+            <p className='text-white ml-4 mt-4'>Envios a todo el país</p>
+          </div>
           <LinkButton className={`bg-white !text-black`} href='/telas'>
             Ver más
           </LinkButton>
