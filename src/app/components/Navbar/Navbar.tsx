@@ -45,7 +45,7 @@ const Navbar = ({ isScroll }: { isScroll: boolean }) => {
             <CartIcon isScroll={isScroll} />
           </div>
         </div>
-        <div className="absolute w-full h-[55px] -bottom-[54px] left-0 z-10 bg-[url('/images/ondas_cream_bottom.svg')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]"></div>
+        <div className="absolute w-full h-[30px] -bottom-[30px] left-0 z-10 bg-[url('/images/waves/wave-primary.svg')] bg-cover bg-bottom drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]"></div>
       </div>
     </div>
   );
