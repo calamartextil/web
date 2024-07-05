@@ -1,4 +1,4 @@
-import { Estampa, Tela } from '@/types';
+import { Estampa, Tela, } from '@/types';
 
 export const telasCategories = [
   {

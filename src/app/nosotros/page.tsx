@@ -1,11 +1,12 @@
 import Faqs from '@/app/components/Faqs';
 import Inner from '@/app/components/Inner';
+import LinkButton from '@/app/components/LinkButton';
 
 export default function AboutUs() {
   return (
     <div className='pt-40 lg:pt-48 px-5 pb-40'>
       <Inner>
-        <div>
+        <div className='mb-10'>
           <h1 className='text-5xl font-display mb-5 text-center lg:text-left'>
             Nosotros
           </h1>
@@ -19,6 +20,9 @@ export default function AboutUs() {
           <h2 className='mb-5 text-2xl'>Preguntas frecuentes</h2>
           <Faqs />
         </div>
+        <div className='flex justify-center'>
+            <LinkButton href='/telas'>Ver telas</LinkButton>
+          </div>
       </Inner>
     </div>
   );

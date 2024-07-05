@@ -22,7 +22,7 @@ const NumberItem = ({
 }: NumberItemProps) => {
   return (
     <div className='flex flex-col justify-center items-center text-center'>
-      <div className='w-8 h-8 relative mb-6 text-sm text-white bg-black rounded-full flex items-center justify-center text-center'>
+      <div className='w-12 h-12 relative mb-6 text-lg text-white bg-black rounded-full flex items-center justify-center text-center'>
         {step}
       </div>
       <div className='w-28 h-28 relative mb-10'>
