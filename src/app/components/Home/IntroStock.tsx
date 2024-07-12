@@ -4,22 +4,22 @@ import Image from 'next/image';
 const IntroStock = () => {
   const telas = [
     {
-      image: '/images/ui-estampas/AB-001.jpg',
+      image: '/images/ui-estampas/stock-1.jpg',
     },
     {
-      image: '/images/ui-estampas/AN-001.jpg',
+      image: '/images/ui-estampas/stock-2.jpg',
     },
     {
-      image: '/images/ui-estampas/AN-002.jpg',
+      image: '/images/ui-estampas/stock-3.jpg',
     },
     {
-      image: '/images/ui-estampas/CM-001.jpg',
+      image: '/images/ui-estampas/stock-4.jpg',
     },
     {
-      image: '/images/ui-estampas/KD-001.jpg',
+      image: '/images/ui-estampas/stock-5.jpg',
     },
     {
-      image: '/images/ui-estampas/BO-001..jpg',
+      image: '/images/ui-estampas/stock-6.jpg',
     },
   ];
   return (

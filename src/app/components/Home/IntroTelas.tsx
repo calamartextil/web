@@ -3,36 +3,37 @@ import LinkButton from '@/app/components/LinkButton';
 import Image from 'next/image';
 import Link from 'next/link';
 const IntroTelas = () => {
+  const telasUrl = process.env.NEXT_PUBLIC_IMAGES_URL + '/telas';
   const telas = [
     {
-      image: '/images/dummy/telas/BATISTA-stampada.jpg',
-      name: 'Batista',
-      href: '/telas/BAT',
+      image: `${telasUrl}/gabardina-impermeable-lisa.jpg`,
+      name: 'Gabardina Impermeable',
+      href: '/telas/GNA',
     },
     {
-      image: '/images/dummy/telas/CEY-estampada.jpg',
-      name: 'Cey',
-      href: '/telas/BAT',
-    },
-    {
-      image: '/images/dummy/telas/CIRE-OPACO-estampada.jpg',
-      name: 'Cire Opaco',
-      href: '/telas/BAT',
-    },
-    {
-      image: '/images/dummy/telas/CORDURA..jpg',
+      image: `${telasUrl}/cordura-lisa.jpg`,
       name: 'Cordura',
-      href: '/telas/BAT',
+      href: '/telas/COR',
     },
     {
-      image: '/images/dummy/telas/BATISTA-stampada.jpg',
-      name: 'Batista',
-      href: '/telas/BAT',
+      image: `${telasUrl}/gabardina-natural-lisa.jpg`,
+      name: 'Gabardina Natural',
+      href: '/telas/GNA',
     },
     {
-      image: '/images/dummy/telas/CEY-estampada.jpg',
-      name: 'Cey',
-      href: '/telas/BAT',
+      image: `${telasUrl}/tricot-lisa.jpg`,
+      name: 'Tricot Común',
+      href: '/telas/TRI',
+    },
+    {
+      image: `${telasUrl}/polar-soft-liso.jpg`,
+      name: 'Polar Soft',
+      href: '/telas/GNA',
+    },
+    {
+      image: `${telasUrl}/modal-soft-liso.jpg`,
+      name: 'Modal Soft',
+      href: '/telas/GNA',
     },
   ];
   return (
