@@ -12,7 +12,7 @@ type Category = {
 export default function FiltersSelect({
   categories,
   title,
-  defaultHref
+  defaultHref,
 }: {
   categories: Category[];
   title: string;
@@ -32,11 +32,13 @@ export default function FiltersSelect({
       >
         <option value=''>{title}</option>
         <option value={defaultHref}>Todas</option>
-        {categories.map((category, index) => (
-          <option key={index} value={category.href} className='text-white'>
-            {category.title}
-          </option>
-        ))}
+        {categories
+          .sort((a, b) => a.title.localeCompare(b.title))
+          .map((category, index) => (
+            <option key={index} value={category.href} className='text-white'>
+              {category.title}
+            </option>
+          ))}
       </select>
       <div className='absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none'>
         <svg

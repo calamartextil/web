@@ -1,47 +1,17 @@
-import { Estampa, Tela, } from '@/types';
+import { Estampa, Tela } from '@/types';
 
 export const telasCategories = [
-  {
-    title: 'Plana',
-    href: '/telas/categoria/tela-plana',
-  },
-  {
-    title: 'Punto',
-    href: '/telas/categoria/tela-de-punto',
-  },
-  {
-    title: 'Indumentaria',
-    href: '/telas/categoria/tela-para-indumentaria',
-  },
-  {
-    title: 'Decoración',
-    href: '/telas/categoria/tela-para-decoracion',
-  },
-  {
-    title: 'Con elastano',
-    href: '/telas/categoria/tela-con-elastano',
-  },
-  {
-    title: 'Impermeable',
-    href: '/telas/categoria/tela-impermeable',
-  },
-  {
-    title: 'Algodón',
-    href: '/telas/categoria/tela-de-algodon',
-  },
-  {
-    title: 'Poliéster',
-    href: '/telas/categoria/tela-de-poliester',
-  },
-  {
-    title: 'Forrería',
-    href: '/telas/categoria/forreria',
-  },
-  {
-    title: 'Bolsos',
-    href: '/telas/categoria/bolsos',
-  },
-];
+  { title: 'Algodón', href: '/telas/categoria/tela-de-algodon' },
+  { title: 'Bolsos', href: '/telas/categoria/bolsos' },
+  { title: 'Con elastano', href: '/telas/categoria/tela-con-elastano' },
+  { title: 'Decoración', href: '/telas/categoria/tela-para-decoracion' },
+  { title: 'Forrería', href: '/telas/categoria/forreria' },
+  { title: 'Impermeable', href: '/telas/categoria/tela-impermeable' },  
+  { title: 'Indumentaria', href: '/telas/categoria/tela-para-indumentaria' },
+  { title: 'Plana', href: '/telas/categoria/tela-plana' },
+  { title: 'Poliéster', href: '/telas/categoria/tela-de-poliester' },
+  { title: 'Punto', href: '/telas/categoria/tela-de-punto' },
+].sort((a, b) => a.title.localeCompare(b.title));
 
 export const estampasCategories = [
   {
@@ -85,7 +55,7 @@ export const estampasCategories = [
     description: 'Para armar combinaciones',
     image: '/images/icons/Basicos.svg',
     href: '/estampas/catalogo/basicos',
-  }
+  },
 ];
 
 export const telas: Tela[] = [
