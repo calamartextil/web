@@ -43,7 +43,7 @@ export async function getAllTelas(
         category: categoryFromDb,
       };
     }
-    const telas = await Tela.find();
+    const telas = await Tela.find().sort({ "title": "asc"});
     return { telas: JSON.parse(JSON.stringify(telas)), category: null };
   } catch (error: any) {
     console.log('Error: ', error.message);
@@ -80,7 +80,7 @@ export async function getAllEstampas(
   await dbConnect();
   try {
     if (category) {
-      const categoryFromDb = await EstampaCategory.findOne({ slug: category });
+      const categoryFromDb = await EstampaCategory.findOne({ slug: category }).sort({ "title": "asc"});
       if (!categoryFromDb) {
         console.log(`Category "${category}" not found.`);
         return { estampas: [], category: null };
@@ -96,7 +96,7 @@ export async function getAllEstampas(
         category: categoryFromDb,
       };
     }
-    const estampas = await Estampa.find();
+    const estampas = await Estampa.find().sort({ "title": "asc"});
     return {
       estampas: JSON.parse(JSON.stringify(estampas)),
       category: null,
