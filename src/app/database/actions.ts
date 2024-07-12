@@ -11,6 +11,7 @@ import {
   TelasCategory,
 } from '@/types';
 import EstampaCategory from '../models/EstampaCategory';
+import { title } from 'process';
 
 // export async function getAllTelas() { //Posible deprecated
 //   try {
@@ -34,7 +35,7 @@ export async function getAllTelas(
       }
       const telas = await Tela.find({
         categories: { $in: [categoryFromDb._id] },
-      }).populate('categories');
+      }).sort({ "title": "asc"}).populate('categories');
       if (telas?.length === 0) return { telas: [], category: categoryFromDb };
 
       return {

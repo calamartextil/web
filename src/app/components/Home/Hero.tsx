@@ -4,12 +4,12 @@ import Image from 'next/image';
 const Hero = () => {
   return (
     <div className='relative'>
-      <section className='bg-fourth-bg-color lg:pt-60 lg:min-h-[900px] relative mt-11'>
-        <div className='absolute right-0 top-1 sm:top-6'>
-          <div className='hidden lg:block w-[600px] h-[600px]'>
+      <section className='bg-fourth-bg-color lg:pt-56 lg:min-h-[900px] relative mt-11'>
+        <div className='absolute right-0 top-1 sm:top-36'>
+          <div className='hidden lg:block w-[680px] h-[680px]'>
             <Image
-              className='full-img'
-              src={`/images/hero_img.png`}
+              className='full-img rounded-l-full shadow-[inset_5px_-2px_4px_rgba(0,0,0,0.6)]'
+              src={`/images/hero/portada3-b.jpg`}
               alt={`Calamar Textil`}
              fill={true}
             />
