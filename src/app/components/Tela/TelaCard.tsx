@@ -18,7 +18,12 @@ export default function TelaCard({ title, sku, prices, images }: Tela) {
         />
       </div>
       <h3 className='text-xl'>{title}</h3>
-      <p className='mb-4'>Desde ${formatNumber(prices[4])}</p>
+      {prices[4] === 0 ? (
+        <p className='mb-4 text-cancel-text-color'>Sin stock</p>
+      ) : (
+        <p className='mb-4'>{`Desde $${formatNumber(prices[4])}`}</p>
+      )}
+
       <LinkButton href={`/telas/${sku}`}>Ver tela</LinkButton>
     </div>
   );

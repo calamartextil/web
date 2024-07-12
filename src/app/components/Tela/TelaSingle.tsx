@@ -104,70 +104,82 @@ export default function TelaSingle({ tela }: TelaProps) {
                     </div>
                   )}
                 </div>
-                <div className='mb-5'>
-                  <h3 className='mb-0'>Precios</h3>
-                  <ul className='mb-1'>
-                    <li>
-                      <p className='text-sm'>
-                        De 1 a 5 mts: ${formatNumber(tela?.prices[0])}
-                      </p>
-                    </li>
-                    <li>
-                      <p className='text-sm'>
-                        De 6 a 10 mts: ${formatNumber(tela?.prices[1])}
-                      </p>
-                    </li>
-                    <li>
-                      <p className='text-sm'>
-                        De 11 a 30 mts: ${formatNumber(tela?.prices[2])}
-                      </p>
-                    </li>
-                    <li>
-                      <p className='text-sm'>
-                        De 31 a 50 mts: ${formatNumber(tela?.prices[3])}
-                      </p>
-                    </li>
-                    <li>
-                      <p className='text-sm'>
-                        51 o más mts: ${formatNumber(tela?.prices[4])}
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p className='mb-8 text-2xl font-medium'>
-                Total: ${formatNumber(price)}{' '}
-                <span className='text-sm inline-block lg:inline'>(Precio final - IVA incluido)</span>
-              </p>
-              {inCart && (
-                <div className='bg-secondary-bg-color px-3 py-3 w-full rounded-2xl mb-6'>
+                {tela.prices[0] !== 0 && (
                   <div className='mb-5'>
-                    <CartMiniEstampas
-                      estampasCart={
-                        findCartItemBySku(tela.sku)?.estampas ||
-                        ([] as EstampaCart[])
-                      }
-                    />
+                    <h3 className='mb-0'>Precios</h3>
+                    <ul className='mb-1'>
+                      <li>
+                        <p className='text-sm'>
+                          De 1 a 5 mts: ${formatNumber(tela?.prices[0])}
+                        </p>
+                      </li>
+                      <li>
+                        <p className='text-sm'>
+                          De 6 a 10 mts: ${formatNumber(tela?.prices[1])}
+                        </p>
+                      </li>
+                      <li>
+                        <p className='text-sm'>
+                          De 11 a 30 mts: ${formatNumber(tela?.prices[2])}
+                        </p>
+                      </li>
+                      <li>
+                        <p className='text-sm'>
+                          De 31 a 50 mts: ${formatNumber(tela?.prices[3])}
+                        </p>
+                      </li>
+                      <li>
+                        <p className='text-sm'>
+                          51 o más mts: ${formatNumber(tela?.prices[4])}
+                        </p>
+                      </li>
+                    </ul>
                   </div>
-                  <p className='text-sm'>Largo seleccionado: {mts} mts</p>
-                </div>
-              )}
+                )}
+              </div>
+              {tela.prices[4] === 0 ? (
+                <p className='mt-5 text-2xl font-medium'>Sin stock</p>
+              ) : (
+                <>
+                  <p className='mb-8 text-2xl font-medium'>
+                    Total: ${formatNumber(price)}{' '}
+                    <span className='text-sm inline-block lg:inline'>
+                      (Precio final - IVA incluido)
+                    </span>
+                  </p>
+                  {inCart && (
+                    <div className='bg-secondary-bg-color px-3 py-3 w-full rounded-2xl mb-6'>
+                      <div className='mb-5'>
+                        <CartMiniEstampas
+                          estampasCart={
+                            findCartItemBySku(tela.sku)?.estampas ||
+                            ([] as EstampaCart[])
+                          }
+                        />
+                      </div>
+                      <p className='text-sm'>Largo seleccionado: {mts} mts</p>
+                    </div>
+                  )}
 
-              {!inCart && (
-                <div className='flex items-center gap-2 mb-8'>
-                  <TelaMtsInput setMts={handleInputChange} mts={mts} />
-                </div>
-              )}
+                  {!inCart && (
+                    <div className='flex items-center gap-2 mb-8'>
+                      <TelaMtsInput setMts={handleInputChange} mts={mts} />
+                    </div>
+                  )}
 
-              {inCart && (
-                <div className='flex justify-start items-center gap-5'>
-                  <Button onClick={handleEditEstampasClick}>
-                    Editar estampas
-                  </Button>
-                  <LinkButton href='/pedido'>Ver pedido</LinkButton>
-                </div>
+                  {inCart && (
+                    <div className='flex justify-start items-center gap-5'>
+                      <Button onClick={handleEditEstampasClick}>
+                        Editar estampas
+                      </Button>
+                      <LinkButton href='/pedido'>Ver pedido</LinkButton>
+                    </div>
+                  )}
+                  {!inCart && (
+                    <Button onClick={handleAddToCart}>Agregar</Button>
+                  )}
+                </>
               )}
-              {!inCart && <Button onClick={handleAddToCart}>Agregar</Button>}
             </div>
           </div>
         </div>
