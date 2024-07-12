@@ -4,11 +4,11 @@ import Image from 'next/image';
 const Hero = () => {
   return (
     <div className='relative'>
-      <section className='bg-fourth-bg-color lg:pt-56 lg:min-h-[900px] relative mt-11'>
+      <section className='bg-fourth-bg-color lg:pt-56 lg:min-h-[700px] relative mt-11'>
         <div className='absolute right-0 top-1 sm:top-36'>
-          <div className='hidden lg:block w-[680px] h-[680px]'>
+          <div className='hidden lg:block lg:w-[500px] xl:w-[600px] 2xl:w-[800px]'>
             <Image
-              className='full-img rounded-l-full shadow-[inset_5px_-2px_4px_rgba(0,0,0,0.6)]'
+              className='full-img rounded-l-full drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]'
               src={`/images/hero/portada3-b.jpg`}
               alt={`Calamar Textil`}
              fill={true}
@@ -16,7 +16,7 @@ const Hero = () => {
           </div>
         </div>
         <div className='flex flex-col gap-2 ml-0 lg:ml-8'>
-          <h1 className='text-4xl lg:text-6xl sm:max-w-[400px] lg:max-w-[500px] xl:max-w-[700px] leading-12 mb-3 lg:mb-5'>
+          <h1 className='text-4xl lg:text-6xl sm:max-w-[500px] lg:max-w-[500px] xl:max-w-[700px] leading-12 mb-3 lg:mb-5'>
             La estampa que quieras en la tela que quieras.
           </h1>
           <p className='text-2xl mb-2 lg:mb-4'>
