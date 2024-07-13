@@ -8,7 +8,6 @@ import IntroStock from '@/app/components/Home/IntroStock';
 export default function Home() {
   return (
     <main>
-      
       <Hero />
       <IntroSteps />
       <IntroOwnDesigns />
