@@ -4,6 +4,20 @@ import Loading from '@/app/components/Loading';
 import FiltersSelect from '@/app/components/FiltersSelect';
 import { estampasCategories } from '@/app/database/staticContent';
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { catSlug: string };
+}) {
+  const catName = estampasCategories.find(
+    (cat) => cat.slug === params?.catSlug
+  )?.title;
+  return {
+    title: `${catName} | Estampas`,
+    description: '¡Muchos diseños para que elijas!',
+  };
+}
+
 export default function Estampas({ params }: { params: { catSlug: string } }) {
   return (
     <>

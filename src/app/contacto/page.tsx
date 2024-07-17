@@ -1,5 +1,11 @@
+import type { Metadata } from 'next';
 import Inner from '@/app/components/Inner';
 import ContactForm from '@/app/components/Contact/ContactForm';
+
+export const metadata: Metadata = {
+  title: `Contacto`,
+  description: 'Contactanos para tener mas información',
+};
 
 export default function Contact() {
   return (

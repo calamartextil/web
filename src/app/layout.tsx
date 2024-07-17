@@ -21,7 +21,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Calamar',
+  title: {
+    template: '%s | Calamar Textil',
+    default: 'Calamar Textil',
+  },
   description: 'Calamar Textil',
 };
 

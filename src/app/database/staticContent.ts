@@ -1,16 +1,44 @@
 import { Estampa, Tela } from '@/types';
 
 export const telasCategories = [
-  { title: 'Algodón', href: '/telas/categoria/tela-de-algodon' },
-  { title: 'Bolsos', href: '/telas/categoria/bolsos' },
-  { title: 'Con elastano', href: '/telas/categoria/tela-con-elastano' },
-  { title: 'Decoración', href: '/telas/categoria/tela-para-decoracion' },
-  { title: 'Forrería', href: '/telas/categoria/forreria' },
-  { title: 'Impermeable', href: '/telas/categoria/tela-impermeable' },  
-  { title: 'Indumentaria', href: '/telas/categoria/tela-para-indumentaria' },
-  { title: 'Plana', href: '/telas/categoria/tela-plana' },
-  { title: 'Poliéster', href: '/telas/categoria/tela-de-poliester' },
-  { title: 'Punto', href: '/telas/categoria/tela-de-punto' },
+  {
+    title: 'Algodón',
+    href: '/telas/categoria/tela-de-algodon',
+    slug: 'tela-de-algodon',
+  },
+  { title: 'Bolsos', href: '/telas/categoria/bolsos', slug: 'bolsos' },
+  {
+    title: 'Con elastano',
+    href: '/telas/categoria/tela-con-elastano',
+    slug: 'tela-con-elastano',
+  },
+  {
+    title: 'Decoración',
+    href: '/telas/categoria/tela-para-decoracion',
+    slug: 'tela-para-decoracion',
+  },
+  { title: 'Forrería', href: '/telas/categoria/forreria', slug: 'forreria' },
+  {
+    title: 'Impermeable',
+    href: '/telas/categoria/tela-impermeable',
+    slug: 'tela-impermeable',
+  },
+  {
+    title: 'Indumentaria',
+    href: '/telas/categoria/tela-para-indumentaria',
+    slug: 'tela-para-indumentaria',
+  },
+  { title: 'Plana', href: '/telas/categoria/tela-plana', slug: 'tela-plana' },
+  {
+    title: 'Poliéster',
+    href: '/telas/categoria/tela-de-poliester',
+    slug: 'tela-de-poliester',
+  },
+  {
+    title: 'Punto',
+    href: '/telas/categoria/tela-de-punto',
+    slug: 'tela-de-punto',
+  },
 ].sort((a, b) => a.title.localeCompare(b.title));
 
 export const estampasCategories = [
@@ -19,42 +47,49 @@ export const estampasCategories = [
     description: 'Flores y muchos colores',
     image: '/images/icons/Botanico.svg',
     href: '/estampas/catalogo/botanico',
+    slug: 'botanico',
   },
   {
     title: 'Animales',
     description: '¡Miauuuuuuu!',
     image: '/images/icons/Animales.svg',
     href: '/estampas/catalogo/animales',
+    slug: 'animales',
   },
   {
     title: 'Kids',
     description: 'Para los más pequeños',
     image: '/images/icons/Kids.svg',
     href: '/estampas/catalogo/kids',
+    slug: 'kids',
   },
   {
     title: 'Popurri',
     description: 'De todo un poco',
     image: '/images/icons/Popurri.svg',
     href: '/estampas/catalogo/popurri',
+    slug: 'popurri',
   },
   {
     title: 'Comida',
     description: 'Muchas cosas ricas',
     image: '/images/icons/Comida.svg',
     href: '/estampas/catalogo/comida',
+    slug: 'comida',
   },
   {
     title: 'Abstracto',
     description: 'Un mundo de formas',
     image: '/images/icons/Abstracto.svg',
     href: '/estampas/catalogo/abstracto',
+    slug: 'abstracto',
   },
   {
     title: 'Básicos',
     description: 'Para armar combinaciones',
     image: '/images/icons/Basicos.svg',
     href: '/estampas/catalogo/basicos',
+    slug: 'basicos',
   },
 ];
 

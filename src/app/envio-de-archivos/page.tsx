@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import Inner from '@/app/components/Inner';
 import Image from 'next/image';
 import LinkButton from '@/app/components/LinkButton';
+
+export const metadata: Metadata = {
+  title: `¿Como preparo mis archivos?`,
+  description: 'Conocé como tenés que preparar tus archivos para enviarlos a Calamar Textil',
+};
 
 export default function FileSend() {
   return (
@@ -76,7 +82,7 @@ export default function FileSend() {
           </div>
           <div className=' bg-black text-white rounded-2xl p-5 mb-5'>
             <h2 className='mb-2 text-2xl'>
-            ¿En qué perfil de color? {" "}
+              ¿En qué perfil de color?{' '}
               <span className='text-lg'>
                 (Aplica a Rapport e Imagen localizada)
               </span>

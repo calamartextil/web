@@ -1,6 +1,13 @@
+import type { Metadata } from 'next';
+
 import Faqs from '@/app/components/Faqs';
 import Inner from '@/app/components/Inner';
 import LinkButton from '@/app/components/LinkButton';
+
+export const metadata: Metadata = {
+  title: `Nosotros`,
+  description: 'Informacion y FAQs sobre Calamar Textil',
+};
 
 export default function AboutUs() {
   return (
