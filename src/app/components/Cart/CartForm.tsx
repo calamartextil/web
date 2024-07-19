@@ -7,6 +7,7 @@ import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 import { useCartContext } from '@/app/contexts/CartContext';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 type FormData = {
   email: string;
   userName: string;
@@ -23,7 +24,8 @@ type FormData = {
 
 const ContactForm = () => {
   const [mailResponse, setMailResponse] = useState(null);
-  const { cart, cartTotal, cartAvailable } = useCartContext();
+  const { cart, cartTotal, cartAvailable, setCart } = useCartContext();
+  const router = useRouter();
 
   const validateEmail = (value: string) => {
     let error;
@@ -98,16 +100,23 @@ const ContactForm = () => {
     };
 
     const data = { cart, contactData, total: cartTotal };
-    const response = await axios.post('/api/mail', data);
-    if (response.data.error) {
-      setMailResponse(response.data.error);
-      return;
+    try {
+      const response = await axios.post('/api/mail', data);
+      if (response.data.error) {
+        setMailResponse(response.data.error);
+        return;
+      }
+      if (response.data.message) {
+        // setMailResponse(response.data.message);
+        setTimeout(() => {
+          resetForm();
+          router.push('/pedido-confirmado');
+          setCart([]);
+        }, 300);
+      }
+    } catch (error) {
+      console.log(error);
     }
-    if (response.data.message) {
-      setMailResponse(response.data.message);
-    }
-    console.log(response.data);
-    resetForm();
   };
 
   return (
@@ -318,7 +327,9 @@ const ContactForm = () => {
               </div>
               <div className='flex justify-center items-center mt-8 mb-3'>
                 <button
-                  className={`bg-third-bg-color text-white text-sm w-40 text-center py-4 px-2 rounded-2xl hover:opacity-70 mx-auto my-0 ${cartAvailable() > 0 && 'cursor-not-allowed'}`}
+                  className={`bg-third-bg-color text-white text-sm w-40 text-center py-4 px-2 rounded-2xl hover:opacity-70 mx-auto my-0 ${
+                    cartAvailable() > 0 && 'cursor-not-allowed'
+                  }`}
                   type='submit'
                   disabled={isSubmitting || cartAvailable() > 0} //TODO Enable when ready
                 >
