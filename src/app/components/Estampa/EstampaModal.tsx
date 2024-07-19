@@ -7,7 +7,7 @@ import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import type { Estampa } from '@/types';
 import LinkButton from '@/app/components/LinkButton';
-import EscalaModal from '@/app/components/Estampa/EscalasModal';
+import { set } from 'mongoose';
 
 interface EstampaModalProps {
   estampa: Estampa;
@@ -29,8 +29,10 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
   const [openModal, setModal] = useState(false);
   const [mts, setMts] = useState<number>(0.5);
   const [scale, setScale] = useState<Scale | null>(null);
+  const [scaleMessage, setScaleMessage] = useState<string>('');
   const handleModal = () => {
     setMts(0.5);
+    setScale(null);
     setModal(!openModal);
   };
 
@@ -40,6 +42,11 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
   }, [actualTela.sku, telaAvailable]);
 
   const handleAddEstampa = () => {
+    if (scale === null){
+      console.log('Clicked null scale')
+      setScaleMessage(`Elegí una escala`)
+      return
+    }
     addEstampaToTela(actualTela.sku, estampa, mts, scale as Scale);
     handleModal();
   };
@@ -48,6 +55,11 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
     if (telaAvailable(actualTela.sku).available === 0) return;
     setMts(mts ? mts : 0.5);
   };
+
+  const handleSetScale = (scale: Scale) => {
+    setScale(scale);
+    setScaleMessage('');
+  }
 
   return (
     <div>
@@ -115,7 +127,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                                 ? 'bg-third-bg-color'
                                 : 'bg-gray-200'
                             }`}
-                            onClick={() => setScale(Scale.S)}
+                            onClick={() => handleSetScale(Scale.S)}
                           >
                             {Scale.S}
                           </button>
@@ -125,7 +137,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                                 ? 'bg-third-bg-color'
                                 : 'bg-gray-200'
                             }`}
-                            onClick={() => setScale(Scale.M)}
+                            onClick={() => handleSetScale(Scale.M)}
                           >
                             {Scale.M}
                           </button>
@@ -135,7 +147,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                                 ? 'bg-third-bg-color'
                                 : 'bg-gray-200'
                             }`}
-                            onClick={() => setScale(Scale.L)}
+                            onClick={() => handleSetScale(Scale.L)}
                           >
                             {Scale.L}
                           </button>
@@ -152,6 +164,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                             </button>
                           )}
                         </div>
+                        {scaleMessage && <p className='text-xs text-red-500 mt-2'>{scaleMessage}</p>}
                         {estampa?.sku === TU_DISE_SKU && scale === Scale.X && (
                           <p className='text-xs mt-3'>
                             Por favor incluí los detalles de tu escala en los
@@ -173,7 +186,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                   <div className='flex justify-end items-center gap-5'>
                     {available > 0 && (
                       <Button
-                        disabled={scale === null}
+                        // disabled={scale === null}
                         title='Elegí una escala'
                         onClick={handleAddEstampa}
                       >
