@@ -30,16 +30,16 @@ const Navbar = ({ isScroll }: { isScroll: boolean }) => {
           <Menu />
 
           <div className='flex justify-center items-center gap-4 min-w-40'>
-            <a href=''>
+            <a href='https://www.instagram.com/calamartextil/' target='_blank'>
               <FaSquareInstagram
                 size={isScroll ? `20` : `30`}
                 color='#F4C6E3'
               />
             </a>
-            <a href=''>
+            <a href='https://www.facebook.com/calamartextil' target='_blank'>
               <FaSquareFacebook size={isScroll ? `20` : `30`} color='#F4C6E3' />
             </a>
-            <a href=''>
+            <a href='https://www.tiktok.com/@calamartextil' target='_blank'>
               <FaTiktok size={isScroll ? `20` : `30`} color='#F4C6E3' />
             </a>
             <CartIcon isScroll={isScroll} />

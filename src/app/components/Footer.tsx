@@ -11,13 +11,13 @@ const Footer = () => {
             <Image src={`/images/logoFooter.svg`} alt={`Calamar Textil`} width={25} height={25} />
           </div>
           <div className='flex justify-center items-center gap-2'>
-            <a href='#' target='_blank'>
+            <a href='https://www.instagram.com/calamartextil/' target='_blank'>
               <FaSquareInstagram size='20' color='#000' />
             </a>
-            <a href='#' target='_blank'>
+            <a href='https://www.facebook.com/calamartextil' target='_blank'>
               <FaSquareFacebook size='20' color='#000' />
             </a>
-            <a href='#' target='_blank'>
+            <a href='https://www.tiktok.com/@calamartextil' target='_blank'>
               <FaTiktok size='20' color='#000' />
             </a>
           </div>
