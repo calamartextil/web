@@ -39,6 +39,7 @@ interface CartContextProps {
   handleSetActualtelas: (tela: Tela) => void;
   actualTelaInfo: () => CartItem | undefined;
   cartAvailable: () => number;
+  setCart: (cart: CartItem[]) => void;
 }
 
 interface CartContextProviderProps {
@@ -182,6 +183,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cartQty,
         actualTela,
         scalePopUp,
+        setCart,
         setScalePopUp,
         telaAvailable,
         addCartItem,
