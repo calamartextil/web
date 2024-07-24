@@ -116,6 +116,7 @@ export default function FileSend() {
             Al llegar al PASO 3 deberás cargar tus archivos en{' '}
             <a
               className=' underline underline-offset-4'
+              target='_blank'
               href='https://wetransfer.com'
             >
               www.wetransfer.com
@@ -128,9 +129,9 @@ export default function FileSend() {
           </p>
           <div className='flex justify-center mb-14'>
             <Image
-              src='/images/tus-archivos/pedidos.jpg'
-              width={800}
-              height={600}
+              src='/images/tus-archivos/pedidos.png'
+              width={750}
+              height={776}
               alt='Rapport'
             />
           </div>

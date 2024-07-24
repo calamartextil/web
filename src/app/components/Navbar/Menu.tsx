@@ -16,8 +16,8 @@ const navBarItems = [
   //   href: '/pedido',
   // },
   {
-    name: 'Nosotros',
-    href: '/nosotros',
+    name: 'Información',
+    href: '/informacion',
   },
   {
     name: 'Contacto',

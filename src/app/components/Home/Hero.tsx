@@ -4,12 +4,12 @@ import Image from 'next/image';
 const Hero = () => {
   return (
     <div className='relative'>
-      <section className='bg-fourth-bg-color lg:pt-56 lg:min-h-[700px] relative mt-11'>
-        <div className='absolute right-0 top-1 sm:top-36'>
-          <div className='hidden lg:block lg:w-[500px] xl:w-[600px] 2xl:w-[800px]'>
+      <section className='bg-fourth-bg-color lg:pt-56 lg:min-h-[697px] relative mt-11'>
+        <div className='absolute right-0 top-1 sm:top-32'>
+          <div className='hidden lg:block lg:w-[550px] xl:w-[600px]'>
             <Image
               className='full-img rounded-l-full drop-shadow-[0_8px_4px_rgba(0,0,0,.1)]'
-              src={`/images/hero/portada3-b.jpg`}
+              src={`/images/hero/portada.png`}
               alt={`Calamar Textil`}
              fill={true}
             />
@@ -24,7 +24,7 @@ const Hero = () => {
           </p>
           <div className='flex justify-start items-center mb-8'>
             <Image src={`/images/icons/envios.svg`} alt={`Calamar Textil`} width={60} height={60} />
-            <p className='text-white ml-4 mt-4'>Envios a todo el país</p>
+            <p className='text-white ml-4 mt-4 font-semibold'>Envíos a todo el país</p>
           </div>
           <LinkButton className={`bg-white !text-black`} href='/telas'>
             Ver más
