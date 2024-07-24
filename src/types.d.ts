@@ -21,7 +21,7 @@ export type Estampa = {
   title: string;
   sku: string;
   image: string;
-  description?: string;
+  description?: string | JSX.Element;
   category: string;
 };
 

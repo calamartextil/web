@@ -12,11 +12,21 @@ export default async function EstampasGridPage({
   const estampasDb = await getAllEstampas(category);
 
   const estampaTuDise = {
-    title: "Tu diseño",
-    sku: "TU-DISE",
-    image: `placeholder.jpg`,
-    description: "Envianos tu propio diseño y lo estampamos. Recibimos archivos en formato AI o PDF, mediante link a weTransfer o Google Drive.",
-  } as IEstampa
+    title: 'Tu diseño',
+    sku: 'TU-DISE',
+    image: `tu-dise.jpg`,
+    description: (
+      <>
+      <p className='text-sm'>Envianos tu propio diseño y lo estampamos.</p>
+      <p className='text-sm mb-5'>
+        En la sección{' '}
+        <a className='text-xs underline underline-offset-4' href='dd'>TU DISEÑO</a>{' '}
+        encontrarás el instructivo para tus archivos.
+      </p>
+      </>
+      
+    ),
+  } as IEstampa;
 
   return (
     <>
@@ -34,8 +44,8 @@ export default async function EstampasGridPage({
           <div className='grid w-full'>
             {!category && (
               <div className='col_3'>
-              <EstampaCard estampa={estampaTuDise} />
-            </div>
+                <EstampaCard estampa={estampaTuDise} />
+              </div>
             )}
             {estampasDb.estampas &&
               estampasDb.estampas.map((estampa: IEstampa, index) => (
