@@ -3,6 +3,7 @@ import { getAllEstampas } from '@/app/database/actions';
 import { Estampa as IEstampa } from '@/types';
 import TelaGraphContainer from '@/app/components/TelaGraphContainer';
 import ActualTela from '@/app/components/Estampa/ActualTela';
+import Link from 'next/link';
 
 export default async function EstampasGridPage({
   category = null,
@@ -17,23 +18,32 @@ export default async function EstampasGridPage({
     image: `tu-dise.jpg`,
     description: (
       <>
-      <p className='text-sm'>Envianos tu propio diseño y lo estampamos.</p>
-      <p className='text-sm mb-5'>
-        En la sección{' '}
-        <a className='text-xs underline underline-offset-4' href='dd'>TU DISEÑO</a>{' '}
-        encontrarás el instructivo para tus archivos.
-      </p>
+        <p className='text-sm'>Envianos tu propio diseño y lo estampamos.</p>
+        <p className='text-sm mb-5'>
+          En la sección{' '}
+          <Link className='text-xs underline underline-offset-4' href='/envio-de-archivos'>
+            TU DISEÑO
+          </Link>{' '}
+          encontrarás el instructivo para tus archivos.
+        </p>
       </>
-      
     ),
   } as IEstampa;
 
   return (
     <>
       <ActualTela />
-      <h1 className='text-2xl mb-5'>
-        {category ? estampasDb.category?.name : `Todas las estampas`}
-      </h1>
+      <div className='mb-5 flex justify-between items-center'>
+        <h1 className='text-2xl leading-6'>
+          {category ? estampasDb.category?.name : `Todas las estampas`}
+        </h1>
+        <Link
+          href='/envio-de-archivos'
+          className='text-xs underline underline-offset-4 text-right leading-5'
+        >
+          ¿Como preparo mis archivos?
+        </Link>
+      </div>
       {estampasDb.estampas.length === 0 && (
         <div className='w-full flex items-center justify-center mt-8'>
           <p className='text-sm'>Aún no hay estampas en este catálogo</p>
@@ -41,15 +51,15 @@ export default async function EstampasGridPage({
       )}
       {estampasDb.estampas.length > 0 && (
         <>
-          <div className='grid w-full'>
+          <div className='grid w-full gap-2 lg:gap-5'>
             {!category && (
-              <div className='col_3'>
+              <div className='col_3 col_mb_6'>
                 <EstampaCard estampa={estampaTuDise} />
               </div>
             )}
             {estampasDb.estampas &&
               estampasDb.estampas.map((estampa: IEstampa, index) => (
-                <div key={index} className='col_3'>
+                <div key={index} className='col_3  col_mb_6'>
                   <EstampaCard estampa={estampa} />
                 </div>
               ))}

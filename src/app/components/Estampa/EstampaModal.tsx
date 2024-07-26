@@ -7,7 +7,6 @@ import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import type { Estampa } from '@/types';
 import LinkButton from '@/app/components/LinkButton';
-import { set } from 'mongoose';
 
 interface EstampaModalProps {
   estampa: Estampa;

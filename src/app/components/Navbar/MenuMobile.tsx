@@ -12,13 +12,9 @@ const navBarItems = [
     name: 'Estampas',
     href: '/estampas',
   },
-  // {
-  //   name: 'Tu pedido',
-  //   href: '/pedido',
-  // },
   {
-    name: 'Nosotros',
-    href: '/nosotros',
+    name: 'Información',
+    href: '/informacion',
   },
   {
     name: 'Contacto',

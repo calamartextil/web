@@ -11,10 +11,6 @@ const navBarItems = [
     name: 'Estampas',
     href: '/estampas',
   },
-  // {
-  //   name: 'Tu pedido',
-  //   href: '/pedido',
-  // },
   {
     name: 'Información',
     href: '/informacion',

@@ -96,7 +96,7 @@ const Faqs: React.FC = () => {
           <p className='text-lg'>
             <Link
               className='text-xs underline underline-offset-4'
-              href='/como-preparar-archivos'
+              href='/envio-de-archivos'
             >
               Ver detalles aqui
             </Link>
@@ -398,11 +398,11 @@ const Faqs: React.FC = () => {
       {faqs.map((faq, index) => (
         <div key={index} className='mb-5 w-full'>
           <div
-            className='bg-primary-bg-color text-lg rounded-2xl px-3 w-full mb-1 h-16 flex justify-between items-center cursor-pointer'
+            className='bg-primary-bg-color text-lg rounded-2xl px-3 py-3 w-full mb-1 min-h-16 flex justify-between items-center cursor-pointer'
             onClick={() => toggleFaq(index)}
           >
             {faq.title}
-            <div>
+            <div className='ml-3'>
               {faq.isOpen ? (
                 <FaAngleUp />
               ) : (
