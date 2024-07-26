@@ -137,7 +137,7 @@ export default function FileSend() {
           </div>
 
           <div className='flex justify-center'>
-            <LinkButton href='/pedido'>Hacer mi pedido</LinkButton>
+            <LinkButton href='/telas'>Hacer mi pedido</LinkButton>
           </div>
         </div>
       </Inner>

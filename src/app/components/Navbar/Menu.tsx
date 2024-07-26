@@ -25,7 +25,7 @@ const navBarItems = [
   },
   {
     name: 'Tienda de stock',
-    href: 'https://calamartextil.com.ar/',
+    href: 'https://tienda.calamartextil.com/',
     externalLink: true,
   },
 ];
