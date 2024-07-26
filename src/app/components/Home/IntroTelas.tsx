@@ -70,7 +70,7 @@ const IntroTelas = () => {
                           className='rounded-2xl full-img'
                         />
                       </div>
-                      <div className='absolute bg-secondary-bg-color bottom-0 w-full rounded-b-2xl flex justify-center p-2 text-white font-semibold text-xl uppercase'>
+                      <div className='absolute bg-secondary-bg-color bottom-0 w-full rounded-b-2xl flex justify-center p-2 text-white font-semibold text-xs lg:text-xl uppercase text-center'>
                         {name}
                       </div>
                     </div>

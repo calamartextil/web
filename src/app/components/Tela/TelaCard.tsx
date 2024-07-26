@@ -5,7 +5,7 @@ import { formatNumber } from '@/app/utils/prices';
 
 export default function TelaCard({ title, sku, prices, images }: Tela) {
   return (
-    <div className='flex flex-col justify-center items-center bg-primary-bg-color py-5 px-6 rounded-2xl'>
+    <div className='flex flex-col justify-center items-center bg-primary-bg-color pt-3 pb-4 px-3 rounded-2xl'>
       <div className='full-img-container mb-5'>
         <Image
           fill={true}
@@ -17,11 +17,11 @@ export default function TelaCard({ title, sku, prices, images }: Tela) {
           className='rounded-2xl full-img'
         />
       </div>
-      <h3 className='text-xl'>{title}</h3>
+      <h3 className='text-xl text-center leading-5 mb-2'>{title}</h3>
       {prices[4] === 0 ? (
         <p className='mb-4 text-cancel-text-color'>Sin stock</p>
       ) : (
-        <p className='mb-4'>{`Desde $${formatNumber(prices[4])}`}</p>
+        <p className='mb-4 text-lg'>{`Desde $${formatNumber(prices[4])}`}</p>
       )}
 
       <LinkButton href={`/telas/${sku}`}>Ver tela</LinkButton>

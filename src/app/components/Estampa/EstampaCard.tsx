@@ -10,7 +10,6 @@ interface EstampaCardProps {
 }
 
 export default function EstampaCard({ estampa }: EstampaCardProps) {
-  const telaSku = useParams<{ sku: string }>();
   return (
     <div className='flex flex-col justify-center items-center bg-primary-bg-color py-3 px-3 rounded-2xl'>
       <div className='full-img-container mb-5'>

@@ -7,7 +7,6 @@ import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import type { Estampa } from '@/types';
 import LinkButton from '@/app/components/LinkButton';
-import { set } from 'mongoose';
 
 interface EstampaModalProps {
   estampa: Estampa;
@@ -158,7 +157,8 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                                   ? 'bg-third-bg-color'
                                   : 'bg-gray-200'
                               }`}
-                              onClick={() => setScale(Scale.X)}
+                              onClick={() => handleSetScale(Scale.X)}
+
                             >
                               {Scale.X}
                             </button>

@@ -16,13 +16,13 @@ export default function FileSend() {
       <Inner>
         <div className='flex justify-start flex-col items-start w-full'>
           <h1 className='text-5xl font-display mb-10 text-center lg:text-left'>
-            Recibimos tu pedido
+          ¡Muchas gracias por tu pedido!
           </h1>
           <p className='text-lg lg:text-xl text-center lg:text-left mb-2'>
-          Te va a llegar un mail con el detalle de tu pedido. Nos vamos a comunicar con vos dentro de las 48hrs.
+          Te va a llegar un mail con el detalle de tu pedido y dentro de las próximas 24 hs recibirás la confirmación con los datos para hacer el pago.
           </p>
           <p className='text-lg lg:text-xl text-center lg:text-left mb-10'>
-            En caso de que no lo veas, por favor chequeá la carpeta de spam, o comunica con nosotros.
+          En caso de que no lo veas, por favor chequeá la carpeta de spam.
           </p>
           <div className='flex justify-center'>
             <LinkButton href='/telas'>Hacer otro pedido</LinkButton>

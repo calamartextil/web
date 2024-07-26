@@ -28,7 +28,7 @@ const IntroOwnDesigns = () => {
               Tus archivos serán utilizados únicamente en tus pedidos las veces
               que quieras.
             </p>
-            <LinkButton href={`/telas`}>Ver más</LinkButton>
+            <LinkButton href={`/envio-de-archivos`}>Ver más</LinkButton>
           </>
         </Inner>
       </section>

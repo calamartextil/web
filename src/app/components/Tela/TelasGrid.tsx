@@ -1,6 +1,6 @@
 import TelaCard from '@/app/components/Tela/TelaCard';
 import { getAllTelas } from '@/app/database/actions';
-import Link from 'next/link';
+import TelasMedidasModal from '@/app/components/Tela/TelasMedidasModal';
 
 export default async function TelasGrid({
   category = null,
@@ -15,12 +15,7 @@ export default async function TelasGrid({
         <h1 className='font-display text-5xl mb-4 lg:mb-8'>
           {category ? telasFromDb.category?.name : `Todas las telas`}
         </h1>
-        <Link
-          href='/envio-de-archivos'
-          className='text-xs underline underline-offset-4'
-        >
-          ¿Como preparo mis archivos?
-        </Link>
+        <TelasMedidasModal />
       </div>
 
       <div className='grid w-full'>
