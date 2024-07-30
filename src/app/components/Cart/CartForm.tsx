@@ -100,11 +100,22 @@ const ContactForm = () => {
     };
 
     const data = { cart, contactData, total: cartTotal };
+
+    // console.log(JSON.stringify(cart, null, 2));
     try {
       const response = await axios.post('/api/mail', data);
+      const responseSheet = await axios.post('/api/gsheet', data);
       if (response.data.error) {
         setMailResponse(response.data.error);
         return;
+      }
+      // if (responseSheet.data.error) {
+      //   setMailResponse(responseSheet.data.error);
+      //   console.log(responseSheet.data.error);
+      //   return;
+      // }
+      if (responseSheet.data.message) {
+        console.log(responseSheet.data.message);
       }
       if (response.data.message) {
         // setMailResponse(response.data.message);
@@ -112,7 +123,7 @@ const ContactForm = () => {
           resetForm();
           router.push('/pedido-confirmado');
           setCart([]);
-        }, 300);
+        }, 500);
       }
     } catch (error) {
       console.log(error);
@@ -331,7 +342,7 @@ const ContactForm = () => {
                     cartAvailable() > 0 && 'cursor-not-allowed'
                   }`}
                   type='submit'
-                  disabled={isSubmitting || cartAvailable() > 0} //TODO Enable when ready
+                  // disabled={isSubmitting || cartAvailable() > 0} //TODO Enable when ready
                 >
                   Enviar pedido
                 </button>
