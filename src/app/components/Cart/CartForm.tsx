@@ -122,8 +122,8 @@ const ContactForm = () => {
         setTimeout(() => {
           resetForm();
           router.push('/pedido-confirmado');
-          setCart([]);
-        }, 500);
+          // setCart([]);
+        }, 100);
       }
     } catch (error) {
       console.log(error);
@@ -342,7 +342,7 @@ const ContactForm = () => {
                     cartAvailable() > 0 && 'cursor-not-allowed'
                   }`}
                   type='submit'
-                  // disabled={isSubmitting || cartAvailable() > 0} //TODO Enable when ready
+                  disabled={isSubmitting || cartAvailable() > 0}
                 >
                   Enviar pedido
                 </button>
