@@ -16,18 +16,7 @@ export default async function EstampasGridPage({
     title: 'Tu diseño',
     sku: 'TU-DISE',
     image: `tu-dise.jpg`,
-    description: (
-      <>
-        <p className='text-sm'>Envianos tu propio diseño y lo estampamos.</p>
-        <p className='text-sm mb-5'>
-          En la sección{' '}
-          <Link className='text-xs underline underline-offset-4' href='/envio-de-archivos'>
-            TU DISEÑO
-          </Link>{' '}
-          encontrarás el instructivo para tus archivos.
-        </p>
-      </>
-    ),
+    description: 'Estampa personalizada',
   } as IEstampa;
 
   return (

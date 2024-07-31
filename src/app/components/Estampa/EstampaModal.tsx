@@ -7,6 +7,7 @@ import Image from 'next/image';
 import TelaMtsInput from '@/app/components/TelaMtsInput';
 import type { Estampa } from '@/types';
 import LinkButton from '@/app/components/LinkButton';
+import Link from 'next/link';
 
 interface EstampaModalProps {
   estampa: Estampa;
@@ -41,10 +42,9 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
   }, [actualTela.sku, telaAvailable]);
 
   const handleAddEstampa = () => {
-    if (scale === null){
-      console.log('Clicked null scale')
-      setScaleMessage(`Elegí una escala`)
-      return
+    if (scale === null) {
+      setScaleMessage(`Elegí una escala`);
+      return;
     }
     addEstampaToTela(actualTela.sku, estampa, mts, scale as Scale);
     handleModal();
@@ -58,7 +58,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
   const handleSetScale = (scale: Scale) => {
     setScale(scale);
     setScaleMessage('');
-  }
+  };
 
   return (
     <div>
@@ -81,8 +81,26 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                 <div className='flex flex-col justify-between h-full'>
                   <div>
                     <h2 className='text-4xl mb-2'>{estampa?.title}</h2>
-                    {estampa?.description !== '' && (
-                      <p className='text-sm mb-5'>{estampa?.description}</p>
+                    {estampa?.description !== '' &&
+                      estampa?.sku !== TU_DISE_SKU && (
+                        <p className='text-sm mb-5'>{estampa?.description}</p>
+                      )}
+                    {estampa?.sku === TU_DISE_SKU && (
+                      <>
+                        <p className='text-sm'>
+                          Envianos tu propio diseño y lo estampamos.
+                        </p>
+                        <p className='text-sm mb-5'>
+                          En la sección{' '}
+                          <Link
+                            className='text-xs underline underline-offset-4'
+                            href='/envio-de-archivos'
+                          >
+                            TU DISEÑO
+                          </Link>{' '}
+                          encontrarás el instructivo para tus archivos.
+                        </p>
+                      </>
                     )}
 
                     <div className='pb-2'>
@@ -158,13 +176,16 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                                   : 'bg-gray-200'
                               }`}
                               onClick={() => handleSetScale(Scale.X)}
-
                             >
                               {Scale.X}
                             </button>
                           )}
                         </div>
-                        {scaleMessage && <p className='text-xs text-red-500 mt-2'>{scaleMessage}</p>}
+                        {scaleMessage && (
+                          <p className='text-xs text-red-500 mt-2'>
+                            {scaleMessage}
+                          </p>
+                        )}
                         {estampa?.sku === TU_DISE_SKU && scale === Scale.X && (
                           <p className='text-xs mt-3'>
                             Por favor incluí los detalles de tu escala en los
@@ -194,9 +215,7 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
                       </Button>
                     )}
                     {!actualTela.sku && (
-                      <LinkButton href='/telas'>
-                        Elegir tela
-                      </LinkButton>
+                      <LinkButton href='/telas'>Elegir tela</LinkButton>
                     )}
                     <Button
                       className='bg-cancel-text-color'
