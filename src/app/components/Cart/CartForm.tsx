@@ -99,7 +99,7 @@ const ContactForm = () => {
       tuDisenio: formData.tuDisenio || '',
     };
 
-    const data = { cart, contactData, total: cartTotal };
+    const data = { cart, contactData, total: cartTotal() };
 
     // console.log(JSON.stringify(cart, null, 2));
     try {
@@ -109,11 +109,6 @@ const ContactForm = () => {
         setMailResponse(response.data.error);
         return;
       }
-      // if (responseSheet.data.error) {
-      //   setMailResponse(responseSheet.data.error);
-      //   console.log(responseSheet.data.error);
-      //   return;
-      // }
       if (responseSheet.data.message) {
         console.log(responseSheet.data.message);
       }
