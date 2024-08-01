@@ -16,6 +16,7 @@ export interface ITela extends Document {
   };
   // categories: telasCategory[];
   categories: Types.ObjectId[] | ITelaCategory[];
+  discount?: number;
 }
 
 const telaSchema: Schema = new Schema({
@@ -29,6 +30,7 @@ const telaSchema: Schema = new Schema({
   prices: { type: Array, required: true },
   images: { type: Object, required: true },
   categories: { type: Array, required: true },
+  discount: { type: Number, required: false },
 });
 
 const Tela = mongoose.models.Tela || mongoose.model<ITela>('Tela', telaSchema);

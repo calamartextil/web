@@ -63,7 +63,6 @@ const ContactForm = () => {
     if (response.data.message) {
       setMailResponse(response.data.message);
     }
-    console.log(response.data);
     resetForm();
   };
 
