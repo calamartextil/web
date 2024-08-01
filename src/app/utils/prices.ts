@@ -9,5 +9,5 @@ export function formatNumber(number: number): string {
 }
 
 export function salePrice(price: number, discount: number): number {
-  return price * (discount / 100);
+  return price - price * (discount / 100);
 }
