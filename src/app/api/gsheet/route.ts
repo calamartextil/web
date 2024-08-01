@@ -4,7 +4,6 @@ import { appendToSheet } from '@/app/services/google-spreadsheet';
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const data = await req.json();
-    // const contactData = data.contactData;
     const {
       name,
       apellido,
