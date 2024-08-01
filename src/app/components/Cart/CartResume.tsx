@@ -13,16 +13,16 @@ export default function CartResume() {
   const { cart, removeCartItemBySku, telaAvailable } = useCartContext();
   return (
     <div className='flex flex-col justify-start items-start gap-3'>
-      {cart.map((item, index) => (
+      {cart.map((item) => (
         <div
           key={item.tela.sku}
-          className=' bg-primary-bg-color py-5 px-6 rounded-2xl w-full mb-5'
+          className='bg-primary-bg-color py-5 px-6 rounded-2xl w-full mb-5'
         >
           <div className='flex gap-5 mb-5'>
             <Link href={`/telas/${item.tela.sku}`}>
               <Image
-                src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${item.tela.images.lisaUrl}`}
-                alt={item.tela.title}
+                src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/telas/${item.tela.images?.lisaUrl}`}
+                alt={item.tela?.title}
                 width={100}
                 height={100}
                 className='rounded-xl'
@@ -33,7 +33,7 @@ export default function CartResume() {
             <div className='flex justify-between items-start w-full'>
               <div className='flex flex-col'>
                 <h2 className='leading-none mb-1 text-2xl lg:text-4xl'>
-                  {item.tela.title}
+                  {item.tela?.title}
                 </h2>
                 <p className='text-sm'>
                   Largo: {item.mts} {item.mts !== 1 ? `mts` : `mt`}

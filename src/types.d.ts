@@ -60,3 +60,8 @@ export type EstampaCart = {
   mts: number;
   scale: string;
 };
+
+export type Cupon = {
+  title: string;
+  discount: number;
+};

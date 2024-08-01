@@ -7,13 +7,14 @@ import {
   useEffect,
   ReactNode,
 } from 'react';
-import { CartItem, Estampa, Tela } from '@/types';
+import { CartItem, Estampa, Tela, Cupon } from '@/types';
 interface CartContextProps {
   cart: CartItem[];
-  cartTotal: number;
   cartQty: number;
   actualTela: Tela;
   scalePopUp: boolean;
+  cupon: Cupon | null;
+  cartTotal: () => number;
   setScalePopUp: (value: boolean) => void;
   addCartItem: (item: CartItem) => void;
   removeCartItem: (item: CartItem) => void;
@@ -40,6 +41,7 @@ interface CartContextProps {
   actualTelaInfo: () => CartItem | undefined;
   cartAvailable: () => number;
   setCart: (cart: CartItem[]) => void;
+  setCupon: (cupon: Cupon | null) => void;
 }
 
 interface CartContextProviderProps {
@@ -52,11 +54,9 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   children,
 }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const cartTotal = cart.reduce((acc, item) => acc + item.price, 0);
-  const cartQty = cart.length;
   const [actualTela, setActualTela] = useState<Tela>({} as Tela);
   const [scalePopUp, setScalePopUp] = useState<boolean>(false);
-
+  const [cupon, setCupon] = useState<Cupon | null>(null);
 
   // useEffect(() => {
   //   //JUST FOR DEBUGGING REMOVE LATER
@@ -64,6 +64,13 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
   // }, [cart]);
 
   //CART
+
+  const cartQty = cart.length;
+
+  const cartTotal = () => {
+    const total = cart.reduce((acc, item) => acc + item.price, 0);
+    return cupon ? (total * cupon.discount) / 100 : total;
+  };
 
   const handleSetActualtelas = (tela: Tela) => {
     setActualTela(tela);
@@ -173,7 +180,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
           0),
       0
     );
-  }
+  };
 
   return (
     <CartContext.Provider
@@ -183,6 +190,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         cartQty,
         actualTela,
         scalePopUp,
+        cupon,
         setCart,
         setScalePopUp,
         telaAvailable,
@@ -196,6 +204,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
         handleSetActualtelas,
         actualTelaInfo,
         cartAvailable,
+        setCupon,
       }}
     >
       {children}
