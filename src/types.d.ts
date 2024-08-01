@@ -14,6 +14,7 @@ export type Tela = {
     usosUrl?: string;
   };
   categories: TelasCategory[];
+  discount?: number;
 };
 
 export type Estampa = {

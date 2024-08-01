@@ -7,3 +7,7 @@ export function formatNumber(number: number): string {
   }
   return integerPart;
 }
+
+export function salePrice(price: number, discount: number): number {
+  return price * (discount / 100);
+}

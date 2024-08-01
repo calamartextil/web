@@ -30,7 +30,6 @@ export async function getAllTelas(
     if (category) {
       const categoryFromDb = await TelaCategory.findOne({ slug: category });
       if (!categoryFromDb) {
-        console.log(`Category "${category}" not found.`);
         return { telas: [], category: null };
       }
       const telas = await Tela.find({
@@ -82,7 +81,6 @@ export async function getAllEstampas(
     if (category) {
       const categoryFromDb = await EstampaCategory.findOne({ slug: category }).sort({ "title": "asc"});
       if (!categoryFromDb) {
-        console.log(`Category "${category}" not found.`);
         return { estampas: [], category: null };
       }
       const estampas = await Estampa.find({

@@ -29,6 +29,7 @@ export default async function TelasGrid({
                 prices={tela.prices}
                 images={tela.images}
                 categories={tela.categories}
+                discount={tela?.discount}
               />
             </div>
           ))}

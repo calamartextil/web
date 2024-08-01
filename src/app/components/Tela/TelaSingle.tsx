@@ -10,15 +10,27 @@ import CartMiniEstampas from '@/app/components/Cart/CartMiniEstampas';
 import { EstampaCart } from '@/types';
 import LinkButton from '@/app/components/LinkButton';
 import TelaSlider from '@/app/components/Tela/TelaSlider';
-import { formatNumber } from '@/app/utils/prices';
+import { formatNumber, salePrice } from '@/app/utils/prices';
 
 interface TelaProps {
   tela: Tela;
 }
 
+const pricesIntervals = [
+  'De 1 a 5 mts',
+  'De 6 a 10 mts',
+  'De 11 a 30 mts',
+  'De 31 a 50 mts',
+  '51 o más mts',
+];
+
 export default function TelaSingle({ tela }: TelaProps) {
   const [mts, setMts] = useState<number>(1);
-  const [price, setPrice] = useState<number>(tela?.prices[0]);
+  const [price, setPrice] = useState<number>(
+    tela.discount !== undefined && tela.discount > 0
+      ? salePrice(tela?.prices[0], tela.discount)
+      : tela?.prices[0]
+  );
   const {
     addCartItem,
     handleSetActualtelas,
@@ -42,8 +54,7 @@ export default function TelaSingle({ tela }: TelaProps) {
   };
 
   const handleInputChange = (mts: number) => {
-    setMts(mts ? mts : 1);
-    setPrice(
+    const price =
       tela?.prices[
         mts >= 0 && mts <= 5
           ? 0
@@ -54,9 +65,34 @@ export default function TelaSingle({ tela }: TelaProps) {
           : mts >= 31 && mts <= 50
           ? 3
           : 4
-      ] * mts
+      ] * mts;
+
+    setMts(mts ? mts : 1);
+    setPrice(
+      tela.discount !== undefined && tela.discount > 0
+        ? salePrice(price, tela.discount)
+        : price
     );
   };
+
+  const pricesList = pricesIntervals.map((interval, index) => (
+    <li key={index}>
+      {tela.discount !== undefined && tela.discount > 0 ? (
+        <p className='text-sm'>
+          {interval}: $
+          {formatNumber(salePrice(tela.prices[index], tela.discount))}{' '}
+          <span className='text-sm text-cancel-text-color line-through'>
+            ${formatNumber(tela.prices[index])}
+          </span>
+        </p>
+      ) : (
+        <p className='text-sm'>{`${interval}: $${formatNumber(
+          tela.prices[index]
+        )}`}</p>
+      )}
+    </li>
+  ));
+
   return (
     <div className='relative'>
       <div className='mb-10 flex flex-col-reverse lg:flex-row justify-between items-center gap-4 lg:gap-0'>
@@ -77,8 +113,13 @@ export default function TelaSingle({ tela }: TelaProps) {
       </div>
       <div className='bg-primary-bg-color p-10 rounded-2xl'>
         <div className='grid'>
-          <div className='col_6'>
+          <div className='col_6 relative'>
             <TelaSlider images={tela?.images} />
+            {tela.discount !== undefined && tela.discount > 0 && (
+              <div className='absolute top-3 right-3 bg-cancel-text-color text-white text-sm px-3 py-2 rounded-2xl'>
+                {tela.discount}% OFF
+              </div>
+            )}
           </div>
           <div className='col_6'>
             <div className='flex flex-col justify-center items-start'>
@@ -107,33 +148,7 @@ export default function TelaSingle({ tela }: TelaProps) {
                 {tela.prices[0] !== 0 && (
                   <div className='mb-5'>
                     <h3 className='mb-0'>Precios</h3>
-                    <ul className='mb-1'>
-                      <li>
-                        <p className='text-sm'>
-                          De 1 a 5 mts: ${formatNumber(tela?.prices[0])}
-                        </p>
-                      </li>
-                      <li>
-                        <p className='text-sm'>
-                          De 6 a 10 mts: ${formatNumber(tela?.prices[1])}
-                        </p>
-                      </li>
-                      <li>
-                        <p className='text-sm'>
-                          De 11 a 30 mts: ${formatNumber(tela?.prices[2])}
-                        </p>
-                      </li>
-                      <li>
-                        <p className='text-sm'>
-                          De 31 a 50 mts: ${formatNumber(tela?.prices[3])}
-                        </p>
-                      </li>
-                      <li>
-                        <p className='text-sm'>
-                          51 o más mts: ${formatNumber(tela?.prices[4])}
-                        </p>
-                      </li>
-                    </ul>
+                    <ul className='mb-1'>{pricesList}</ul>
                   </div>
                 )}
               </div>
