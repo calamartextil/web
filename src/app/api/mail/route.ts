@@ -14,6 +14,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       };
     });
     const cartTotal = data.total;
+    const cupon = data.cupon ? `${data.cupon?.title} - (${data.cupon?.discount}% OFF)` : null;
     sgMail.setApiKey(process.env.SENDGRID_API_KEY ?? 'DEFAULT_API_KEY');
 
     const msg = {
@@ -48,6 +49,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             tuDisenio: contactData?.tuDisenio,
             items: cartFormated,
             total: formatNumber(cartTotal),
+            cupon: cupon,
           },
         },
       ],
