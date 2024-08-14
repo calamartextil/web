@@ -69,7 +69,7 @@ export const CartContextProvider: React.FC<CartContextProviderProps> = ({
 
   const cartTotal = () => {
     const total = cart.reduce((acc, item) => acc + item.price, 0);
-    return cupon ? (total * cupon.discount) / 100 : total;
+    return cupon ? total - (total * cupon.discount) / 100 : total;
   };
 
   const handleSetActualtelas = (tela: Tela) => {
