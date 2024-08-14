@@ -11,6 +11,8 @@ import Link from 'next/link';
 
 interface EstampaModalProps {
   estampa: Estampa;
+  visible?: boolean;
+  hideButton?: boolean;
 }
 
 enum Scale {
@@ -22,11 +24,15 @@ enum Scale {
 
 const TU_DISE_SKU = 'TU-DISE';
 
-const EstampaModal = ({ estampa }: EstampaModalProps) => {
+const EstampaModal = ({
+  estampa,
+  visible = false,
+  hideButton = false,
+}: EstampaModalProps) => {
   const { addEstampaToTela, telaAvailable, actualTela, setScalePopUp } =
     useCartContext();
   const [available, setAvailable] = useState<number>(0.5);
-  const [openModal, setModal] = useState(false);
+  const [openModal, setModal] = useState(visible);
   const [mts, setMts] = useState<number>(0.5);
   const [scale, setScale] = useState<Scale | null>(null);
   const [scaleMessage, setScaleMessage] = useState<string>('');
@@ -62,9 +68,9 @@ const EstampaModal = ({ estampa }: EstampaModalProps) => {
 
   return (
     <div>
-      <Button onClick={handleModal}>Elegir</Button>
+      {!hideButton && <Button onClick={handleModal}>Elegir</Button>}
       {openModal && (
-        <div className='fixed top-0 left-0 w-full h-full bg-white bg-opacity-80 flex justify-center items-center z-20 transition-all'>
+        <div className='fixed top-0 left-0 w-full h-full bg-white bg-opacity-80 flex justify-center items-center z-[1000] transition-all'>
           <div className=' w-5/6 lg:w-2/4 bg-primary-bg-color py-5 px-5 rounded-2xl shadow-lg w- '>
             <div className='grid'>
               <div className='col_6'>

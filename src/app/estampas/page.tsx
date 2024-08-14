@@ -20,6 +20,7 @@ export default function Estampas() {
           defaultHref={'/estampas'}
         />
       </div>
+
       <Suspense fallback={<Loading />}>
         <EstampasGrid />
       </Suspense>
