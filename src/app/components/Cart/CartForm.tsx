@@ -20,11 +20,12 @@ type FormData = {
   cp: string;
   mensaje?: string;
   tuDisenio?: string;
+  cupon?: string;
 };
 
 const ContactForm = () => {
   const [mailResponse, setMailResponse] = useState(null);
-  const { cart, cartTotal, cartAvailable, setCart } = useCartContext();
+  const { cart, cartTotal, cartAvailable, cupon } = useCartContext();
   const router = useRouter();
 
   const validateEmail = (value: string) => {
@@ -99,7 +100,7 @@ const ContactForm = () => {
       tuDisenio: formData.tuDisenio || '',
     };
 
-    const data = { cart, contactData, total: cartTotal() };
+    const data = { cart, contactData, cupon, total: cartTotal() };
 
     // console.log(JSON.stringify(cart, null, 2));
     try {

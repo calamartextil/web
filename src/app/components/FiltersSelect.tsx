@@ -25,7 +25,7 @@ export default function FiltersSelect({
   };
 
   return (
-    <div className='bg-primary-bg-color p-3 mb-8 rounded-2xl'>
+    <div className='bg-primary-bg-color p-3 mb-8 rounded-2xl relative'>
       <select
         className='bg-primary-bg-color w-full appearance-none border-none focus:outline-none transition-all'
         onChange={(e) => handleSelect(e)}
@@ -40,10 +40,10 @@ export default function FiltersSelect({
             </option>
           ))}
       </select>
-      <div className='absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none'>
+      <div className='absolute right-4 top-1/2 pt-1 transform -translate-y-1/2 pointer-events-none rotate-180'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='h-5 w-5 text-white'
+          className='h-5 w-'
           viewBox='0 0 20 20'
           fill='currentColor'
         >
