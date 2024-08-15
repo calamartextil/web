@@ -7,11 +7,12 @@ import LinkButton from '@/app/components/LinkButton';
 
 
 export default function CartComfirmation() {
-  const { setCart } = useCartContext();
+  const { setCart, setCupon } = useCartContext();
 
   useEffect(() => {
     setCart([]);
-  }, [setCart]);
+    setCupon(null)
+  }, [setCart, setCupon]);
   return (
     <div className='pt-40 lg:pt-48 px-5 pb-40'>
       <Inner>

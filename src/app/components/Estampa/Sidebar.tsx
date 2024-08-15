@@ -9,7 +9,7 @@ export default function Sidebar() {
 
   return (
     <div className='sidebar fixed top-0 left-0 w-[250px] mt-48 pl-8 pr-2'>
-      <h1 className='mb-8'>Catálogos</h1>
+      <h2 className='mb-8 text-lg font-outfit font-semibold'>Catálogos</h2>
       <nav>
         <ul>
           <li className={`w-full`}>
