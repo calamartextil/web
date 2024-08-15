@@ -34,11 +34,6 @@ const EstampaSearchForm = () => {
         title: formData.title,
       });
 
-      if (response.data.error) {
-        setMailResponse(response.data.error);
-        return;
-      }
-
       if (response.data) {
         setEstampa(response.data);
         setEstampaInvalido(false);
