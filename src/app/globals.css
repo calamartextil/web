@@ -90,6 +90,8 @@ input[type=number] {
   appearance: textfield;
 }
 
+/* SLICK */
+
 .slick-prev:before, .slick-next:before {
   color: black!important;
   font-size: 30px!important;
@@ -105,4 +107,8 @@ input[type=number] {
 }
 .slick-next{
   right: 20px!important;
+}
+
+.slick-arrow.slick-disabled { 
+  display: none !important;
 }
