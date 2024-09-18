@@ -4,9 +4,7 @@ import { useCartContext } from '@/app/contexts/CartContext';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import HorizontalScrollGraph from '@/app/components/Estampa/HorizontalScrollGraph';
 
 interface TelaGraphProps {
   sku: string;
@@ -58,22 +56,16 @@ const EstampasGraphSlider = ({ sku }: TelaGraphProps) => {
               </div>
             </div>
           </div>
-        ));
+        )).reverse();
       });
   };
 
-  const sliderSettings = {
-    arrows: true,
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 7,
-    slidesToScroll: 1,
-  };
   return (
     <div className='flex justify-center h-16'>
-      <div className='slider absolute top-2 left-0 w-10/12'>
-        <Slider {...sliderSettings}>{generateGraph()}</Slider>
+      <div className='slider absolute top-2 left-0 w-10/12 ml-7'>
+        <HorizontalScrollGraph>
+        {generateGraph()}
+      </HorizontalScrollGraph>
       </div>
       <div className='messages bg-slate-400 absolute top-2 right-3'>
         Queda tanto espacio

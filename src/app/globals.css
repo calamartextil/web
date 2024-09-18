@@ -112,3 +112,10 @@ input[type=number] {
 .slick-arrow.slick-disabled { 
   display: none !important;
 }
+
+
+/* Horizontal Scroll */
+
+.items-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, and Opera */
+}
