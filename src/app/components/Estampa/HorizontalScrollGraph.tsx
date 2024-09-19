@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useLayoutEffect, ReactNode } from 'react';
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 interface HorizontalScrollProps {
   children: ReactNode;
@@ -13,7 +14,7 @@ const HorizontalScroll: React.FC<HorizontalScrollProps> = ({ children }) => {
   const [scrollLeft, setScrollLeft] = useState(0);
 
   // Function to check if the arrows should be shown (based on content width vs container width)
-  const checkForScroll = () => {
+   const checkForScroll = () => {
     const container = containerRef.current;
     if (container) {
       const totalScrollableWidth = container.scrollWidth; // Total width of content (scrollable width)
@@ -132,9 +133,9 @@ const HorizontalScroll: React.FC<HorizontalScrollProps> = ({ children }) => {
       {showLeftArrow && (
         <button
           onClick={scrollLeftButton}
-          className="absolute -left-8 bg-transparent border-none text-3xl cursor-pointer p-2 z-10"
+          className="absolute -left-9 bg-transparent border-none text-3xl cursor-pointer p-2 z-10"
         >
-          &lt;
+         <IoIosArrowBack color={'#FFFFFF'} />
         </button>
       )}
 
@@ -157,9 +158,9 @@ const HorizontalScroll: React.FC<HorizontalScrollProps> = ({ children }) => {
       {showRightArrow && (
         <button
           onClick={scrollRightButton}
-          className="absolute -right-8 bg-transparent border-none text-3xl cursor-pointer p-2 z-10"
+          className="absolute -right-9 bg-transparent border-none text-3xl cursor-pointer p-2 z-10"
         >
-          &gt;
+          <IoIosArrowForward color={'#FFFFFF'} />
         </button>
       )}
     </div>
