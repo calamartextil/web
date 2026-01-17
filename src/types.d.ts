@@ -52,7 +52,7 @@ export type CartItem = {
 
 export type Cart = {
   //Posible deprecated
-  items: cartItem[];
+  items: CartItem[];
   total: number;
 };
 

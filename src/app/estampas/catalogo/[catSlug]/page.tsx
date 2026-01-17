@@ -1,35 +1,38 @@
-import { Suspense } from 'react';
-import EstampasGrid from '@/app/components/Estampa/EstampasGrid';
-import Loading from '@/app/components/Loading';
-import FiltersSelect from '@/app/components/FiltersSelect';
-import { estampasCategories } from '@/app/database/staticContent';
+import { Suspense } from "react";
+import EstampasGrid from "@/app/components/Estampa/EstampasGrid";
+import Loading from "@/app/components/Loading";
+import FiltersSelect from "@/app/components/FiltersSelect";
+import { estampasCategories } from "@/app/database/staticContent";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { catSlug: string };
-}) {
-  const catName = estampasCategories.find(
-    (cat) => cat.slug === params?.catSlug
-  )?.title;
+type PageParams = Promise<{ catSlug: string }>;
+
+export async function generateMetadata({ params }: { params: PageParams }) {
+  const { catSlug } = await params;
+
+  const catName =
+    estampasCategories.find((cat) => cat.slug === catSlug)?.title ?? "Estampas";
+
   return {
     title: `${catName} | Estampas`,
-    description: '¡Muchos diseños para que elijas!',
+    description: "¡Muchos diseños para que elijas!",
   };
 }
 
-export default function Estampas({ params }: { params: { catSlug: string } }) {
+export default async function Estampas({ params }: { params: PageParams }) {
+  const { catSlug } = await params;
+
   return (
     <>
-      <div className='lg:hidden'>
+      <div className="lg:hidden">
         <FiltersSelect
           categories={estampasCategories}
-          title={`Catálogo de estampas`}
-          defaultHref={'/estampas'}
+          title="Catálogo de estampas"
+          defaultHref="/estampas"
         />
       </div>
+
       <Suspense fallback={<Loading />}>
-        <EstampasGrid category={params.catSlug} />
+        <EstampasGrid category={catSlug} />
       </Suspense>
     </>
   );
